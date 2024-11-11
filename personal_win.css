@@ -1,0 +1,205 @@
+/* Custom MS Sans Serif font */
+@font-face {
+  font-family: "MS Sans Serif";
+  src: url("./fonts/MS-Sans-Serif.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "MS Sans Serif", sans-serif;
+}
+
+body {
+  background-color: #008080;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Taskbar */
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background: #c0c0c0;
+  border-top: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px;
+  z-index: 9999;
+}
+
+.start-button {
+  display: flex;
+  align-items: center;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #fff #000 #000 #fff;
+  padding: 2px 6px;
+  height: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.start-button:active {
+  border-color: #000 #fff #fff #000;
+}
+
+/* Windows */
+.window {
+  position: absolute;
+  min-width: 200px;
+  min-height: 150px;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #fff #000 #000 #fff;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  resize: both;
+  overflow: auto;
+  z-index: 100;
+}
+
+.window-header {
+  background: #000080;
+  color: white;
+  padding: 3px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: move;
+}
+
+.title-bar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.window-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+
+.window-controls {
+  display: flex;
+  gap: 2px;
+}
+
+.control-button {
+  width: 16px;
+  height: 14px;
+  background: #c0c0c0;
+  border: 1px solid;
+  border-color: #fff #000 #000 #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.window-content {
+  padding: 10px;
+  background: #fff;
+  margin: 3px;
+  height: calc(100% - 30px);
+  overflow: auto;
+}
+
+/* Desktop Icons */
+.desktop-icon {
+  position: absolute;
+  width: 75px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.desktop-icon img {
+  width: 32px;
+  height: 32px;
+  display: block; /* Ensures text appears below the icon */
+  margin: 0 auto 3px; /* Center icon and add spacing below */
+}
+
+.desktop-icon div {
+  font-size: 12px; /* Slightly increased font size */
+  display: inline-block;
+  padding: 2px 4px;
+}
+
+/* Selected icon styling with 50% opacity for blue tint */
+.desktop-icon.selected img {
+  filter: brightness(0.9) saturate(100%) invert(0%) sepia(99%) saturate(1000%)
+    hue-rotate(210deg) brightness(90%) contrast(100%) opacity(0.5);
+}
+
+/* Highlight only the text */
+.desktop-icon.selected div {
+  background-color: #000080;
+  color: white;
+  padding: 1px 2px;
+  border: 1px dotted #fff;
+  display: inline-block;
+}
+
+/* Time display */
+.taskbar-time {
+  margin-right: 5px;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #868a8e #ffffff #ffffff #868a8e;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+.taskbar-icons {
+  display: flex;
+  gap: 5px;
+  margin-left: 5px;
+}
+
+.taskbar-item {
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #fff #000 #000 #fff;
+  padding: 2px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  min-width: 150px;
+}
+
+.taskbar-item.active {
+  border-color: #000 #fff #fff #000;
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 768px) {
+  .desktop-icon {
+    width: 60px;
+    padding: 3px;
+  }
+  .desktop-icon img {
+    width: 24px;
+    height: 24px;
+  }
+  .taskbar-item {
+    min-width: 100px;
+  }
+  .window {
+    width: 80%;
+    height: 50%;
+  }
+}

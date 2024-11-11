@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Windows 98 Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="personal_win.css" />
+  </head>
+  <body>
+    <!-- Desktop Icons -->
+    <div
+      class="desktop-icon"
+      style="top: 20px; left: 20px"
+      ondblclick="openWindow('biography')"
+    >
+      <img src="icons/my_computer.png" alt="Biography Icon" />
+      <div>Biography</div>
+    </div>
+
+    <div
+      class="desktop-icon"
+      style="top: 120px; left: 20px"
+      ondblclick="openWindow('photos')"
+    >
+      <img src="icons/folder.png" alt="Photos Icon" />
+      <div>Photos</div>
+    </div>
+
+    <div
+      class="desktop-icon"
+      style="top: 220px; left: 20px"
+      ondblclick="openWindow('resume')"
+    >
+      <img src="icons/docs.png" alt="Resume Icon" />
+      <div>Resume</div>
+    </div>
+
+    <div class="desktop-icon" id="webamp-icon" style="top: 320px; left: 20px">
+      <img src="icons/winamp.png" alt="Winamp Icon" />
+      <div>Winamp</div>
+    </div>
+
+    <div id="winamp"></div>
+    <!-- <audio id="bg-music" autoplay loop>
+      <source src="./audio/computer.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio> -->
+    <!-- Taskbar -->
+    <div class="taskbar">
+      <div style="display: flex; align-items: center">
+        <button class="start-button">
+          <img
+            src="icons/win.png"
+            alt="Start Icon"
+            style="width: 16px; height: 16px; margin-right: 5px"
+          />
+          Start
+        </button>
+        <div class="taskbar-icons"></div>
+      </div>
+      <div class="taskbar-time"></div>
+    </div>
+    <script src="https://unpkg.com/webamp"></script>
+    <script src="personal_win.js"></script>
+
+    <script>
+      // Function to unmute and play the audio
+      // function enableAudio() {
+      //   const audio = document.getElementById("bg-music");
+      //   audio.muted = false; // Unmute the audio
+      //   audio.play().catch((error) => console.warn("Autoplay blocked:", error));
+
+      //   // Remove the event listener after the first click to avoid unnecessary calls
+      //   document.removeEventListener("click", enableAudio);
+      // }
+
+      // Add click event listener to the entire document
+      //document.addEventListener("click", enableAudio);
+    </script>
+  </body>
+</html>
