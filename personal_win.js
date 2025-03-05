@@ -1,7 +1,10 @@
 $(document).ready(function () {
-  let webamp;
+  // Global z-index counter for layering windows
+  let zIndexCounter = 1000;
 
-  // Initialize Webamp on double-click
+  // **Webamp Initialization (Placeholder)**
+  // Adjust this section based on your actual Webamp setup
+  let webamp;
   $("#webamp-icon").on("dblclick", function () {
     if (!webamp || webamp.isDisposed()) {
       webamp = new Webamp();
@@ -14,7 +17,7 @@ $(document).ready(function () {
     }
   });
 
-  // Update the clock
+  // **Clock Update Function**
   function updateClock() {
     const now = new Date();
     const time = now.toLocaleTimeString("en-US", {
@@ -24,169 +27,8 @@ $(document).ready(function () {
     });
     $(".taskbar-time").text(time);
   }
-  setInterval(updateClock, 1000);
-  updateClock();
-
-  // Select and highlight icons on single-click
-  $(".desktop-icon").on("click", function (event) {
-    $(".desktop-icon").removeClass("selected");
-    $(this).addClass("selected");
-    event.stopPropagation();
-  });
-
-  // Deselect icons when clicking outside
-  $("body").on("click", function () {
-    $(".desktop-icon").removeClass("selected");
-  });
-
-  // Window management
-  let zIndex = 100;
-  const windowContents = {
-    biography: {
-      title: "Biography",
-      content: `<h2>About Me</h2>
-                <img src='./icons/profile.png' alt='Profile Picture' style='float: right; margin: 0 0 10px 10px; width: 100px; height: 100px;'>
-                <p>Hello! I'm a software developer with a passion for creating innovative solutions.</p>`,
-    },
-    photos: {
-      title: "Photo Gallery",
-      content: `<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
-                          <img src="/api/placeholder/150/150" alt="Photo 1">
-                          <img src="/api/placeholder/150/150" alt="Photo 2">
-                          <img src="/api/placeholder/150/150" alt="Photo 3">
-                          <img src="/api/placeholder/150/150" alt="Photo 4">
-                      </div>`,
-    },
-    resume: {
-      title: "Resume",
-      content: `<h2>Professional Experience</h2>
-                      <p><strong>Senior Developer</strong> - Tech Corp (2020-Present)</p>
-                      <p><strong>Web Developer</strong> - Digital Solutions (2018-2020)</p>
-                      <h2>Education</h2>
-                      <p>B.S. Computer Science - Tech University (2018)</p>`,
-    },
-  };
-
-  window.openWindow = function (id) {
-    if ($(`#window-${id}`).length) {
-      const $window = $(`#window-${id}`);
-      $window.show().css("z-index", ++zIndex);
-      activateTaskbarItem(id);
-      return;
-    }
-
-    const left = 100 + Math.random() * 100;
-    const top = 50 + Math.random() * 100;
-
-    const windowHtml = `
-      <div class="window" id="window-${id}" style="left: ${left}px; top: ${top}px; width: 400px; height: 300px;">
-          <div class="window-header">
-              <div class="title-bar">
-                  <img src="/api/placeholder/16/16" alt="Icon" class="window-icon">
-                  <span>${windowContents[id].title}</span>
-              </div>
-              <div class="window-controls">
-                  <button class="control-button minimize">_</button>
-                  <button class="control-button maximize">□</button>
-                  <button class="control-button close">x</button>
-              </div>
-          </div>
-          <div class="window-content">
-              ${windowContents[id].content}
-          </div>
-      </div>`;
-
-    $("body").append(windowHtml);
-
-    const $window = $(`#window-${id}`);
-    const $taskbar = $(".taskbar-icons");
-
-    // Add taskbar item if it doesn't already exist
-    let taskbarItem = $(`.taskbar-item[data-window="${id}"]`);
-    if (!taskbarItem.length) {
-      taskbarItem = $(`<div class="taskbar-item" data-window="${id}">
-          <img src="/api/placeholder/16/16" alt="Icon" style="margin-right: 5px;">
-          ${windowContents[id].title}
-      </div>`);
-      $taskbar.append(taskbarItem);
-    }
-
-    // Make window draggable
-    $window.draggable({
-      handle: ".window-header",
-      start: function () {
-        $(this).css("z-index", ++zIndex);
-      },
-    });
-
-    // Make window resizable
-    $window.resizable({
-      minWidth: 200,
-      minHeight: 150,
-    });
-
-    // Window controls
-    $window.find(".control-button.close").click(function () {
-      $window.hide();
-      // Hide the taskbar taskbarItem
-      taskbarItem.css("display", "none");
-      taskbarItem.removeClass("active");
-    });
-
-    $window.find(".control-button.minimize").click(function () {
-      $window.hide();
-      taskbarItem.removeClass("active");
-    });
-
-    $window.find(".control-button.maximize").click(function () {
-      if (!$window.hasClass("maximized")) {
-        $window.data("original-pos", {
-          width: $window.width(),
-          height: $window.height(),
-          top: $window.css("top"),
-          left: $window.css("left"),
-        });
-        $window
-          .css({
-            top: "0",
-            left: "0",
-            width: "100%",
-            height: "calc(100vh - 40px)",
-          })
-          .addClass("maximized");
-      } else {
-        const pos = $window.data("original-pos");
-        $window.css(pos).removeClass("maximized");
-      }
-    });
-
-    // Taskbar item click handler (single-click to restore window)
-    taskbarItem.on("click", function () {
-      // Set only this taskbar item as active
-      $(".taskbar-item").removeClass("active");
-      if ($window.is(":visible")) {
-        $window.show().css("z-index", ++zIndex);
-
-        $(this).addClass("active");
-        console.log(this);
-        //$window.hide();
-        //$(this).removeClass("active");
-      } else {
-        $window.show().css("z-index", ++zIndex);
-        $(this).addClass("active");
-      }
-    });
-
-    // Bring window to front on click
-    $window.mousedown(function () {
-      $(this).css("z-index", ++zIndex);
-      $(".taskbar-item").removeClass("active"); // Remove active from all
-      $(`.taskbar-item[data-window="${id}"]`).addClass("active"); // Set active on current
-    });
-
-    // Set the clicked taskbar item as active
-    activateTaskbarItem(id);
-  };
+  setInterval(updateClock, 1000); // Update every second
+  updateClock(); // Initial call
 
   // Function to set active taskbar item based on window ID
   function activateTaskbarItem(id) {
@@ -195,26 +37,204 @@ $(document).ready(function () {
     $(`.taskbar-item[data-window="${id}"]`).css("display", "flex"); // Show the taskbar item
   }
 
-  // function addTaskBarItem(id, windowContents) {
-  //   const taskbarItem = $(`<div class="taskbar-item" data-window="${id}">
-  //       <img src="/api/placeholder/16/16" alt="Icon" style="margin-right: 5px;">
-  //       ${windowContents[id].title}
-  //   </div>`);
-  //   $(".taskbar-icons").append(taskbarItem);
-  // }
-  // Attach a click event listener to all divs inside #desktop-elements-container
-  $(document).ready(function () {
-    $(document).on("click", function (event) {
-      const target = $(event.target);
-      windowElement = $(target).closest(".window");
-      //console.log(windowElement.length);
-      if (target.closest(".taskbar-item").length || windowElement.length) {
-        console.log("Clicked on a .taskbar-item");
-        // Your action for clicks outside `.taskbar-item`
+  // **Desktop Icon Selection**
+  $(".desktop-icon").on("click", function (event) {
+    $(".desktop-icon").removeClass("selected"); // Deselect all
+    $(this).addClass("selected"); // Select clicked icon
+    event.stopPropagation(); // Prevent body click handler
+  });
+
+  $("body").on("click", function () {
+    $(".desktop-icon").removeClass("selected"); // Deselect on body click
+  });
+
+  // **Start Menu Handling**
+  $(".start-button").click(function (event) {
+    $(this).addClass('start-button-active');
+    $(".window-header").addClass("inactive"); // Deactivate other windows headers
+    $("#start-menu").toggle(); // Toggle start menu visibility
+    $(".taskbar-item").removeClass("active"); // Deselect taskbar items when opening start menu
+    event.stopPropagation(); // Prevent document click handler
+  });
+
+  $(".desktop-icon" ).click(function () {
+    $(".window-header").addClass("inactive"); // Deactivate other windows headers
+    $(".taskbar-item").removeClass("active"); // Deselect taskbar items when opening start menu
+  });
+
+  $(document).click(function () {
+    $(".start-button").removeClass('start-button-active');
+    $("#start-menu").hide(); // Hide start menu on outside click
+  });
+
+  $("#start-menu").click(function (event) {
+    event.stopPropagation(); // Prevent menu click from closing it
+  });
+
+  function deactivateWindow(windowHeader) {
+    $(".window-header").addClass("inactive"); // Deactivate other windows headers
+    windowHeader.removeClass("inactive"); // Activate window header
+  }
+
+  // **Open Window Function**
+  window.openWindow = function (id) {
+    // Check if window already exists
+    // Fetch content from HTML
+    const contentDiv = document.getElementById(`${id}-content`);
+    if (!contentDiv) {
+      console.error(`Content div for id "${id}" not found.`); // Error if div missing
+      return;
+    }
+
+    const title = contentDiv.getAttribute("data-title"); // Get title from data attribute
+    const content = contentDiv.innerHTML; // Get content from innerHTML
+
+    // Window configuration
+    let width = 800;
+    let height = 600;
+    let contentClass = "window-content";
+    let isResizeAble = ""; // Empty string means resizable
+    let isDisabled = "";
+    let isMaximizable = "";
+
+    // Special settings for 'biography' window
+    if (id === "biography") {
+      contentClass = "window-biography-content";
+      isResizeAble = "window-resizeable-none"; // Non-resizable
+      isMaximizable = "maximize";
+      isDisabled = "disabled"; // Maximize button disabled
+    }
+
+    let maxLeft = $(window).width() - width;
+    let maxTop = $(window).height() - height;
+
+    let left = Math.random() * maxLeft;
+    let top = Math.random() * maxTop;
+
+    // Window HTML template
+    const windowHtml = `
+      <div class="window ${isResizeAble}" id="window-${id}" style="left: ${left}px; top: ${top}px; width: ${width}px; height: ${height}px; z-index: ${zIndexCounter++};">
+        <div class="window-header">
+          <div class="title-bar">
+            <img src="/api/placeholder/16/16" alt="Icon" class="window-icon">
+            <span>${title}</span>
+          </div>
+          <div class="window-controls">
+            <button class="control-button minimize">_</button>
+            <button class="control-button maximize" ${isMaximizable} ${isDisabled}>□</button>
+            <button class="control-button close">x</button>
+          </div>
+        </div>
+        <div class="${contentClass}">
+          ${content}
+        </div>
+      </div>`;
+
+    const $existingWindow = $(`#window-${id}`);
+    const existingWindowHeader = $(`#window-${id} .window-header`);
+    if ($existingWindow.length) {
+      console.log("existing window");
+      $existingWindow.show().css("z-index", zIndexCounter++); // Show and bring to front
+      deactivateWindow(existingWindowHeader);
+      activateTaskbarItem(id); // Activate taskbar item for existing window
+      return;
+    }
+
+    // Append window to body and convert to jQuery object
+    const $window = $(windowHtml).appendTo("body");
+
+    // window header
+    const windowHeader = $window.find(".window-header");
+    deactivateWindow(windowHeader);
+
+    // **Make Window Draggable**
+    $window.draggable({
+      handle: ".window-header", // Drag by header
+      containment: "window", // Limit to viewport
+      stack: ".window", // Manage stacking
+    });
+
+    // **Make Window Resizable (if not disabled)**
+    if (!isResizeAble) {
+      $window.resizable({
+        minWidth: 200,
+        minHeight: 200,
+        containment: "window",
+      });
+    }
+
+    $window.on("mousedown", function () {
+      $window.css("z-index", zIndexCounter++);
+      console.log("mousedown:", $existingWindow);
+      deactivateWindow(windowHeader);
+      $(".taskbar-item").removeClass("active"); // Remove active from all taskbar items
+      $(`.taskbar-item[data-window="${id}"]`).addClass("active"); // Set active on current window’s taskbar item
+    });
+
+    let imgSrc = $(`#desktop-icon-${id}`).attr("src");
+    // **Create Taskbar Item**
+    const taskbarItem = $(`<div class="taskbar-item" data-window="${id}">
+      <img style="height: 18px; width: 20px; padding-right: 5px;" src="${imgSrc}">
+      ${title}
+    </div>`).appendTo(".taskbar-icons");
+
+    // **Set Initial Active State for New Window**
+    $(".taskbar-item").removeClass("active"); // Remove active from all
+    taskbarItem.addClass("active"); // Set active on new window’s taskbar item
+
+    // **Taskbar Item Click Handler (with Active State Management)**
+    taskbarItem.on("click", function () {
+      $(".taskbar-item").removeClass("active"); // Deselect all taskbar items
+      $(this).addClass("active"); // Set this taskbar item as active
+      if ($window.is(":visible")) {
+        $window.css("z-index", zIndexCounter++); // Bring to front if visible
       } else {
-        console.log("An element outside of .taskbar-item was clicked.");
-        $(".taskbar-item").removeClass("active");
+        $window.show().css("z-index", zIndexCounter++); // Show and bring to front if hidden
+      }
+      deactivateWindow(windowHeader);
+    });
+
+    // **Minimize Button (with Active State Removal)**
+    $window.find(".minimize").on("click", function () {
+      $window.hide(); // Hide window (mimics minimize)
+      taskbarItem.removeClass("active"); // Remove active state from taskbar item
+      deactivateWindow(windowHeader);
+    });
+
+    // **Close Button**
+    $window.find(".close").on("click", function () {
+      $window.remove(); // Remove window
+      taskbarItem.remove(); // Remove taskbar item
+    });
+
+    // **Maximize Button**
+    $window.find(".maximize:not(:disabled)").on("click", function () {
+      if ($window.hasClass("maximized")) {
+        // Restore to original size and position
+        const original = $window.data("original");
+        $window.css({
+          left: original.left,
+          top: original.top,
+          width: original.width,
+          height: original.height,
+        });
+        $window.removeClass("maximized");
+      } else {
+        // Store current position and size, then maximize
+        $window.data("original", {
+          left: $window.css("left"),
+          top: $window.css("top"),
+          width: $window.css("width"),
+          height: $window.css("height"),
+        });
+        $window.css({
+          left: 0,
+          top: 0,
+          width: "100%",
+          height: "100%",
+        });
+        $window.addClass("maximized");
       }
     });
-  });
+  };
 });

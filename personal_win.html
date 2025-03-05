@@ -6,7 +6,10 @@
     <title>Windows 98 Portfolio</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="module" src="https://unpkg.com/@dotlottie/player-component@1.0.0/dist/dotlottie-player.js"></script>
+    <link rel="stylesheet" type="text/css" href="./assets/css/clippy.css">  
     <link rel="stylesheet" href="personal_win.css" />
+    <link rel="stylesheet" href="my_documents.css" />
   </head>
   <body>
     <!-- Desktop Icons -->
@@ -15,25 +18,25 @@
       style="top: 20px; left: 20px"
       ondblclick="openWindow('biography')"
     >
-      <img src="icons/my_computer.png" alt="Biography Icon" />
+      <img id="desktop-icon-biography" src="icons/my_computer.png" alt="Biography Icon" />
       <div>Biography</div>
     </div>
 
     <div
       class="desktop-icon"
       style="top: 120px; left: 20px"
-      ondblclick="openWindow('photos')"
+      ondblclick="openWindow('documents')"
     >
-      <img src="icons/folder.png" alt="Photos Icon" />
-      <div>Photos</div>
+      <img id="desktop-icon-documents" src="icons/folder.png" alt="Photos Icon" />
+      <div>My Documents</div>
     </div>
 
     <div
       class="desktop-icon"
       style="top: 220px; left: 20px"
-      ondblclick="openWindow('resume')"
+      ondblclick=""
     >
-      <img src="icons/docs.png" alt="Resume Icon" />
+      <img id="desktop-icon-resume" src="icons/docs.png" alt="Resume Icon" />
       <div>Resume</div>
     </div>
 
@@ -47,6 +50,88 @@
       <source src="./audio/computer.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio> -->
+
+    <!-- Window Contents -->
+  <div id="biography-content" data-title="Biography" style="display: none;">
+    <lottie-player src="./assets/body-movin/data.json" background="transparent" speed="1" style="width: 1280px; height: 720px;" loop autoplay></lottie-player>
+  </div>
+  <div id="documents-content" data-title="My Documents" style="display: none;">
+    <div class="documents-window">
+      
+      <div class="documents-toolbar">
+         <span class="documents-toolbar-menu">
+            File
+         </span>
+         <span class="documents-toolbar-menu">
+          Edit
+         </span>
+         <span class="documents-toolbar-menu">
+          View
+         </span>
+         <span class="documents-toolbar-menu">
+          Go
+         </span>
+         <span class="documents-toolbar-menu">
+          Tools
+        </span>
+        <span class="documents-toolbar-menu">
+          Help
+        </span>
+      </div>
+      
+      <div class="address-bar">
+        <span class="address-text address-left">Address</span>
+        <img src="icons/folder.png" class="address-icon" alt="address-icon">
+        <span class="address-text">My Documents</span>
+      </div>
+  
+      <div class="split-view">
+        <div class="left-pane">
+          <img src="icons/folder.png" class="left-pane-icon">
+          <div>
+            <span class="left-pane-header">My Documents</span>
+            <img src="assets/images/document-line.gif" class="left-pane-line">
+          </div>
+          <div class="left-pane-content">
+            <span class="header" id="left-pane-content-header">Shopify Article.url</span>
+            <span class="normal">URL file to medium.com</span>
+            <span class="normal" style="margin-bottom: 0px;">Created:</span>
+            <span class="normal" id="left-pane-content-created">05/12/2022 02:30 AM</span>
+            <span class="normal" style="margin-bottom: 0px;">Description:</span>
+            <span class="normal" id="left-pane-content-description">Creating Embedded Shopify Application. Ruby On Rails.</span>
+          </div>
+        
+        </div>
+  
+        <div class="right-pane">
+          <div class="items-grid">
+            <div class="grid-item" data-link="https://medium.com/your-shopify-article">
+              <img src="icons/document.png" class="grid-icon">
+              <span>Shopify Article</span>
+            </div>
+            <div class="grid-item" data-link="https://medium.com/your-article-2">
+              <img src="icons/document.png" class="grid-icon">
+              <span>Article 2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Add this status bar -->
+    <div class="status-bar">
+      <div class="status-sections">
+        <span>1 object(s) selected</span>
+        <span>48 bytes</span>
+      </div>
+      <div class="status-documents">
+        <img src="icons/folder.png" class="status-icon" alt="My Documents">
+        <span>My Documents</span>
+      </div>
+    </div>
+      
+    </div>
+  </div>
+
     <!-- Taskbar -->
     <div class="taskbar">
       <div style="display: flex; align-items: center">
@@ -58,26 +143,130 @@
           />
           Start
         </button>
+        <div class="start-menu" id="start-menu">
+          <div class="start-menu-sidebar">
+            <img
+              class="start-menu-sidebar-image"
+              src="./icons/win_sidebar.jpg"
+              alt="Windows 98 Logo"
+            />
+          </div>
+          <div class="start-menu-items">
+            <a
+              href="https://www.instagram.com/swastik07/"
+              target="_blank"
+              class="start-menu-item"
+            >
+              <img
+                class="start-menu-item-icon"
+                src="./icons/instagram.png"
+                alt="Instagram Icon"
+              />
+              <span class="start-menu-item-text"><u>I</u>nstagram</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/swastik-thapaliya/"
+              target="_blank"
+              class="start-menu-item"
+            >
+              <img
+                class="start-menu-item-icon"
+                src="./icons/linkedin.png"
+                alt="LinkedIn Icon"
+              />
+              <span class="start-menu-item-text"><u>L</u>inkedIn</span>
+            </a>
+            <a
+              href="https://x.com/IROCKSWASTIK"
+              target="_blank"
+              class="start-menu-item"
+            >
+              <img
+                class="start-menu-item-icon"
+                src="icons/x.png"
+                alt="Twitter Icon"
+              />
+              <span class="start-menu-item-text"><u>T</u>witter</span>
+            </a>
+            <a
+              href="https://github.com/swastik009"
+              target="_blank"
+              class="start-menu-item"
+            >
+              <img
+                class="start-menu-item-icon"
+                src="icons/github.png"
+                alt="GitHub Icon"
+              />
+              <span class="start-menu-item-text"><u>G</u>itHub</span>
+            </a>
+            <div class="start-menu-divider"></div>
+            <a
+              href="pdf"
+              target="_blank"
+              class="start-menu-item"
+            >
+              <img
+                class="start-menu-item-icon"
+                src="icons/docs.png"
+                alt="Resume Icon"
+              />
+              <span class="start-menu-item-text"><u>R</u>ésumé</span>
+            </a>
+            <a
+              href=""
+              target="_blank"
+              class="start-menu-item"
+            >
+            <dotlottie-player autoplay loop mode="normal"
+            src="assets/lottie/minimal_hello.lottie"
+            class="start-menu-item-icon"></dotlottie-player>
+              <span class="start-menu-item-text"><u>S</u>WASTIK</span>
+            </a>
+          </div>
+        </div>
         <div class="taskbar-icons"></div>
       </div>
-      <div class="taskbar-time"></div>
+      <div class="taskbar-right">
+        <dotlottie-player autoplay loop mode="normal"
+        src="assets/lottie/cat.lottie"
+        style="width: 50px; height: 50px;">
+      
+        </dotlottie-player>
+       <div class="taskbar-time">
+        <img
+          src="icons/sound.png"
+          alt="Sound Icon"
+          class="taskbar-sound-icon"
+        />
+      </div>
     </div>
-    <script src="https://unpkg.com/webamp"></script>
+    <script src="./assets/js/clippy.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
     <script src="personal_win.js"></script>
+     <script>
+      // There were multiple clippy elements, so we remove the second one
+      // [TODO] Fix this in the clippy.js file
+      window.onload = (event) => {
+          $('.clippy')[1].remove();
+          $('.clippy-balloon')[1].remove();
+        
+      };
+      
+      clippy.load('Clippy', function(agent){
+         agent.show();
+         agent.play('Greeting');
+         agent.speak("Hi, My name is Clippy. Welcome to Swastik's portfolio website.");
+         
+         // setInterval to play another animation
+          setInterval(() => {
+            agent.animate();
+          }, 10000);
+        });
+    </script>
 
-    <script>
-      // Function to unmute and play the audio
-      // function enableAudio() {
-      //   const audio = document.getElementById("bg-music");
-      //   audio.muted = false; // Unmute the audio
-      //   audio.play().catch((error) => console.warn("Autoplay blocked:", error));
-
-      //   // Remove the event listener after the first click to avoid unnecessary calls
-      //   document.removeEventListener("click", enableAudio);
-      // }
-
-      // Add click event listener to the entire document
-      //document.addEventListener("click", enableAudio);
+    
     </script>
   </body>
 </html>
