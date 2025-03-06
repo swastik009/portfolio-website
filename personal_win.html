@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="my_documents.css" />
   </head>
   <body>
+
+    <audio id="win98-startup" src="/audio/win98-startup.mp3" type="audio/mpeg" autoplay></audio>
     <!-- Desktop Icons -->
     <div
       class="desktop-icon"
@@ -105,19 +107,19 @@
   
         <div class="right-pane">
           <div class="items-grid">
-            <div class="grid-item" data-link="https://medium.com/your-shopify-article">
-              <img src="icons/document.png" class="grid-icon">
-              <span>Shopify Article</span>
+            <div class="grid-item right-pane-icon selected" data-title="Shopify Article.url" data-created="05/12/2022 02:30 AM" data-description="Creating Embedded Shopify Application. Ruby On Rails.
+            " data-link="https://medium.com/your-shopify-article">
+              <img src="icons/IE.png" class="grid-icon">
+              <span class="">Shopify Article.url</span>
             </div>
             <div class="grid-item" data-link="https://medium.com/your-article-2">
-              <img src="icons/document.png" class="grid-icon">
+              <img src="icons/IE.png" class="grid-icon">
               <span>Article 2</span>
             </div>
           </div>
         </div>
       </div>
-  
-      <!-- Add this status bar -->
+               <!-- Add this status bar -->
     <div class="status-bar">
       <div class="status-sections">
         <span>1 object(s) selected</span>
@@ -128,7 +130,6 @@
         <span>My Documents</span>
       </div>
     </div>
-      
     </div>
   </div>
 
@@ -257,7 +258,7 @@
       clippy.load('Clippy', function(agent){
          agent.show();
          agent.play('Greeting');
-         agent.speak("Hi, My name is Clippy. Welcome to Swastik's portfolio website.");
+         agent.speak("Hello! My name is Clippy. I'm here purely for nostalgic reasons, bringing back memories of the past.");
          
          // setInterval to play another animation
           setInterval(() => {

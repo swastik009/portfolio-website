@@ -55,6 +55,7 @@ body {
   image-rendering: pixelated;
   background-repeat: repeat;
   border-color: #000 #fff #fff #000;
+  font-weight: bold;
 }
 
 .start-menu {
@@ -129,12 +130,13 @@ body {
 .window {
   position: absolute;
   min-width: 200px;
+  resize: both;
   min-height: 150px;
   background: #c0c0c0;
-  border: 2px solid;
+  border: 1px solid;
   border-color: #fff #000 #000 #fff;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  resize: both;
+  
   overflow: hidden;
   z-index: 100;
 }
@@ -144,7 +146,7 @@ body {
 }
 
 .window-header {
-  background: #000080;
+  background: linear-gradient(to right, #000080, #3366CC);
   color: white;
   padding: 3px 5px;
   display: flex;
@@ -183,20 +185,31 @@ body {
 
 .control-button {
   width: 16px;
-  height: 14px;
-  background: #c3c3c3;
-  border: 1px solid;
-  border-color: #fafafa #5a5a5a #5a5a5a #fafafa;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: 700;
   height: 16px;
-  justify-content: center;
-  margin-left: 2px;
-  width: 16px;
+  background: url('/icons/window-control-button.png') no-repeat;
+  cursor: pointer;
+  background-color: #c0c0c0;
+  border-color: #000 #fff #fff #000;
+  border-image: url('/icons/border-image.svg') 64/2px;
+  margin-right: -1px;
+  padding: 2px;
+}
+
+.control-button:active {
+  border: #868a8e inset;
+  border-color: #000 #fff #fff #000;
+}
+
+.minimize {
+  background-position: 0px 1px; /* Adjust as per your sprite */
+}
+
+.maximize {
+  background-position: -14px 1px; /* Adjust as per your sprite */
+}
+
+.close {
+  background-position: -40px 1px; /* Adjust as per your sprite */
 }
 
 .window-content {
@@ -236,6 +249,21 @@ body {
   font-size: 12px; /* Slightly increased font size */
   display: inline-block;
   padding: 2px 4px;
+}
+
+/* Selected icon styling with 50% opacity for blue tint */
+.desktop-icon.selected img {
+  filter: brightness(0.9) saturate(100%) invert(0%) sepia(99%) saturate(1000%)
+    hue-rotate(210deg) brightness(90%) contrast(100%) opacity(0.5);
+}
+
+/* Highlight only the text */
+.desktop-icon.selected div {
+  background-color: #000080;
+  color: white;
+  padding: 1px 2px;
+  border: 1px dotted #fff;
+  display: inline-block;
 }
 
 /* Selected icon styling with 50% opacity for blue tint */
