@@ -1,0 +1,229 @@
+/* my_documents.css */
+/* Updated Windows 98 Explorer Style */
+
+/* Fix window content overflow */
+.window-content {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Base window structure */
+.documents-window {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Full viewport height */
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "MS Sans Serif", Arial, sans-serif;
+  border-color: #fff #000 #000 #fff;
+}
+
+/* Toolbar styling */
+.documents-window .documents-toolbar {
+  display: flex;
+  align-items: center;
+  background: #c0c0c0;
+  padding: 2px 4px;
+  border-left: 3px ridge #fff;
+  height: 20px;
+}
+
+.documents-toolbar-menu{
+ font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+ margin: 5px, 5px, 5px, 5px;
+ padding: 5px;
+ font-size: 12px;
+ display: inline;
+}
+
+.documents-toolbar-menu::first-letter{
+  text-decoration: underline;
+ }
+ 
+
+/* Address bar styling */
+.address-bar {
+  background: #fff;
+  overflow: hidden;
+  border-top: 3px ridge;
+  border-color: #fff #000 #000 #fff;
+  margin: 0px;
+  padding: 2px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+}
+
+.address-left{
+  background: #c0c0c0; 
+  border: 2px solid #808080;
+}
+
+.address-icon {
+  width: 16px;
+  height: 16px;
+  margin: 1px 2px 1px 5px;
+}
+
+.address-text {
+  padding: 0 5px;
+  font-size: 12px;
+  color: #000;
+}
+
+/* Split view container */
+.split-view {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  max-height: calc(100% - 66px); /* 20px toolbar + 22px address bar + 24px status bar */
+  overflow: hidden;
+  border-top: 3px ridge;
+  border-color: #fff #000 #000 #fff;
+}
+
+/* Left pane (folder list) */
+.left-pane {
+  width: 300px;
+  background: #fff;
+  padding: 0px;
+  overflow-y: auto;
+  background-image: url("assets/images/document-left.bmp");
+  background-repeat: no-repeat;
+}
+
+.left-pane-icon{
+  width: 22px;
+  height: 22px;
+  margin: 20px 0px 5px 20px;
+}
+.left-pane-header{
+  color: #000;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  margin: 0px 0px 2px 10px;
+  display: inline-block; /* Ensures the span behaves like a block element */
+}
+
+.left-pane-line{
+  width: 100%;
+  height: 1px;
+  padding: 0px;
+  display: block; /* Ensures no inline spacing */
+  margin-bottom: 20px;
+  padding: 0px;
+}
+
+.left-pane-content .header{
+  color: #000;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 10px;
+  padding-left: 15px;
+  display: block; /* Ensures the span behaves like a block element */
+}
+
+.left-pane-content .normal{
+  color: #000;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 10px;
+  padding-left: 15px;
+  margin-bottom: 15px;
+  display: block; 
+}
+
+.folder-item {
+  display: flex;
+  align-items: center;
+  padding: 3px 2px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.folder-item:hover {
+  background: #000080;
+  color: white;
+}
+
+.folder-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+
+/* Right pane (content grid) */
+.right-pane {
+  flex: 1;
+  padding: 5px;
+  overflow-y: auto;
+  min-width: 0; /* Fixes flex overflow issue */
+}
+
+/* Document grid styling */
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 80px);
+  gap: 10px;
+  padding: 5px;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  padding: 2px;
+  cursor: pointer;
+  font-size: 12px;
+  text-align: center;
+}
+
+.grid-item:hover {
+  background: #000080;
+  color: white;
+}
+
+.grid-icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 2px;
+}
+
+.status-bar {
+  background: #c0c0c0;
+  /* Remove or modify the border */
+  border: none; /* Removes the border entirely */
+  /* OR match the window border */
+  border: 2px groove;
+  border-color: #fff #000 #000 #fff; /* Match the window border */
+  height: 24px;
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8px;
+  z-index: 1000;
+}
+
+.status-sections {
+  display: flex;
+  gap: 15px;
+  font-size: 12px;
+}
+
+.status-documents {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-left: 2px;
+  font-size: 12px;
+}
+
+.status-icon {
+  width: 15px;
+  height: 15px;
+  border-color: #808080 #fff #fff #808080;
+}
+
