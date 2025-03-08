@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
   // Global z-index counter for layering windows
   let zIndexCounter = 1000;
@@ -50,9 +51,13 @@ $(document).ready(function () {
 
   // **Start Menu Handling**
   $(".start-button").click(function (event) {
-    $(this).addClass('start-button-active');
     $(".window-header").addClass("inactive"); // Deactivate other windows headers
     $("#start-menu").toggle(); // Toggle start menu visibility
+    if ($("#start-menu").is(":visible")) {
+      $(this).addClass('start-button-active');
+    } else {
+      $(this).removeClass('start-button-active');
+    }
     $(".taskbar-item").removeClass("active"); // Deselect taskbar items when opening start menu
     event.stopPropagation(); // Prevent document click handler
   });
@@ -74,6 +79,13 @@ $(document).ready(function () {
   function deactivateWindow(windowHeader) {
     $(".window-header").addClass("inactive"); // Deactivate other windows headers
     windowHeader.removeClass("inactive"); // Activate window header
+  }
+
+  function resolveImagePath(id) {
+    if (id === "biography") {
+      return "/icons/my_computer.png";
+    }
+    return "/icons/folder.png";
   }
 
   // **Open Window Function**
@@ -111,18 +123,19 @@ $(document).ready(function () {
     let left = Math.random() * maxLeft;
     let top = Math.random() * maxTop;
 
+    let imageSrc = resolveImagePath(id);
     // Window HTML template
     const windowHtml = `
       <div class="window ${isResizeAble}" id="window-${id}" style="left: ${left}px; top: ${top}px; width: ${width}px; height: ${height}px; z-index: ${zIndexCounter++};">
         <div class="window-header">
           <div class="title-bar">
-            <img src="/api/placeholder/16/16" alt="Icon" class="window-icon">
+            <img src="${imageSrc}" alt="Icon" class="window-icon">
             <span>${title}</span>
           </div>
           <div class="window-controls">
-            <button class="control-button minimize">_</button>
-            <button class="control-button maximize" ${isMaximizable} ${isDisabled}>□</button>
-            <button class="control-button close">x</button>
+            <button class="control-button minimize"></button>
+            <button class="control-button maximize" ${isMaximizable} ${isDisabled}></button>
+            <button class="control-button close"></button>
           </div>
         </div>
         <div class="${contentClass}">
@@ -171,7 +184,7 @@ $(document).ready(function () {
       $(`.taskbar-item[data-window="${id}"]`).addClass("active"); // Set active on current window’s taskbar item
     });
 
-    let imgSrc = $(`#desktop-icon-${id}`).attr("src");
+    let imgSrc = resolveImagePath(id);
     // **Create Taskbar Item**
     const taskbarItem = $(`<div class="taskbar-item" data-window="${id}">
       <img style="height: 18px; width: 20px; padding-right: 5px;" src="${imgSrc}">
@@ -231,7 +244,7 @@ $(document).ready(function () {
           left: 0,
           top: 0,
           width: "100%",
-          height: "100%",
+          height: "95%",
         });
         $window.addClass("maximized");
       }
