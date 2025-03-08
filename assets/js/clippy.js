@@ -3,8 +3,9 @@ var clippy = {};
 clippy.Agent = function(a, b, c) {
     this.path = a,
     this._queue = new clippy.Queue($.proxy(this._onQueueEmpty, this)),
+    $(".clippy").remove(),
     this._el = $('<div class="clippy"></div>').hide(),
-    $(document.body).append(this._el),
+    $("#main-content").append(this._el),
     this._animator = new clippy.Animator(this._el,a,b,c),
     this._balloon = new clippy.Balloon(this._el),
     this._setupEvents()

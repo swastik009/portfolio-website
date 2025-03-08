@@ -215,8 +215,8 @@ body {
 .window-content {
   padding: 10px;
   background: #fff;
+  height: 100%;
   margin: 3px;
-  height: calc(100% - 30px);
   overflow: auto;
 }
 
@@ -249,21 +249,6 @@ body {
   font-size: 12px; /* Slightly increased font size */
   display: inline-block;
   padding: 2px 4px;
-}
-
-/* Selected icon styling with 50% opacity for blue tint */
-.desktop-icon.selected img {
-  filter: brightness(0.9) saturate(100%) invert(0%) sepia(99%) saturate(1000%)
-    hue-rotate(210deg) brightness(90%) contrast(100%) opacity(0.5);
-}
-
-/* Highlight only the text */
-.desktop-icon.selected div {
-  background-color: #000080;
-  color: white;
-  padding: 1px 2px;
-  border: 1px dotted #fff;
-  display: inline-block;
 }
 
 /* Selected icon styling with 50% opacity for blue tint */

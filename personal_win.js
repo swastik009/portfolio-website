@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
   // Global z-index counter for layering windows
   let zIndexCounter = 1000;
@@ -42,33 +41,46 @@ $(document).ready(function () {
   $(".desktop-icon").on("click", function (event) {
     $(".desktop-icon").removeClass("selected"); // Deselect all
     $(this).addClass("selected"); // Select clicked icon
+    $(".folder-item").removeClass("selected"); // Deselect on body click
+    toggleDocumentFolderElements();
     event.stopPropagation(); // Prevent body click handler
   });
 
+  function toggleDocumentFolderElements(){
+    $(".left-pane-content-inactive").show();
+    $(".left-pane-content-active").hide();
+    $(".status-details-selected").hide();
+    $(".status-details-no-selection").show();
+  }
+
   $("body").on("click", function () {
     $(".desktop-icon").removeClass("selected"); // Deselect on body click
+    $(".folder-item").removeClass("selected"); // Deselect on body click
+    toggleDocumentFolderElements();
   });
 
   // **Start Menu Handling**
   $(".start-button").click(function (event) {
+    $(".folder-item").removeClass("selected"); // Deselect on body click
+    toggleDocumentFolderElements();
     $(".window-header").addClass("inactive"); // Deactivate other windows headers
     $("#start-menu").toggle(); // Toggle start menu visibility
     if ($("#start-menu").is(":visible")) {
-      $(this).addClass('start-button-active');
+      $(this).addClass("start-button-active");
     } else {
-      $(this).removeClass('start-button-active');
+      $(this).removeClass("start-button-active");
     }
     $(".taskbar-item").removeClass("active"); // Deselect taskbar items when opening start menu
     event.stopPropagation(); // Prevent document click handler
   });
 
-  $(".desktop-icon" ).click(function () {
+  $(".desktop-icon").click(function () {
     $(".window-header").addClass("inactive"); // Deactivate other windows headers
     $(".taskbar-item").removeClass("active"); // Deselect taskbar items when opening start menu
   });
 
   $(document).click(function () {
-    $(".start-button").removeClass('start-button-active');
+    $(".start-button").removeClass("start-button-active");
     $("#start-menu").hide(); // Hide start menu on outside click
   });
 
@@ -145,8 +157,8 @@ $(document).ready(function () {
 
     const $existingWindow = $(`#window-${id}`);
     const existingWindowHeader = $(`#window-${id} .window-header`);
+    
     if ($existingWindow.length) {
-      console.log("existing window");
       $existingWindow.show().css("z-index", zIndexCounter++); // Show and bring to front
       deactivateWindow(existingWindowHeader);
       activateTaskbarItem(id); // Activate taskbar item for existing window
@@ -156,6 +168,32 @@ $(document).ready(function () {
     // Append window to body and convert to jQuery object
     const $window = $(windowHtml).appendTo("body");
 
+    const folderItemsCount = $window.find(".folder-item").length;
+    $(".status-details-selected").hide();
+    $(".status-details-no-selection").html(`${folderItemsCount} object(s)`);
+    toggleDocumentFolderElements();
+     // **Folder Icon Selection**
+    $(".folder-item").on("click", function (event) {
+     $(".desktop-icon").removeClass("selected"); // Deselect Desktop Items if selected
+      $(".folder-item").removeClass("selected"); // Deselect all folder items
+      $(this).addClass("selected"); // Select clicked icon
+      const currentFolder = $(this)
+
+      let leftPaneContentHeader =  currentFolder.data("title")
+      let leftPaneCreated = currentFolder.data("created")
+      let leftPaneDescription = currentFolder.data("description")
+
+      const $window = $(this).closest(".window");
+      const $leftPaneContent = $window.find(".left-pane-content");
+      $leftPaneContent.find("#left-pane-content-header").html(leftPaneContentHeader);
+      $leftPaneContent.find("#left-pane-content-created").html(leftPaneCreated);
+      $leftPaneContent.find("#left-pane-content-description").html(leftPaneDescription);
+      $(".status-details-selected").show();
+      $(".status-details-no-selection").hide();
+      $(".left-pane-content-inactive").hide();
+    $(".left-pane-content-active").show();
+      event.stopPropagation(); // Prevent body click handler
+    });
     // window header
     const windowHeader = $window.find(".window-header");
     deactivateWindow(windowHeader);
@@ -178,7 +216,6 @@ $(document).ready(function () {
 
     $window.on("mousedown", function () {
       $window.css("z-index", zIndexCounter++);
-      console.log("mousedown:", $existingWindow);
       deactivateWindow(windowHeader);
       $(".taskbar-item").removeClass("active"); // Remove active from all taskbar items
       $(`.taskbar-item[data-window="${id}"]`).addClass("active"); // Set active on current window’s taskbar item
