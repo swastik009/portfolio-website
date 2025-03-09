@@ -8,6 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script type="module" src="https://unpkg.com/@dotlottie/player-component@1.0.0/dist/dotlottie-player.js"></script>
     <script src="personal_win.js"></script>
+    <!-- <script src="boot.js"></script> -->
     <link rel="stylesheet" type="text/css" href="./assets/css/clippy.css">  
     <link rel="stylesheet" type="text/css" href="alert.css">  
     <link rel="stylesheet" href="personal_win.css" />
@@ -38,7 +39,7 @@
       </div>
       <div class="alert-buttons">
         <button class="alert-button" disabled>Cancel</button>
-        <button class="alert-button" id="alert-accept">OK</button>
+        <button class="alert-button" id="alert-accept">Boot! </button>
       </div>
     </div>
 
@@ -192,49 +193,7 @@
     <script src="./assets/js/clippy.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script>
-      // Initial setup: Show alert box and hide main content
-      $("#alert-box").fadeIn();
-      $("#main-content").hide();
-
-      // Handle alert acceptance
-      $("#alert-accept").click(function() {
-        $("#alert-box").hide();
-        $("#main-content").fadeIn();
-        $("#win98-startup")[0].play();
-        $('.desktop-icon').hide();
-        load_third_parties();
-      });
-
-      /**
-       * Loads third-party elements like desktop icons and Clippy with animations.
-       * Desktop icons are shown with a staggered delay, and Clippy is initialized
-       * with a greeting animation and periodic animations.
-       */
-      function load_third_parties() {
-        // Show desktop icons with random staggered delay
-        $('.desktop-icon').each(function(index, element) {
-          const minDelay = 500; // Minimum delay in milliseconds
-          const maxDelay = 1000; // Maximum delay in milliseconds
-          const randomDelay = Math.floor(Math.random() * (maxDelay - minDelay + 1)) + minDelay;
-
-          setTimeout(() => {
-            $(element).show();
-          }, randomDelay);
-        });
-        // Initialize Clippy assistant
-        clippy.load('Clippy', function(agent) {
-          setTimeout(() => {
-            agent.show();
-            agent.play('Greeting');
-            agent.speak("Hello! My name is Clippy. I'm here purely for nostalgic reasons, bringing back memories of the past.");
-
-            // Play random animations every 10 seconds
-            setInterval(() => {
-              agent.animate();
-            }, 10000);
-            }, 1500);
-        });
-      }
+     
     </script>
   </body>
 </html>
