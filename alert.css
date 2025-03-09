@@ -107,6 +107,10 @@
     background: #D3D3D3; /* Slightly lighter gray on hover */
   }
   
+  #alert-accept:active{
+    border: #868a8e inset;
+    border-color: #000 #fff #fff #000;
+  }
   /* Ensure no overlap with other content */
   body {
     position: relative;
