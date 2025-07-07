@@ -127,6 +127,8 @@ $(document).ready(function () {
       isResizeAble = "window-resizeable-none"; // Non-resizable
       isMaximizable = "maximize";
       isDisabled = "disabled"; // Maximize button disabled
+      width = 1280; // Set specific width for biography window
+      height = 720; // Set specific height for biography window
     }
 
     let maxLeft = $(window).width() - width;
