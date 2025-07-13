@@ -1,4 +1,5 @@
 /* Custom MS Sans Serif font */
+
 @font-face {
   font-family: "MS Sans Serif";
   src: url("./fonts/MS-Sans-Serif.ttf") format("truetype");
@@ -19,6 +20,21 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+input {
+    font-family: "MS Sans Serif", Arial, sans-serif;
+    font-size: 13px;
+    padding: 2px 4px;
+    border: 1px solid #000000;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    border-left: 2px solid #000000;
+    border-top: 2px solid #000000;
+    background-color: #FFFFFF;
+    width: 200px; /* Adjust width as needed */
+    box-sizing: border-box;
+    outline: none;
 }
 
 /* Taskbar */

@@ -6,53 +6,102 @@
     <title>Windows 98 Portfolio</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script type="module" src="https://unpkg.com/@dotlottie/player-component@1.0.0/dist/dotlottie-player.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/@dotlottie/player-component@1.0.0/dist/dotlottie-player.js"
+    ></script>
     <script src="personal_win.js"></script>
     <script src="boot.js"></script>
-    <link rel="stylesheet" type="text/css" href="./assets/css/clippy.css">  
-    <link rel="stylesheet" type="text/css" href="alert.css">  
+    <link rel="stylesheet" type="text/css" href="./assets/css/clippy.css" />
+    <link rel="stylesheet" type="text/css" href="alert.css" />
     <link rel="stylesheet" href="personal_win.css" />
     <link rel="stylesheet" href="my_documents.css" />
   </head>
   <body>
     <div id="alert-box" class="alert-window">
       <div class="alert-header">
-        <span>Message from the creator.</span>
-        <button class="alert-control-button close" disabled></button>
+        <strong>Welcome to Windows</strong>
       </div>
+
       <div class="alert-content">
         <div class="alert-icon">
-          <img style="height: 100px; width: 100px;" src="assets/images/creator.png" alt="Error Icon" />
+          <img
+            src="assets/images/login.gif"
+            alt="Key Icon"
+          />
+          <br />
         </div>
+
         <div class="alert-message">
-          <p>
-            <h1>Hi, I'm Swastik! 💾</h1>
-            <p>Welcome to my website! I hope you enjoy this <b>Windows 98 retro theme</b>, because, well… I grew up clicking that "Start" button and waiting 10 minutes for something to load.</p>
-            <p>Also, don’t worry, no BSODs... or at least, not yet.</p>
-            <p>Hope you vibe with this blast from the past! <b>Press ALT + F4 for a surprise 😆</b></p>
-            <p style="margin-top: 10px; font-weight: lighter; font-size: 10px;">
-              Inspired by <a href="https://www.donchia.tech/" target="_blank" rel="noopener noreferrer"><b>dochia.tech</b></a> & 
-              <a href="https://98.js.org/" target="_blank" rel="noopener noreferrer"><b>98.js.org</b></a>
-            </p>
-          </p>
+          <div style="margin-bottom: 20px">
+            Type a user name and password to log on to Windows.
+          </div>
+
+          <div style="margin-bottom: 10px">
+            <label
+              ><u>U</u>sername: <input style="margin-left: 10px;" type="text" name="username" value="LoginForNoReason" autofocus
+            /></label>
+          </div>
+
+          <div>
+            <label
+              ><u>P</u>assword: <input style="margin-left: 10px;" type="password" name="password", value="Y2KSurvivor" disabled
+            /></label>
+          </div>
+
+          <!-- 
+      <h1>Hi, I'm Swastik! 💾</h1>
+      <p>Welcome to my website! I hope you enjoy this <b>Windows 98 retro theme</b>, because, well… I grew up clicking that "Start" button and waiting 10 minutes for something to load.</p>
+      <p>Also, don’t worry, no BSODs... or at least, not yet.</p>
+      <p>Hope you vibe with this blast from the past! <b>Press ALT + F4 for a surprise 😆</b></p>
+      <p style="margin-top: 10px; font-weight: lighter; font-size: 10px;">
+        Inspired by <a href="https://www.donchia.tech/" target="_blank" rel="noopener noreferrer"><b>dochia.tech</b></a> & 
+        <a href="https://98.js.org/" target="_blank" rel="noopener noreferrer"><b>98.js.org</b></a>
+      </p>
+      -->
         </div>
-      </div>
-      <div class="alert-buttons">
-        <button class="alert-button" disabled>Cancel</button>
-        <button class="alert-button" id="alert-accept">Boot! </button>
+
+        <div class="alert-buttons">
+          <div>
+            <button class="alert-button" id="alert-accept">OK</button>
+          </div>
+          <div>
+            <button class="alert-button">Resume</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div id="main-content">
-      <audio id="win98-startup" src="./assets/audio/win98-startup.mp3" type="audio/mpeg"></audio>
+      <audio
+        id="win98-startup"
+        src="./assets/audio/win98-startup.mp3"
+        type="audio/mpeg"
+      ></audio>
       <!-- Desktop Icons -->
-      <div class="desktop-icon" style="top: 20px; left: 20px" ondblclick="openWindow('biography')">
-        <img id="desktop-icon-biography" src="icons/my_computer.png" alt="Biography Icon" />
+      <div
+        class="desktop-icon"
+        style="top: 20px; left: 20px"
+        ondblclick="openWindow('biography')"
+      >
+        <img
+          id="desktop-icon-biography"
+          src="icons/my_computer.png"
+          alt="Biography Icon"
+        />
         <div>Biography</div>
       </div>
 
-      <div class="desktop-icon" style="top: 120px; left: 20px" ondblclick="openWindow('documents')">
-        <img id="desktop-icon-documents" src="icons/folder.png" alt="Photos Icon" />
+      <div
+        class="desktop-icon"
+        style="top: 120px; left: 20px"
+        ondblclick="openWindow('documents')"
+      >
+        <img
+          id="desktop-icon-documents"
+          src="icons/folder.png"
+          alt="Photos Icon"
+        />
         <div>My Documents</div>
       </div>
 
@@ -69,10 +118,21 @@
       <div id="winamp"></div>
 
       <!-- Window Contents -->
-      <div id="biography-content" data-title="Biography" style="display: none;">
-        <lottie-player src="./assets/body-movin/mycomputer_baked.json" background="transparent" speed="1" style="width: 1280px; height: 720px;" loop autoplay></lottie-player>
+      <div id="biography-content" data-title="Biography" style="display: none">
+        <lottie-player
+          src="./assets/body-movin/mycomputer_baked.json"
+          background="transparent"
+          speed="1"
+          style="width: 1280px; height: 720px"
+          loop
+          autoplay
+        ></lottie-player>
       </div>
-      <div id="documents-content" data-title="My Documents" style="display: none;">
+      <div
+        id="documents-content"
+        data-title="My Documents"
+        style="display: none"
+      >
         <div class="documents-window">
           <div class="documents-toolbar">
             <span class="documents-toolbar-menu">File</span>
@@ -85,41 +145,73 @@
 
           <div class="address-bar">
             <span class="address-text address-left">Address</span>
-            <img src="icons/folder.png" class="address-icon" alt="address-icon">
+            <img
+              src="icons/folder.png"
+              class="address-icon"
+              alt="address-icon"
+            />
             <span class="address-text">My Documents</span>
           </div>
 
           <div class="split-view">
             <div class="left-pane">
-              <img src="icons/folder.png" class="left-pane-icon">
+              <img src="icons/folder.png" class="left-pane-icon" />
               <div>
                 <span class="left-pane-header">My Documents</span>
-                <img src="assets/images/document-line.gif" class="left-pane-line">
+                <img
+                  src="assets/images/document-line.gif"
+                  class="left-pane-line"
+                />
               </div>
               <div class="left-pane-content-active"></div>
               <div class="left-pane-content">
                 <div class="left-pane-content-inactive">
-                  <span class="normal">Select an item to view its description.</span>
+                  <span class="normal"
+                    >Select an item to view its description.</span
+                  >
                 </div>
                 <div class="left-pane-content-active">
-                  <span class="header" id="left-pane-content-header">Shopify Article.url</span>
+                  <span class="header" id="left-pane-content-header"
+                    >Shopify Article.url</span
+                  >
                   <span class="normal">URL file to medium.com</span>
-                  <span class="normal" style="margin-bottom: 0px;">Created:</span>
-                  <span class="normal" id="left-pane-content-created">05/12/2022 02:30 AM</span>
-                  <span class="normal" style="margin-bottom: 0px;">Description:</span>
-                  <span class="normal" id="left-pane-content-description">Creating Embedded Shopify Application. Ruby On Rails.</span>
+                  <span class="normal" style="margin-bottom: 0px"
+                    >Created:</span
+                  >
+                  <span class="normal" id="left-pane-content-created"
+                    >05/12/2022 02:30 AM</span
+                  >
+                  <span class="normal" style="margin-bottom: 0px"
+                    >Description:</span
+                  >
+                  <span class="normal" id="left-pane-content-description"
+                    >Creating Embedded Shopify Application. Ruby On Rails.</span
+                  >
                 </div>
               </div>
             </div>
 
             <div class="right-pane">
               <div class="items-grid documents-icon">
-                <div class="folder-item right-pane-icon" data-title="Shopify Article.url" data-created="05/12/2022 02:30 AM" data-description="Creating Embedded Shopify Application. Ruby On Rails." data-link="https://medium.com/your-shopify-article" ondblclick="window.open('https://medium.com/@swastik.thapaliya/creating-embedded-shopify-application-ruby-on-rails-1ef7a734b4bc', '_blank')">
-                  <img src="icons/IE.png" class="folder-icon">
+                <div
+                  class="folder-item right-pane-icon"
+                  data-title="Shopify Article.url"
+                  data-created="05/12/2022 02:30 AM"
+                  data-description="Creating Embedded Shopify Application. Ruby On Rails."
+                  data-link="https://medium.com/your-shopify-article"
+                  ondblclick="window.open('https://medium.com/@swastik.thapaliya/creating-embedded-shopify-application-ruby-on-rails-1ef7a734b4bc', '_blank')"
+                >
+                  <img src="icons/IE.png" class="folder-icon" />
                   <span class="">Shopify Article.url</span>
                 </div>
-                <div class="folder-item" data-title="Yard Ruby.url" data-created="02/19/2025 11:00 PM" data-description="YARD for Ruby Beginners: A Documentation Guide." ondblclick="window.open('https://medium.com/@swastik.thapaliya/yard-for-ruby-beginners-a-documentation-guide-d276b919fc12', '_blank')">
-                  <img src="icons/IE.png" class="folder-icon">
+                <div
+                  class="folder-item"
+                  data-title="Yard Ruby.url"
+                  data-created="02/19/2025 11:00 PM"
+                  data-description="YARD for Ruby Beginners: A Documentation Guide."
+                  ondblclick="window.open('https://medium.com/@swastik.thapaliya/yard-for-ruby-beginners-a-documentation-guide-d276b919fc12', '_blank')"
+                >
+                  <img src="icons/IE.png" class="folder-icon" />
                   <span>Yard Ruby.url</span>
                 </div>
               </div>
@@ -133,7 +225,11 @@
               <span class="status-details-selected">1 object(s) selected</span>
             </div>
             <div class="status-documents">
-              <img src="icons/folder.png" class="status-icon" alt="My Documents">
+              <img
+                src="icons/folder.png"
+                class="status-icon"
+                alt="My Documents"
+              />
               <span>My Documents</span>
             </div>
           </div>
@@ -144,37 +240,87 @@
       <div class="taskbar">
         <div style="display: flex; align-items: center">
           <button class="start-button">
-            <img src="icons/win.png" alt="Start Icon" style="width: 16px; height: 16px; margin-right: 5px" />
+            <img
+              src="icons/win.png"
+              alt="Start Icon"
+              style="width: 16px; height: 16px; margin-right: 5px"
+            />
             Start
           </button>
           <div class="start-menu" id="start-menu">
             <div class="start-menu-sidebar">
-              <img class="start-menu-sidebar-image" src="./icons/win_sidebar.jpg" alt="Windows 98 Logo" />
+              <img
+                class="start-menu-sidebar-image"
+                src="./icons/win_sidebar.jpg"
+                alt="Windows 98 Logo"
+              />
             </div>
             <div class="start-menu-items">
-              <a href="https://www.instagram.com/swastik07/" target="_blank" class="start-menu-item">
-                <img class="start-menu-item-icon" src="./icons/instagram.png" alt="Instagram Icon" />
+              <a
+                href="https://www.instagram.com/swastik07/"
+                target="_blank"
+                class="start-menu-item"
+              >
+                <img
+                  class="start-menu-item-icon"
+                  src="./icons/instagram.png"
+                  alt="Instagram Icon"
+                />
                 <span class="start-menu-item-text"><u>I</u>nstagram</span>
               </a>
-              <a href="https://www.linkedin.com/in/swastik-thapaliya/" target="_blank" class="start-menu-item">
-                <img class="start-menu-item-icon" src="./icons/linkedin.png" alt="LinkedIn Icon" />
+              <a
+                href="https://www.linkedin.com/in/swastik-thapaliya/"
+                target="_blank"
+                class="start-menu-item"
+              >
+                <img
+                  class="start-menu-item-icon"
+                  src="./icons/linkedin.png"
+                  alt="LinkedIn Icon"
+                />
                 <span class="start-menu-item-text"><u>L</u>inkedIn</span>
               </a>
-              <a href="https://x.com/IROCKSWASTIK" target="_blank" class="start-menu-item">
-                <img class="start-menu-item-icon" src="icons/x.png" alt="Twitter Icon" />
+              <a
+                href=""
+                target="_blank"
+                class="start-menu-item"
+              >
+                <img
+                  class="start-menu-item-icon"
+                  src="icons/x.png"
+                  alt="Twitter Icon"
+                />
                 <span class="start-menu-item-text"><u>T</u>witter</span>
               </a>
-              <a href="https://github.com/swastik009" target="_blank" class="start-menu-item">
-                <img class="start-menu-item-icon" src="icons/github.png" alt="GitHub Icon" />
+              <a
+                href="https://github.com/swastik009"
+                target="_blank"
+                class="start-menu-item"
+              >
+                <img
+                  class="start-menu-item-icon"
+                  src="icons/github.png"
+                  alt="GitHub Icon"
+                />
                 <span class="start-menu-item-text"><u>G</u>itHub</span>
               </a>
               <div class="start-menu-divider"></div>
               <a href="pdf" target="_blank" class="start-menu-item">
-                <img class="start-menu-item-icon" src="icons/docs.png" alt="Resume Icon" />
+                <img
+                  class="start-menu-item-icon"
+                  src="icons/docs.png"
+                  alt="Resume Icon"
+                />
                 <span class="start-menu-item-text"><u>R</u>ésumé</span>
               </a>
               <a href="" target="_blank" class="start-menu-item">
-                <dotlottie-player autoplay loop mode="normal" src="assets/lottie/minimal_hello.lottie" class="start-menu-item-icon"></dotlottie-player>
+                <dotlottie-player
+                  autoplay
+                  loop
+                  mode="normal"
+                  src="assets/lottie/minimal_hello.lottie"
+                  class="start-menu-item-icon"
+                ></dotlottie-player>
                 <span class="start-menu-item-text"><u>S</u>WASTIK</span>
               </a>
             </div>
@@ -182,9 +328,19 @@
           <div class="taskbar-icons"></div>
         </div>
         <div class="taskbar-right">
-          <dotlottie-player autoplay loop mode="normal" src="assets/lottie/cat.lottie" style="width: 50px; height: 50px;"></dotlottie-player>
+          <dotlottie-player
+            autoplay
+            loop
+            mode="normal"
+            src="assets/lottie/cat.lottie"
+            style="width: 50px; height: 50px"
+          ></dotlottie-player>
           <div class="taskbar-time">
-            <img src="icons/sound.png" alt="Sound Icon" class="taskbar-sound-icon" />
+            <img
+              src="icons/sound.png"
+              alt="Sound Icon"
+              class="taskbar-sound-icon"
+            />
           </div>
         </div>
       </div>
@@ -192,8 +348,6 @@
 
     <script src="./assets/js/clippy.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <script>
-     
-    </script>
+    <script></script>
   </body>
 </html>

@@ -1,117 +1,212 @@
-/* Alert box styling */
+/* Alert box */
 .alert-window {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 1000px; /* Adjusted to match the reference image width */
-    height: auto;
-    background: #C0C0C0; /* Gray background */
-    border: 1px solid #000; /* Black outer border */
-    border-right: 2px solid #808080; /* Dark gray right border for 3D effect */
-    border-bottom: 2px solid #808080; /* Dark gray bottom border for 3D effect */
-    border-left: 2px solid #FFF; /* White left border for 3D effect */
-    border-top: 2px solid #FFF; /* White top border for 3D effect */
-    font-family: "MS Sans Serif", Arial, sans-serif; /* Classic Windows font */
-    font-size: 13px; /* Match font size */
-    z-index: 1000; /* Ensure it’s above other content */
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Slight shadow for depth */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 42%;
+  max-width: 100%;
+  background: #c0c0c0;
+  border: 1px solid #000;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  border-left: 2px solid #fff;
+  border-top: 2px solid #fff;
+  font-size: 13px;
+  z-index: 1000;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Header */
+.alert-header {
+  background: linear-gradient(to right, #000080, #3366cc);
+  color: #fff;
+  padding: 2px 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+/* Close button */
+.alert-control-button {
+  width: 16px;
+  height: 14px;
+  background: #c0c0c0;
+  border: 1px solid #000;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  border-left: 2px solid #fff;
+  border-top: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.alert-control-button.close::before {
+  content: "×";
+  color: #000;
+}
+
+/* === Content Layout === */
+.alert-content {
+  background: #c0c0c0;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: nowrap;
+  margin-bottom: 10px;;
+}
+
+/* Left section: icon and form */
+.alert-left {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+/* Icon styling */
+.alert-icon img {
+  width: 80px;
+  height: 80px;
+  margin-top: 5px;
+  margin-right: 20px;
+}
+
+/* Message and inputs */
+.alert-message {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-text {
+  margin-bottom: 10px;
+}
+
+.input-row label {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.input-row input {
+  width: 160px;
+  padding: 2px;
+  margin-left: 10px;
+  border: 1px inset  #000;
+  background: #fff;
+  font-family: "MS Sans Serif", Arial, sans-serif;
+  font-size: 13px;
+}
+
+/* Buttons section */
+.alert-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex-shrink: 0;
+  margin-left: 5px;
+}
+
+/* Button styling */
+.alert-button {
+  flex: 1;
+  background: #c0c0c0;
+  border: 2px solid #000;
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  border-left: 2px solid #fff;
+  border-top: 2px solid #fff;
+  padding: 2px 20px;
+  font-family: "MS Sans Serif", Arial, sans-serif;
+  font-size: 13px;
+  cursor: default;
+  width: 100px;
+}
+
+.alert-button:hover {
+  background: #d3d3d3;
+}
+
+#alert-accept:active {
+  border: #868a8e inset;
+  border-color: #000 #fff #fff #000;
+}
+
+/* === Responsive Styles === */
+@media (max-width: 768px) {
+  .alert-window {
+    width: 90%;
+    font-size: 12px;
   }
-  
-  /* Alert header */
-  .alert-header {
-    background: linear-gradient(to right, #000080, #3366CC);
-    color: #FFF; /* White text */
-    padding: 2px 4px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .alert-header span {
-    font-weight: bold;
-  }
-  
-  /* Close button */
-  .alert-control-button {
-    width: 16px;
-    height: 14px;
-    background: #C0C0C0; /* Gray background */
-    border: 1px solid #000; /* Black border */
-    border-right: 2px solid #808080; /* Dark gray right border */
-    border-bottom: 2px solid #808080; /* Dark gray bottom border */
-    border-left: 2px solid #FFF; /* White left border */
-    border-top: 2px solid #FFF; /* White top border */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    font-weight: bold;
-  }
-  
-  .alert-control-button.close::before {
-    content: "×";
-    color: #000;
-  }
-  
-  /* Alert content */
+
   .alert-content {
-    background: #C0C0C0; /* Gray background */
-    padding: 10px;
-    display: flex;
+    flex-direction: column;
     align-items: center;
-    border-bottom: 1px solid #808080; /* Dark gray bottom border */
-    border-top: 1px solid #FFF; /* White top border */
   }
-  
-  /* Alert icon */
-  .alert-icon {
-    margin-right: 15px;
+
+  .alert-left {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  /* Alert message */
+
   .alert-message {
-    flex: 1;
+    align-items: center;
+    width: 100%;
   }
-  
-  .alert-message p {
-    margin: 0;
-    color: #000;
+
+  .input-row label {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  /* Alert buttons */
+
+  .input-row input {
+    width: 100%;
+    max-width: 250px;
+    font-size: 12px;
+  }
+
   .alert-buttons {
-    background: #C0C0C0; /* Gray background */
-    padding: 10px;
-    text-align: center;
-    border-top: 1px solid #FFF; /* White top border */
-    border-bottom: 1px solid #808080; /* Dark gray bottom border */
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 12px;
   }
-  
-  /* Alert button styling */
+
   .alert-button {
-    background: #C0C0C0; /* Gray background */
-    border: 1px solid #000; /* Black border */
-    border-right: 2px solid #808080; /* Dark gray right border */
-    border-bottom: 2px solid #808080; /* Dark gray bottom border */
-    border-left: 2px solid #FFF; /* White left border */
-    border-top: 2px solid #FFF; /* White top border */
-    padding: 2px 15px;
-    margin: 0 5px;
-    font-family: "MS Sans Serif", Arial, sans-serif;
-    font-size: 13px;
-    cursor: default;
+    font-size: 12px;
+    padding: 2px 12px;
   }
-  
-  .alert-button:hover {
-    background: #D3D3D3; /* Slightly lighter gray on hover */
+}
+
+@media (max-width: 480px) {
+  .alert-window {
+    width: 98%;
+    font-size: 11px;
   }
-  
-  #alert-accept:active{
-    border: #868a8e inset;
-    border-color: #000 #fff #fff #000;
+
+  .alert-button {
+    font-size: 11px;
+    padding: 2px 8px;
+    margin: 0 3px;
   }
-  /* Ensure no overlap with other content */
-  body {
-    position: relative;
+
+  .input-row input {
+    max-width: 100%;
   }
+
+  .alert-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .alert-control-button {
+    margin-top: 5px;
+  }
+}
