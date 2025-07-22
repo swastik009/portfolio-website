@@ -60,7 +60,7 @@
   align-items: flex-start;
   gap: 20px;
   flex-wrap: nowrap;
-  margin-bottom: 10px;;
+  margin-bottom: 10px;
 }
 
 /* Left section: icon and form */
@@ -99,7 +99,7 @@
   width: 160px;
   padding: 2px;
   margin-left: 10px;
-  border: 1px inset  #000;
+  border: 1px inset #000;
   background: #fff;
   font-family: "MS Sans Serif", Arial, sans-serif;
   font-size: 13px;
@@ -133,12 +133,10 @@
 .alert-button:hover {
   background: #d3d3d3;
 }
-
-#alert-accept:active {
+.alert-button:active {
   border: #868a8e inset;
   border-color: #000 #fff #fff #000;
 }
-
 /* === Responsive Styles === */
 @media (max-width: 768px) {
   .alert-window {

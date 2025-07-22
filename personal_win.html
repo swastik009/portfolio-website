@@ -11,14 +11,14 @@
       src="https://unpkg.com/@dotlottie/player-component@1.0.0/dist/dotlottie-player.js"
     ></script>
     <script src="personal_win.js"></script>
-    <script src="boot.js"></script>
+    <!-- <script src="boot.js"></script> -->
     <link rel="stylesheet" type="text/css" href="./assets/css/clippy.css" />
     <link rel="stylesheet" type="text/css" href="alert.css" />
     <link rel="stylesheet" href="personal_win.css" />
     <link rel="stylesheet" href="my_documents.css" />
   </head>
   <body>
-    <div id="alert-box" class="alert-window">
+    <!-- <div id="alert-box" class="alert-window">
       <div class="alert-header">
         <strong>Welcome to Windows</strong>
       </div>
@@ -48,17 +48,6 @@
               ><u>P</u>assword: <input style="margin-left: 10px;" type="password" name="password", value="Y2KSurvivor" disabled
             /></label>
           </div>
-
-          <!-- 
-      <h1>Hi, I'm Swastik! 💾</h1>
-      <p>Welcome to my website! I hope you enjoy this <b>Windows 98 retro theme</b>, because, well… I grew up clicking that "Start" button and waiting 10 minutes for something to load.</p>
-      <p>Also, don’t worry, no BSODs... or at least, not yet.</p>
-      <p>Hope you vibe with this blast from the past! <b>Press ALT + F4 for a surprise 😆</b></p>
-      <p style="margin-top: 10px; font-weight: lighter; font-size: 10px;">
-        Inspired by <a href="https://www.donchia.tech/" target="_blank" rel="noopener noreferrer"><b>dochia.tech</b></a> & 
-        <a href="https://98.js.org/" target="_blank" rel="noopener noreferrer"><b>98.js.org</b></a>
-      </p>
-      -->
         </div>
 
         <div class="alert-buttons">
@@ -66,11 +55,11 @@
             <button class="alert-button" id="alert-accept">OK</button>
           </div>
           <div>
-            <button class="alert-button">Resume</button>
+            <button class="alert-button" onclick="viewResume()">Resume</button>
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div id="main-content">
       <audio
@@ -105,12 +94,36 @@
         <div>My Documents</div>
       </div>
 
-      <div class="desktop-icon" style="top: 220px; left: 20px" ondblclick="">
+      <div
+        class="desktop-icon"
+        style="top: 220px; left: 20px"
+        ondblclick="openWindow('resume')"
+      >
         <img id="desktop-icon-resume" src="icons/docs.png" alt="Resume Icon" />
-        <div>Resume</div>
+        <div>Résumé</div>
       </div>
 
-      <div class="desktop-icon" id="webamp-icon" style="top: 320px; left: 20px">
+      <div
+        class="desktop-icon"
+        id="email-icon"
+        style="top: 320px; left: 20px"
+        ondblclick="window.location.href='mailto:contact@swastikthapaliya.com.np'"
+      >
+        <img src="icons/email.png" alt="Email Icon" />
+        <div>Email</div>
+      </div>
+
+      <div
+        class="desktop-icon"
+        id="msn-icon"
+        style="top: 420px; left: 20px"
+        ondblclick="window.open('https://web.archive.org/web/19991128100812/http://www.msn.com/', '_blank')"
+      >
+        <img src="icons/msn.png" alt="MSN Icon" />
+        <div>MSN</div>
+      </div>
+
+      <div class="desktop-icon" id="webamp-icon" style="top: 520px; left: 20px">
         <img src="icons/winamp.png" alt="Winamp Icon" />
         <div>Winamp</div>
       </div>
@@ -235,7 +248,52 @@
           </div>
         </div>
       </div>
+      <div id="resume-content" data-title="Résumé" style="display: none">
+        <div id="resume-header">
+          <div class="resume-alert-buttons">
+            <div>
+              <button class="resume-alert-button" onclick="downloadResume()">
+                <img class="alert-icons" src="icons/download-resume.png" />
+                <span>Download</span>
+              </button>
+            </div>
+            <div>
+              <button class="resume-alert-button" onclick="viewResume()">
+                <img class="alert-icons" src="icons/view-resume.png" />
+                <span>View</span>
+              </button>
+            </div>
+          </div>
+          <p id="resume-subtitle">
+            Inspired by
+            <a
+              href="https://www.donchia.tech/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><b>dochia.tech</b></a
+            >
+            &
+            <a
+              href="https://98.js.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><b>98.js.org</b></a
+            >
+          </p>
+        </div>
 
+        <div id="resume-content">
+          <div id="pdf-container">
+            <embed
+              src="./assets/files/resume.pdf#toolbar=0&navpanes=0&scrollbar=0"
+              type="application/pdf"
+              width="100%"
+              height="600px"
+            />
+          </div>
+        </div>
+        <hr />
+      </div>
       <!-- Taskbar -->
       <div class="taskbar">
         <div style="display: flex; align-items: center">
@@ -280,11 +338,7 @@
                 />
                 <span class="start-menu-item-text"><u>L</u>inkedIn</span>
               </a>
-              <a
-                href=""
-                target="_blank"
-                class="start-menu-item"
-              >
+              <a href="" target="_blank" class="start-menu-item">
                 <img
                   class="start-menu-item-icon"
                   src="icons/x.png"
@@ -305,7 +359,7 @@
                 <span class="start-menu-item-text"><u>G</u>itHub</span>
               </a>
               <div class="start-menu-divider"></div>
-              <a href="pdf" target="_blank" class="start-menu-item">
+              <a href="assets/files/resume.pdf" target="_blank" class="start-menu-item">
                 <img
                   class="start-menu-item-icon"
                   src="icons/docs.png"
@@ -325,22 +379,29 @@
               </a>
             </div>
           </div>
-          <div class="taskbar-icons"></div>
         </div>
         <div class="taskbar-right">
-          <dotlottie-player
-            autoplay
-            loop
-            mode="normal"
-            src="assets/lottie/cat.lottie"
-            style="width: 50px; height: 50px"
-          ></dotlottie-player>
-          <div class="taskbar-time">
-            <img
-              src="icons/sound.png"
-              alt="Sound Icon"
-              class="taskbar-sound-icon"
+          <img
+              src="icons/internet-con.gif"
+              alt="MSN Icon"
+              class="taskbar-right-icons"
+              onclick="window.open('https://web.archive.org/web/19981205060735/http://microsoft.com:80/', '_blank')"
             />
+          <img
+              src="icons/sound-on.png"
+              alt="Sound On Icon"
+              id="taskbar-sound-on"
+              class="taskbar-right-icons"
+            />
+            <img
+              src="icons/sound-mute.png"
+              alt="Sound On Icon"
+              id="taskbar-sound-mute"
+              class="taskbar-right-icons"
+              style="display: none"
+            />
+          <div class="taskbar-time">
+            
           </div>
         </div>
       </div>
@@ -348,6 +409,5 @@
 
     <script src="./assets/js/clippy.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <script></script>
   </body>
 </html>

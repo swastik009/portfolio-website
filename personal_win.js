@@ -2,6 +2,36 @@ $(document).ready(function () {
   // Global z-index counter for layering windows
   let zIndexCounter = 1000;
 
+  // Sound controller
+  $("#taskbar-sound-on").on("click", function () {
+    $("#taskbar-sound-on").hide();
+    $("#taskbar-sound-mute").show();
+    $("audio").each(function () {
+      this.pause();
+      this.currentTime = 0; 
+    });
+  });
+
+  $("#taskbar-sound-mute").on("click", function () {
+    $("#taskbar-sound-mute").hide();
+    $("#taskbar-sound-on").show();
+  });
+
+  const resumeUrl = "./assets/files/resume.pdf";
+
+  window.downloadResume = function () {
+    const link = document.createElement("a");
+    link.href = resumeUrl;
+    link.download = "Swastik_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  window.viewResume = function () {
+    window.open(resumeUrl, "_blank");
+  };
+
   // **Webamp Initialization (Placeholder)**
   // Adjust this section based on your actual Webamp setup
   let webamp;
@@ -46,7 +76,7 @@ $(document).ready(function () {
     event.stopPropagation(); // Prevent body click handler
   });
 
-  function toggleDocumentFolderElements(){
+  function toggleDocumentFolderElements() {
     $(".left-pane-content-inactive").show();
     $(".left-pane-content-active").hide();
     $(".status-details-selected").hide();
@@ -97,6 +127,11 @@ $(document).ready(function () {
     if (id === "biography") {
       return "/icons/my_computer.png";
     }
+
+    if (id === "resume") {
+      return "/icons/docs.png";
+    }
+
     return "/icons/folder.png";
   }
 
@@ -131,6 +166,10 @@ $(document).ready(function () {
       height = 720; // Set specific height for biography window
     }
 
+    if (id === "resume") {
+      contentClass = "window-resume-content";
+    }
+
     let maxLeft = $(window).width() - width;
     let maxTop = $(window).height() - height;
 
@@ -159,7 +198,7 @@ $(document).ready(function () {
 
     const $existingWindow = $(`#window-${id}`);
     const existingWindowHeader = $(`#window-${id} .window-header`);
-    
+
     if ($existingWindow.length) {
       $existingWindow.show().css("z-index", zIndexCounter++); // Show and bring to front
       deactivateWindow(existingWindowHeader);
@@ -174,26 +213,30 @@ $(document).ready(function () {
     $(".status-details-selected").hide();
     $(".status-details-no-selection").html(`${folderItemsCount} object(s)`);
     toggleDocumentFolderElements();
-     // **Folder Icon Selection**
+    // **Folder Icon Selection**
     $(".folder-item").on("click", function (event) {
-     $(".desktop-icon").removeClass("selected"); // Deselect Desktop Items if selected
+      $(".desktop-icon").removeClass("selected"); // Deselect Desktop Items if selected
       $(".folder-item").removeClass("selected"); // Deselect all folder items
       $(this).addClass("selected"); // Select clicked icon
-      const currentFolder = $(this)
+      const currentFolder = $(this);
 
-      let leftPaneContentHeader =  currentFolder.data("title")
-      let leftPaneCreated = currentFolder.data("created")
-      let leftPaneDescription = currentFolder.data("description")
+      let leftPaneContentHeader = currentFolder.data("title");
+      let leftPaneCreated = currentFolder.data("created");
+      let leftPaneDescription = currentFolder.data("description");
 
       const $window = $(this).closest(".window");
       const $leftPaneContent = $window.find(".left-pane-content");
-      $leftPaneContent.find("#left-pane-content-header").html(leftPaneContentHeader);
+      $leftPaneContent
+        .find("#left-pane-content-header")
+        .html(leftPaneContentHeader);
       $leftPaneContent.find("#left-pane-content-created").html(leftPaneCreated);
-      $leftPaneContent.find("#left-pane-content-description").html(leftPaneDescription);
+      $leftPaneContent
+        .find("#left-pane-content-description")
+        .html(leftPaneDescription);
       $(".status-details-selected").show();
       $(".status-details-no-selection").hide();
       $(".left-pane-content-inactive").hide();
-    $(".left-pane-content-active").show();
+      $(".left-pane-content-active").show();
       event.stopPropagation(); // Prevent body click handler
     });
     // window header
