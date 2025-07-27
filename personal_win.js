@@ -8,7 +8,7 @@ $(document).ready(function () {
     $("#taskbar-sound-mute").show();
     $("audio").each(function () {
       this.pause();
-      this.currentTime = 0; 
+      this.currentTime = 0;
     });
   });
 
@@ -32,20 +32,39 @@ $(document).ready(function () {
     window.open(resumeUrl, "_blank");
   };
 
-  // **Webamp Initialization (Placeholder)**
-  // Adjust this section based on your actual Webamp setup
-  let webamp;
-  $("#webamp-icon").on("dblclick", function () {
-    if (!webamp || webamp.isDisposed()) {
-      webamp = new Webamp();
-      webamp.renderWhenReady($("#winamp")[0]);
-      webamp.onClose(() => {
-        webamp = null;
-      });
-    } else {
-      webamp.focus();
+  function changeLogoToSlayer() {
+    let doesDoomGuyExist = $("#biography-title").text() === "DoomGuy";
+    if (doesDoomGuyExist) {
+      return;
     }
-  });
+
+    // Change all relevant elements to the DoomGuy logo
+    $("#desktop-icon-biography").fadeOut(1000, function () {
+      $(this).attr("src", "icons/doomguy.gif").fadeIn(2000);
+    });
+
+    $(".biography-window-icon").fadeOut(1000, function () {
+      $(this).attr("src", "icons/doomguy.gif").fadeIn(2000);
+    });
+
+    $(".biography-window-title").fadeOut(1000, function () {
+      $(this).text("Doom.exe").hide().fadeIn(2000);
+    });
+
+    $("#biography-title").fadeOut(1000, function () {
+      $(this).text("Doom.exe").hide().fadeIn(2000);
+    });
+  }
+
+  function changeLogoToMyComputer() {
+    // reset with fades
+    $("#desktop-icon-biography").fadeOut(2000, function () {
+      $(this).attr("src", "icons/my_computer.png").fadeIn(3000);
+    });
+    $("#biography-title").fadeOut(2000, function () {
+      $(this).text("My Computer").hide().fadeIn(3000);
+    });
+  }
 
   // **Clock Update Function**
   function updateClock() {
@@ -155,6 +174,8 @@ $(document).ready(function () {
     let isResizeAble = ""; // Empty string means resizable
     let isDisabled = "";
     let isMaximizable = "";
+    let windowIconClass = "";
+    let windowTitleClass = "";
 
     // Special settings for 'biography' window
     if (id === "biography") {
@@ -164,6 +185,8 @@ $(document).ready(function () {
       isDisabled = "disabled"; // Maximize button disabled
       width = 1280; // Set specific width for biography window
       height = 720; // Set specific height for biography window
+      windowIconClass = "biography-window-icon"; // Ensure id is set to biography
+      windowTitleClass = "biography-window-title"; // Ensure title is set to biography
     }
 
     if (id === "resume") {
@@ -182,8 +205,8 @@ $(document).ready(function () {
       <div class="window ${isResizeAble}" id="window-${id}" style="left: ${left}px; top: ${top}px; width: ${width}px; height: ${height}px; z-index: ${zIndexCounter++};">
         <div class="window-header">
           <div class="title-bar">
-            <img src="${imageSrc}" alt="Icon" class="window-icon">
-            <span>${title}</span>
+            <img src="${imageSrc}" alt="Icon" class="window-icon ${windowIconClass}">
+            <span class="${windowTitleClass}">${title}</span>
           </div>
           <div class="window-controls">
             <button class="control-button minimize"></button>
@@ -269,9 +292,14 @@ $(document).ready(function () {
     let imgSrc = resolveImagePath(id);
     // **Create Taskbar Item**
     const taskbarItem = $(`<div class="taskbar-item" data-window="${id}">
-      <img style="height: 18px; width: 20px; padding-right: 5px;" src="${imgSrc}">
-      ${title}
+      <img class="${windowIconClass}" style="height: 18px; width: 20px; padding-right: 5px;" src="${imgSrc}">
+      <span class="${windowTitleClass}">${title}</span>
     </div>`).appendTo(".taskbar-icons");
+
+    if (id === "biography") {
+      // Needs to be called after the window is created
+      changeLogoToSlayer();
+    }
 
     // **Set Initial Active State for New Window**
     $(".taskbar-item").removeClass("active"); // Remove active from all
@@ -300,6 +328,9 @@ $(document).ready(function () {
     $window.find(".close").on("click", function () {
       $window.remove(); // Remove window
       taskbarItem.remove(); // Remove taskbar item
+      if (id === "biography") {
+        changeLogoToMyComputer();
+      }
     });
 
     // **Maximize Button**
