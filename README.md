@@ -2,6 +2,9 @@
 
 <img width="512" height="512" alt="creator" src="https://github.com/user-attachments/assets/12e55755-dc81-4972-aef1-0447afd5b838" />
 
+
+website url: www.swastikthapaliya.com.np
+
 # Portfolio Website — Windows 98 Theme
 
 Welcome to **@swastik009/portfolio-website**!  
@@ -12,7 +15,6 @@ This is a personal portfolio website inspired by the classic Windows 98 interfac
 ## 🖥️ Features
 
 - **Windows 98 style UI:** Retro, pixel-perfect design for a unique and memorable portfolio.
-- **Project showcase:** Easily list and describe your work.
 - **Contact section:** Simple way for visitors to reach out.
 - **Smooth animations:** Lottie files for lightweight, engaging effects.
 
