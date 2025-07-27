@@ -35,7 +35,7 @@ $(document).ready(function () {
         agent.show();
         agent.play("Greeting");
         agent.speak(
-          "Hello! My name is Clippy. I'm here purely for nostalgic reasons, bringing back memories of the past."
+          "It’s me, Clippy! I once tried to help with Word documents. Now I mostly help trigger flashbacks. You're welcome!"
         );
 
         // Play random animations every 10 seconds
@@ -46,6 +46,7 @@ $(document).ready(function () {
     });
   }
 
+  // Handle window resizing
   var width = $(window).width();
 
   if (width <= 1024) {
