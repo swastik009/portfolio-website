@@ -35,7 +35,7 @@ $(document).ready(function () {
         agent.show();
         agent.play("Greeting");
         agent.speak(
-          "It’s me, Clippy! I once tried to help with Word documents. Now I mostly help trigger flashbacks. You're welcome!"
+          "Hey, Swastik just released a new open-source gem called Docsmith—check it out at My Documents > Docsmith.url"
         );
 
         // Play random animations every 10 seconds
