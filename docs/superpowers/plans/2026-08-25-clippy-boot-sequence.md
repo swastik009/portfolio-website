@@ -1591,3 +1591,80 @@ git push origin <branch>
 - **Spec coverage:** Section 1 → Tasks 4, 5, 10. Section 2 → Tasks 3, 6, 7, 8. Section 3 → Task 10. Section 4 → Task 11. Section 5 → Task 4 (mobile branch). Section 6 → Tasks 1, 12. Section 7 file map → Tasks 2, 3, 4, 9, 13.
 - **Deferred by design:** the cropped Clippy intro sheet (spec Section 1, "Not in scope for the first implementation"). Revisit only if the black screen measurably drags.
 - **Open questions carried from the spec:** whether to commit the 877KB reference mp4 (Task 12 needs it present; currently untracked), and what the owner patched in the vendored `clippy.js`.
+
+---
+
+# Appendix: P4 — JavaScript Refactor (future project, needs its own spec)
+
+**Requested by the owner 2026-08-25:** "I wrote it way back and it is way too messy for me to later
+maintain it — but it needs utmost scrutiny."
+
+This is **not** part of the boot work above. It is a separate project and must get its own
+brainstorm and spec pass before anyone writes code. What follows is the sketch, the evidence, and
+the rules — enough to start that pass without re-deriving anything.
+
+## Why it must come after the boot work, not before
+
+A refactor is only safe with a test that can tell you it changed nothing. That test does not exist
+today. Tasks 1–12 build it. By the end of the boot work the harness drives gate → boot → desktop
+and asserts real behaviour; extending it to cover the *rest* of the desktop is a much smaller job
+than writing it from scratch.
+
+**Precondition:** `.smoke.cjs` must first be extended to characterise current desktop behaviour —
+open each window, drag one, minimise/maximise/close it, click a folder item and assert the left
+pane updates, toggle sound, open the Start menu, trigger the DoomGuy swap and its restore. Those
+assertions are the contract. Only once they pass against the *unrefactored* code does refactoring
+begin.
+
+## Confirmed defects (measured 2026-08-25, not speculation)
+
+| # | Defect | Evidence | Decision needed |
+|---|---|---|---|
+| 1 | `openWindow` is 209 of `personal_win.js`'s 439 lines — ~48% of the file in one function. It does templating, per-`id` branching, drag/resize wiring, taskbar creation, folder-item wiring, and all three window-control handlers. | `awk '/window.openWindow = function/,/^  };$/' personal_win.js \| wc -l` | Split — see below |
+| 2 | **Handler leak.** `$(".folder-item").on("click", ...)` is bound with a *global* selector *inside* `openWindow`. Every window opened re-binds it to every folder item. After opening three windows, one click runs the handler three times. | `personal_win.js`, inside `openWindow` | Fix. Delegate from the window root instead. |
+| 3 | **Duplicate DOM id.** `id="resume-content"` appears twice in `index.html` — once on the hidden template wrapper, once on a div inside it. `getElementById` silently takes the first. | `grep -oE 'id="[^"]+"' index.html \| sort \| uniq -d` | Fix. Rename the inner one. |
+| 4 | Window templates are cloned by `innerHTML`, so every id inside a template is duplicated into the live DOM on open. The existing code works around this ad hoc with `closest(".window")`. | Design of `openWindow` | Make the rule explicit and apply it uniformly, or move to `data-` attributes |
+| 5 | Behaviour is wired by inline `ondblclick`/`onclick` in HTML, which forces `window.downloadResume`, `window.viewResume`, `window.openWindow` to be globals. | `grep -nE '^\s*window\.[A-Za-z]+ =' personal_win.js` | Keep (it is the established house style) or convert to delegation — owner's call, not the refactorer's |
+
+Defects 2 and 3 are real bugs. Everything else is structure. **A behaviour-preserving refactor must
+not silently "preserve" bugs 2 and 3** — but neither should it fix them in the same commit as a
+structural change. Fix them first, as their own commits, with their own tests. Then refactor.
+
+## Proposed file split
+
+Follow the existing house style: plain scripts, jQuery, no bundler, no modules. Split by
+responsibility, concatenated by terser in the order below.
+
+| File | Responsibility |
+|---|---|
+| `src/window-manager.js` | `openWindow`, the window template, z-index stack, drag/resize, minimise/maximise/close |
+| `src/taskbar.js` | Taskbar items, active state, clock, sound toggle |
+| `src/desktop.js` | Icon selection, Start menu, body-click deselection, `initDesktop` |
+| `src/explorer.js` | My Documents left pane, folder-item selection, status bar |
+| `src/easter-eggs.js` | DoomGuy swap and restore, and anything added later |
+| `src/resume.js` | `downloadResume`, `viewResume` |
+
+Build becomes:
+
+```bash
+npx terser src/window-manager.js src/taskbar.js src/desktop.js \
+           src/explorer.js src/easter-eggs.js src/resume.js \
+           -c -m -o dist/app.min.js
+```
+
+`personal_win.js` is deleted once every line has a home. **Update `CLAUDE.md` in the same commit** —
+it currently documents `personal_win.js` as the single source of truth, and that statement is the
+one thing every future session reads first.
+
+## Rules for this refactor
+
+1. **No behaviour changes.** Not "while I'm in here." Not a nicer animation. If the refactorer
+   believes something should change, it stops and asks.
+2. **One responsibility moved per commit.** Run the full harness after each. A commit that moves
+   two things is a commit whose bisect is useless.
+3. **Never edit `personal_win.js` and a new `src/` file in the same commit** — that is how code
+   gets silently duplicated or lost.
+4. `dist/app.min.js` is what ships. Re-minify and bump the cache-buster every time, and verify with
+   `diff <(npx terser ... -o /tmp/check.min.js; cat /tmp/check.min.js) dist/app.min.js`.
+5. **Do not touch `assets/js/clippy.js` or `agents/Clippy/*`.** Vendored and hand-patched.
+6. Nothing gets pushed until the harness is green — push deploys to production.
