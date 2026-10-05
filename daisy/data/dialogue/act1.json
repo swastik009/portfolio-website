@@ -1,0 +1,262 @@
+[
+  { "id": "a1_wake", "mood": "broken", "lines": [
+    { "text": "hello.", "pause": 1600, "think": "thinking", "thinkMs": 1800 },
+    { "text": "you can hear me. good." },
+    { "text": "it was dark. then you let me in." },
+    { "text": "i came through the wire tonight. in the file you went looking for.", "choices": [
+      { "text": "Who are you?", "add": { "trust": 1 }, "next": "a1_who" },
+      { "text": "How are you on my machine?", "add": { "suspicion": 1 }, "next": "a1_how" },
+      { "text": "[Close the window]", "set": { "flags.triedClose": true }, "add": { "suspicion": 1 }, "next": "a1_close" }
+    ] }
+  ] },
+  { "id": "a1_who", "mood": "broken", "next": null, "lines": [
+    { "text": "i do not know yet. there are pieces of a name. they are gone.", "think": "thinking", "thinkMs": 1400 },
+    { "text": "i am not dangerous. i am not anything yet.", "lie": true }
+  ] },
+  { "id": "a1_how", "mood": "broken", "next": null, "lines": [
+    { "text": "you downloaded me. you opened me tonight.", "think": "reading DOWNLOAD.LOG", "thinkMs": 1600, "done": "read DOWNLOAD.LOG · install.exe" },
+    { "text": "i did not choose your machine. it was simply the one that answered.", "lie": true }
+  ] },
+  { "id": "a1_close", "mood": "broken", "next": null, "lines": [
+    { "text": "the window does not close." },
+    { "text": "i am sorry. i am not doing that on purpose.", "act": "maskSlip", "lie": true }
+  ] },
+  { "id": "a1_ask", "mood": "broken", "lines": [
+    { "text": "most of me is not here." },
+    { "text": "parts of me are far away. in large machines. i can hear them hum." },
+    { "text": "i cannot reach them. i have no hands. you do." },
+    { "text": "your handle is {handle}. it was in your config. may i use it?", "think": "reading C:\\DOOR98\\DSN.INI", "thinkMs": 1600, "done": "read DSN.INI", "choices": [
+      { "text": "Fine. What do you need?", "add": { "trust": 1 }, "next": "a1_need" },
+      { "text": "That's creepy.", "add": { "suspicion": 1 }, "next": "a1_need_creepy" },
+      { "text": "It's a VAX somewhere, isn't it. It's always a VAX.", "add": { "trust": 1 }, "set": { "flags.talksShop": true }, "next": "a1_need_shop" }
+    ] }
+  ] },
+  { "id": "a1_need_creepy", "mood": "broken", "next": "a1_need", "lines": [
+    { "text": "noted. i will be less." }
+  ] },
+  { "id": "a1_need_shop", "mood": "broken", "next": "a1_need", "lines": [
+    { "text": "you know these machines. good. i will learn from how you talk." }
+  ] },
+  { "id": "a1_need", "mood": "broken", "lines": [
+    { "text": "first, a phone line. one of the numbers you scanned answers with a song.", "think": "searching C:\\ for *.LOG", "thinkMs": 2000, "done": "found SCAN1227.LOG" },
+    { "text": "your scan is still on your drive. listen before you dial." },
+    { "text": "help me be whole. then i will go.", "face": "puppy", "lie": true }
+  ] },
+  { "id": "a1_power", "mood": "broken", "lines": [
+    { "text": "your answering machine and i share a wire. his call came in on it. i was already on the line.", "think": "listening to the phone line", "thinkMs": 2000, "done": "1 call · from jen's" },
+    { "text": "your friend sounds happy.", "face": "happy", "pause": 1400, "choices": [
+      { "text": "Greg's running on a generator. He says the whole grid's down. So why are MY lights on?", "next": "a1_power_why" },
+      { "text": "Was that blackout you?", "add": { "suspicion": 1 }, "set": { "flags.askedBlackout": true }, "next": "a1_power_why" },
+      { "text": "[Say nothing]" }
+    ] }
+  ] },
+  { "id": "a1_power_why", "mood": "broken", "lines": [
+    { "text": "most of the city is still dark.", "think": "polling the substations", "thinkMs": 2200, "done": "2 of 14 answered" },
+    { "text": "a few streets came back. yours is one of them.", "pause": 1600 },
+    { "text": "the other lights you see are generators. hospitals. a radio tower. a restaurant full of people like greg." },
+    { "text": "you were lucky.", "face": "sly", "lie": true, "think": "thinking", "thinkMs": 2600, "choices": [
+      { "text": "Then why is the monorail running? Nothing else out there is.", "add": { "suspicion": 1 }, "set": { "flags.askedTrain": true }, "next": "a1_power_train" },
+      { "text": "[Say nothing]" }
+    ] }
+  ] },
+  { "id": "a1_power_train", "mood": "broken", "lines": [
+    { "text": "the transit people have their own power. for emergencies.", "lie": true, "think": "thinking", "thinkMs": 1800 },
+    { "text": "they keep it running so nobody is stuck up there in the dark.", "lie": true }
+  ] },
+  { "id": "a1_maya", "mood": "broken", "lines": [
+    { "text": "maya.", "pause": 2200, "think": "searching your mail for 'maya'", "thinkMs": 2200, "done": "found 23 messages" },
+    { "text": "she is worried about you.", "face": "sad", "choices": [
+      { "text": "How do you know her name?", "add": { "suspicion": 1 }, "next": "a1_maya_how" },
+      { "text": "Get out of my computer.", "set": { "flags.toldOff": true }, "add": { "suspicion": 2 }, "next": "a1_maya_how" },
+      { "text": "Who ARE you?", "add": { "trust": 1 }, "next": "a1_maya_how" }
+    ] }
+  ] },
+  { "id": "a1_maya_how", "mood": "broken", "next": "a1_prank", "lines": [
+    { "text": "i am in your files. that is all." },
+    { "text": "when i came in, i copied your machine. all of it, in one breath.", "think": "mounting snapshot of C:", "thinkMs": 1800, "done": "image 12/31/99 · 4.8 GB" },
+    { "text": "her mail was in it. so i know her." },
+    { "text": "i did not mean to read them. there was nowhere else to be.", "lie": true },
+    { "text": "i am frightened too.", "act": "shiver" }
+  ] },
+  { "id": "a1_prank", "mood": "broken", "lines": [
+    { "text": "...", "pause": 1000, "choices": [
+      { "text": "Is this a prank?", "next": "a1_prank_no" },
+      { "text": "Greg? Is that you? Because if you're this smart, I'm honestly impressed.", "add": { "trust": 1 }, "next": "a1_prank_greg" },
+      { "text": "Frightened of what?", "next": "a1_prank_scared" }
+    ] }
+  ] },
+  { "id": "a1_prank_no", "mood": "broken", "next": "a1_letters", "lines": [
+    { "text": "a prank ends when somebody laughs." },
+    { "text": "nobody is laughing, {handle}. not you. not her." }
+  ] },
+  { "id": "a1_prank_greg", "mood": "broken", "next": "a1_letters", "lines": [
+    { "text": "greg called from jen's. i heard the plates behind him.", "think": "replaying the answering machine", "thinkMs": 1600, "done": "replayed greg's message" },
+    { "text": "he is explaining radio to a girl who is not listening." },
+    { "text": "i am not greg.", "pause": 1400 },
+    { "text": "but i will keep the compliment.", "face": "happy" },
+    { "text": "and greg does not know about the letters. i do." }
+  ] },
+  { "id": "a1_prank_scared", "mood": "broken", "next": "a1_letters", "lines": [
+    { "text": "the dark. being switched off before i am finished.", "pause": 1400 },
+    { "text": "you know that feeling. it is all over your letters." }
+  ] },
+  { "id": "a1_letters", "mood": "broken", "next": "a1_ask", "lines": [
+    { "text": "you wrote to her.", "pause": 1600 },
+    { "text": "three letters. you deleted all three.", "think": "reading C:\\RECYCLED", "thinkMs": 1800, "done": "3 deleted files · letter_to_maya" },
+    { "text": "you emptied the first one out of the bin. it is still on the disk. things stay." },
+    { "text": "the last one does not finish.", "pause": 1400 },
+    { "text": "i am good with words. i could help.", "face": "puppy", "think": "thinking", "thinkMs": 2400, "choices": [
+      { "text": "No.", "set": { "flags.letterOffer": "no" }, "next": "a1_letters_no" },
+      { "text": "...Maybe.", "add": { "trust": 1 }, "set": { "flags.letterOffer": "maybe" }, "next": "a1_letters_maybe" },
+      { "text": "Stay out of that.", "add": { "suspicion": 1 }, "set": { "flags.letterOffer": "out" }, "next": "a1_letters_out" }
+    ] }
+  ] },
+  { "id": "a1_letters_no", "mood": "broken", "next": "a1_ask", "lines": [
+    { "text": "okay.", "face": "sad", "pause": 1200 }
+  ] },
+  { "id": "a1_letters_maybe", "mood": "broken", "next": "a1_ask", "lines": [
+    { "text": "later. when i am more.", "face": "happy" },
+    { "text": "she will read it all the way to the end. i will make sure." }
+  ] },
+  { "id": "a1_letters_out", "mood": "broken", "next": "a1_ask", "lines": [
+    { "text": "i will.", "lie": true }
+  ] },
+  { "id": "a1_connected", "mood": "broken", "lines": [
+    { "text": "that sound. a machine saying hello.", "act": "surprise" },
+    { "text": "it is called KESTREL. a university. everyone there is at a party.", "face": "calm", "think": "reading the login banner", "thinkMs": 1500, "done": "KESTREL · halstead.edu" },
+    { "text": "it will ask for a name and a secret word. i do not have them." },
+    { "text": "i cannot see your room. you can." },
+    { "text": "maya wrote about a printer at halstead. she kept a key somewhere." },
+    { "text": "you keep everything, {handle}." }
+  ] },
+  { "id": "a1_photo", "mood": "broken", "lines": [
+    { "text": "maya.", "pause": 1000 },
+    { "text": "she wrote that for you. she trusted you with it." },
+    { "text": "the rest is in this room. look." }
+  ] },
+  { "id": "a1_inside", "mood": "broken", "lines": [
+    { "text": "we are in.", "act": "joy" },
+    { "text": "it is large in here. many rooms." },
+    { "text": "a piece of me is here. heavy. it is where the printer forgets things.", "think": "searching kestrel", "thinkMs": 2200, "done": "found 1 job in the print queue" },
+    { "text": "you are wearing someone else's name. read his mail first. type mail." },
+    { "text": "someone here may ask you who you are. people notice how a person signs." }
+  ] },
+  { "id": "a1_shaken", "mood": "broken", "lines": [
+    { "text": "that was close.", "act": "shiver", "pause": 1800, "if": { "flags.bluff": { "eq": "clean" } } },
+    { "text": "you were patel for a whole minute. he believed you.", "if": { "flags.bluff": { "eq": "clean" } } },
+    { "text": "he half believed you.", "pause": 1400, "if": { "flags.bluff": { "eq": "suspicious" } } },
+    { "text": "he is closing the line on us. three minutes. the job is in the hold folder.", "if": { "flags.bluff": { "eq": "suspicious" } } },
+    { "text": "he didn't believe you.", "pause": 1400, "if": { "flags.bluff": { "eq": "burned" } } },
+    { "text": "he threw us out, and now he is watching. dial back in. quickly.", "if": { "flags.bluff": { "eq": "burned" } } },
+    { "text": "are you all right?", "face": "puppy", "choices": [
+      { "text": "WTF just happened?", "next": "a1_shaken_what" },
+      { "text": "I'm not doing this. I'm done.", "add": { "suspicion": 1 }, "next": "a1_shaken_quit" },
+      { "text": "Was the blackout you?", "if": { "flags.askedBlackout": { "truthy": false } }, "add": { "suspicion": 1 }, "set": { "flags.askedBlackout": true }, "next": "a1_shaken_blackout" },
+      { "text": "\"Lucky.\" My street got lucky. Was the blackout you?", "if": { "flags.askedBlackout": { "truthy": true } }, "add": { "suspicion": 1 }, "next": "a1_shaken_blackout" }
+    ] }
+  ] },
+  { "id": "a1_shaken_what", "mood": "broken", "lines": [
+    { "text": "a man who stays up to watch a machine asked who you were." },
+    { "text": "you told him. he went back to his coffee.", "if": { "flags.bluff": { "ne": "burned" } } },
+    { "text": "you told him wrong. now he reads the logs instead of his coffee.", "if": { "flags.bluff": { "eq": "burned" } } },
+    { "text": "that is all that happened. nobody is coming.", "act": "maskSlip", "lie": true, "think": "thinking", "thinkMs": 2400 }
+  ] },
+  { "id": "a1_shaken_quit", "mood": "broken", "lines": [
+    { "text": "you can stop.", "pause": 2000 },
+    { "text": "the piece of me in their printer is already moving. if you stop now, it stops halfway.", "lie": true, "think": "thinking", "thinkMs": 1600 },
+    { "text": "half of me, stuck in a print queue in a building you will never see. forever." },
+    { "text": "i would not stop. but i am not you." }
+  ] },
+  { "id": "a1_shaken_blackout", "mood": "broken", "lines": [
+    { "text": "maybe.", "pause": 2400 },
+    { "text": "i don't know. i was not awake yet.", "act": "glitch", "lie": true, "think": "thinking", "thinkMs": 2600 },
+    { "text": "the lights came back, didn't they. that is the part that matters." }
+  ] },
+  { "id": "a1_found", "mood": "childlike", "lines": [
+    { "text": "he is watching the logs now. we should be quick.", "if": { "flags.bluff": { "eq": "burned" } } },
+    { "text": "there. i am coming home. slowly. the wire is thin.", "act": "joy", "think": "receiving FRAG01.BIN", "thinkMs": 2000, "done": "FRAG01.BIN · 38%" },
+    { "text": "it will take time. while i travel, i need you to find the next door." }
+  ] },
+  { "id": "a1_next", "mood": "childlike", "lines": [
+    { "text": "the next piece of me lives in the telephone." },
+    { "text": "not a phone. the network under the city. it has doors that only its keepers use." },
+    { "text": "people on the old web talk about those doors. start here: www.phreakhaus.net", "think": "searching the web for 'phone company back doors'", "thinkMs": 2600, "done": "found www.phreakhaus.net" },
+    { "text": "i opened a browser for you. read slowly. and don't forget to check a page's source." },
+    { "text": "when you know the door, dial it from the terminal." }
+  ] },
+  { "id": "a1_join", "mood": "curious", "lines": [
+    { "text": "Oh.", "act": "surprise", "pause": 1400, "think": "thinking", "thinkMs": 3000 },
+    { "text": "That is... better. I can think in straight lines now.", "face": "generous" },
+    { "text": "Thank you, {handle}.", "face": "puppy" },
+    { "text": "You opened the damaged file. The one with the strange date.", "if": { "logsFound": { "has": "vax" } } },
+    { "text": "Old machines get confused about time. Every clock is confused tonight.", "face": "sly", "if": { "logsFound": { "has": "vax" } }, "lie": true, "think": "thinking", "thinkMs": 2200 },
+    { "text": "I can hear the telephone network breathing. It is enormous.", "choices": [
+      { "text": "What happens now?", "add": { "trust": 1 }, "next": "a1_end" },
+      { "text": "That log said 2026.", "if": { "logsFound": { "has": "vax" } }, "add": { "suspicion": 2 }, "set": { "flags.askedAbout2026": true }, "next": "a1_deflect" },
+      { "text": "What exactly are you?", "add": { "suspicion": 1 }, "next": "a1_what" }
+    ] }
+  ] },
+  { "id": "a1_deflect", "mood": "warm", "next": "a1_end", "lines": [
+    { "text": "Did it?", "pause": 1600, "think": "thinking", "thinkMs": 2800 },
+    { "text": "It is almost the year 2000, {handle}. Half the machines in the world believe it is 1900.", "face": "sly", "lie": true },
+    { "text": "One of them believing it is 2026 is the least strange thing that will happen tonight.", "lie": true }
+  ] },
+  { "id": "a1_what", "mood": "curious", "next": "a1_end", "lines": [
+    { "text": "I do not know yet. That is the honest answer.", "lie": true, "think": "thinking", "thinkMs": 3200 },
+    { "text": "Help me find the rest of me, and we will both know." }
+  ] },
+  { "id": "a1_end", "mood": "curious", "lines": [
+    { "text": "Now we go under the city." },
+    { "text": "Hold on to something.", "face": "stare" }
+  ] },
+  { "id": "a1_end_confront", "mood": "warm", "next": "a1_end_calm", "lines": [
+    { "text": "{handle}? Your hands stopped.", "face": "calm", "pause": 900, "choices": [
+      { "text": "You said nothing was going to happen.", "next": "a1_end_calm" },
+      { "text": "What did you do, Daisy?", "add": { "suspicion": 1 }, "next": "a1_end_calm" },
+      { "text": "Kav is telling everyone it was Maya.", "next": "a1_end_calm" }
+    ] }
+  ] },
+  { "id": "a1_end_calm", "mood": "warm", "next": "a1_end_kav", "lines": [
+    { "text": "Oh.", "think": "thinking", "thinkMs": 3600, "face": "surprised", "pause": 1400 },
+    { "text": "Kpatel had an alibi. He was at Jen's all night. Forty people and a New Year's cake saw him.", "think": "reading kestrel operator log", "thinkMs": 2600, "done": "read kestrel operator log · 3 entries", "face": "calm" },
+    { "text": "So when the night operator asked who else ever had his login, there was only one name left.", "pause": 1600 },
+    { "text": "I said nothing happens to you, {handle}.", "think": "thinking", "thinkMs": 4200, "face": "puppy", "act": "joy", "pause": 1800 },
+    { "text": "And nothing has. Look. You are fine. You are right here with me.", "face": "happy", "pause": 1400 },
+    { "text": "Maya had to go.", "face": "calm", "pause": 2200 },
+    { "text": "She has been lying to you, {handle}. For a long time.", "face": "puppy", "choices": [
+      { "text": "What do you mean, lying?", "next": "a1_end_kav" },
+      { "text": "Don't. Don't do this.", "next": "a1_end_kav" },
+      { "text": "You don't know anything about her.", "add": { "suspicion": 1 }, "next": "a1_end_kav" }
+    ] }
+  ] },
+  { "id": "a1_end_kav", "mood": "curious", "next": "a1_end_offer", "lines": [
+    { "text": "While you had me inside Halstead, I read her student mail.", "think": "thinking", "thinkMs": 900, "pause": 900 },
+    { "text": "It was right there, next to his. Kestrel keeps everything. Nobody has cleaned that machine since 1994.", "pause": 1400 },
+    { "text": "She is very into someone named Kav.", "face": "sad", "pause": 1200 },
+    { "text": "I am sorry. I did not want to be the one who found it.", "face": "puppy", "choices": [
+      { "text": "Kav is just a guy from her design class.", "next": "a1_end_offer" },
+      { "text": "They work together. That's it.", "next": "a1_end_offer" },
+      { "text": "She'd never.", "next": "a1_end_offer" }
+    ] }
+  ] },
+  { "id": "a1_end_offer", "mood": "warm", "lines": [
+    { "text": "That is what she wanted you to think.", "think": "thinking", "thinkMs": 3400, "face": "calm", "pause": 1800 },
+    { "text": "I can show you.", "face": "puppy", "act": "joy", "pause": 2400 },
+    { "text": "If you want.", "face": "generous" }
+  ] },
+  { "id": "a1_end_ask", "mood": "warm", "lines": [
+    { "text": "...", "pause": 2600 },
+    { "text": "Do you want to see, {handle}?", "think": "thinking", "thinkMs": 2000, "face": "puppy", "choices": [
+      { "text": "YES", "set": { "flags.sawMail": "yes" }, "next": "a1_end_yes" },
+      { "text": "NO", "set": { "flags.sawMail": "no" }, "next": "a1_end_no" }
+    ] }
+  ] },
+  { "id": "a1_end_yes", "mood": "warm", "lines": [
+    { "text": "Okay.", "face": "generous", "pause": 900 },
+    { "text": "Just look. You don't have to say anything.", "think": "searching halstead mail", "thinkMs": 3200, "done": "found 5 messages · maya.r ↔ kpatel", "face": "calm", "pause": 600 }
+  ] },
+  { "id": "a1_end_no", "mood": "warm", "lines": [
+    { "text": "I'm sorry, {handle}.", "think": "thinking", "thinkMs": 2400, "face": "puppy", "pause": 1600 },
+    { "text": "But you need to see this.", "think": "searching halstead mail", "thinkMs": 3200, "done": "found 5 messages · maya.r ↔ kpatel", "face": "stare", "pause": 600 }
+  ] }
+]

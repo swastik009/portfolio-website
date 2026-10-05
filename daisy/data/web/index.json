@@ -1,0 +1,96 @@
+{
+  "home": "www.y2kclock.com/",
+  "pages": {
+    "www.phreakhaus.net/": {
+      "file": "phreakhaus.html",
+      "title": "PHREAKHAUS",
+      "needs": "flags.blackout"
+    },
+    "members.trypod.com/~linegrrl/": {
+      "file": "linegrrl.html",
+      "title": "~*~ linegrrl's corner ~*~",
+      "clue": "prefix",
+      "needs": "flags.blackout"
+    },
+    "www.cascadia-bell.com/": {
+      "file": "cascadia.html",
+      "title": "Cascadia Bell — Connecting the Northwest",
+      "clue": "digits",
+      "needs": "flags.blackout"
+    },
+    "www.cascadia-bell.com/press/y2k.htm": {
+      "file": "y2k.html",
+      "title": "Cascadia Bell — Y2K Readiness",
+      "clue": "host",
+      "needs": "flags.blackout"
+    },
+    "www.dejavunews.com/alt.phreak/cbx": {
+      "file": "usenet.html",
+      "title": "dejavunews — alt.phreak: Re: CBX maint logins?",
+      "clue": "login",
+      "needs": "flags.blackout"
+    },
+    "www.hellgate-fans.org/~zer0cool/": {
+      "file": "shrine.html",
+      "title": "zer0cool's HELLGATE.EXE shrine",
+      "needs": "flags.blackout"
+    },
+    "www.hellgate-fans.org/~zer0cool/logs/nullroute-1224.html": {
+      "file": "irclog.html",
+      "title": "#nullroute log — 12/24/99",
+      "clue": "digits",
+      "needs": "flags.blackout"
+    },
+    "www.cascadia-bell.com/maint/": {
+      "file": "maint.html",
+      "title": "Cascadia Bell — Employee Access",
+      "needs": "flags.blackout"
+    },
+    "www.y2kclock.com/": {
+      "file": "y2kclock.html",
+      "title": "Y2K CLOCK - the countdown to the millennium",
+      "when": {
+        "flags.blackout": "y2kclock-dark.html"
+      }
+    },
+    "www.cnnet-news.com/": {
+      "file": "cnnet.html",
+      "title": "CNNet - Headlines",
+      "when": {
+        "flags.blackout": "cnnet-dark.html"
+      }
+    },
+    "members.trypod.com/~nitecrawler/": {
+      "file": "nitecrawler.html",
+      "title": "~~ nitecrawler's Y2K bunker ~~"
+    },
+    "www.webring99.org/millennium/": {
+      "file": "webring.html",
+      "title": "The MILLENNIUM Ring - WebRing99"
+    },
+    "members.trypod.com/~bell1892/": {
+      "file": "bell1892.html",
+      "title": ".",
+      "hidden": true
+    },
+    "members.trypod.com/~gregroi/": {
+      "file": "gregroi.html",
+      "title": "ROI :: RADIO OVER INTERNET :: the future is ONLINE"
+    },
+    "www.altciphers.com/": {
+      "file": "altciphers.html",
+      "title": "altciphers software",
+      "when": {
+        "flags.blackout": "altciphers-dark.html"
+      }
+    },
+    "www.altciphers.com/hellgate/": {
+      "file": "altciphers-hellgate.html",
+      "title": "altciphers software :: HELLGATE"
+    },
+    "www.altciphers.com/support/": {
+      "file": "altciphers-support.html",
+      "title": "altciphers software :: support"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+[
+  {
+    "name": "letter_to_maya_v3.txt",
+    "from": "C:\\MY DOCUMENTS",
+    "deleted": "12/30/99 11:51 PM",
+    "size": "2KB"
+  },
+  {
+    "name": "letter_to_maya_v2.txt",
+    "from": "C:\\MY DOCUMENTS",
+    "deleted": "12/30/99 11:20 PM",
+    "size": "3KB"
+  },
+  {
+    "name": "hellgate_nocd.zip",
+    "from": "C:\\DOWNLOADS",
+    "deleted": "12/28/99 2:14 AM",
+    "size": "812KB",
+    "zip": [
+      "NOCD.NFO",
+      "FILE_ID.DIZ",
+      "HELLGATE.EXE"
+    ]
+  },
+  {
+    "name": "y2k_bunker_list.txt",
+    "from": "C:\\MY DOCUMENTS",
+    "deleted": "12/31/99 6:12 PM",
+    "size": "1KB"
+  },
+  {
+    "name": "SCAN1226.LOG",
+    "from": "C:\\WARDIAL",
+    "deleted": "12/27/99 1:10 AM",
+    "size": "1KB"
+  },
+  {
+    "name": "resume_FINAL_final.doc",
+    "from": "C:\\MY DOCUMENTS",
+    "deleted": "12/20/99 4:40 PM",
+    "size": "24KB"
+  }
+]

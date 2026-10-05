@@ -1,0 +1,389 @@
+{
+  "id": "act1",
+  "title": "I. HANDSHAKE",
+  "beats": [
+    {
+      "type": "cutscene",
+      "id": "coldopen"
+    },
+    {
+      "type": "puzzle",
+      "id": "prologue",
+      "params": {
+        "url": "members.trypod.com/~bell1892/",
+        "file": "install.exe"
+      }
+    },
+    {
+      "type": "advance",
+      "minutes": 3
+    },
+    {
+      "type": "cutscene",
+      "id": "blackout"
+    },
+    {
+      "type": "set",
+      "path": "flags.blackout",
+      "value": true
+    },
+    {
+      "type": "puzzle",
+      "id": "wake",
+      "waitFor": "daisy",
+      "hints": [
+        "Double-click install.exe. Then drag the dial slowly until the static clears.",
+        "When the hum is clean it plays four notes. The taller the bar, the higher the note. Play them back in the same order.",
+        "Missed it? PLAY AGAIN hums the four notes again. A wrong note starts you over from the first."
+      ]
+    },
+    {
+      "type": "cutscene",
+      "id": "daisyArrives"
+    },
+    {
+      "type": "dialogue",
+      "node": "a1_wake"
+    },
+    {
+      "type": "advance",
+      "minutes": 2
+    },
+    {
+      "type": "wait",
+      "ms": 22000,
+      "cue": "answering"
+    },
+    {
+      "type": "dialogue",
+      "node": "a1_power"
+    },
+    {
+      "type": "dialogue",
+      "node": "a1_maya"
+    },
+    {
+      "type": "set",
+      "path": "flags.bsnBack",
+      "value": true,
+      "cue": "bsnBack"
+    },
+    {
+      "type": "puzzle",
+      "id": "wardialer",
+      "hints": [
+        "your scan from the 27th is still on the drive. read it.",
+        "two numbers answered with a tone. listen before you dial. a fax chirps in bursts. a modem holds one long note.",
+        "only one of those tones is a machine that wants to talk to a modem."
+      ],
+      "params": {
+        "numbers": [
+          {
+            "number": "555-0112",
+            "tone": "busy"
+          },
+          {
+            "number": "555-0129",
+            "tone": "ringback"
+          },
+          {
+            "number": "555-0143",
+            "tone": "sit"
+          },
+          {
+            "number": "555-0156",
+            "tone": "fax"
+          },
+          {
+            "number": "555-0161",
+            "tone": "busy"
+          },
+          {
+            "number": "555-0174",
+            "tone": "ringback"
+          },
+          {
+            "number": "555-0187",
+            "tone": "carrier"
+          },
+          {
+            "number": "555-0198",
+            "tone": "fax"
+          }
+        ]
+      }
+    },
+    {
+      "type": "set",
+      "path": "flags.daisyLit",
+      "value": true
+    },
+    {
+      "type": "advance",
+      "minutes": 8
+    },
+    {
+      "type": "dialogue",
+      "node": "a1_connected"
+    },
+    {
+      "type": "puzzle",
+      "id": "roomhunt",
+      "hints": [
+        "you can't see your room from the screen. look around.",
+        "maya trusted you with something. it's on the desk.",
+        "things have two sides. turn it over."
+      ],
+      "params": {
+        "needs": [
+          "kestrelCreds"
+        ]
+      }
+    },
+    {
+      "type": "advance",
+      "minutes": 8
+    },
+    {
+      "type": "dialogue",
+      "node": "a1_photo"
+    },
+    {
+      "type": "puzzle",
+      "id": "vaxlogin",
+      "hints": [
+        "the public pool won't take a login. you wrote a staff line down somewhere in this room.",
+        "look at the numbers taped near the monitor. turn them over.",
+        "you have the line. the name and the secret word are where maya left them.",
+        "read the back of her photo again. every letter matters."
+      ],
+      "params": {
+        "number": "555-0166",
+        "pool": "555-0187",
+        "host": "kestrel.halstead.edu",
+        "user": "KPATEL",
+        "pass": "OKAFOR99"
+      }
+    },
+    {
+      "type": "advance",
+      "minutes": 15
+    },
+    {
+      "type": "dialogue",
+      "node": "a1_inside",
+      "cue": "pager"
+    },
+    {
+      "type": "puzzle",
+      "id": "vmshunt",
+      "hints": [
+        "the printer forgets things. printers keep what they can't finish.",
+        "stuck jobs wait in a spool, and the spool keeps a log.",
+        "one job is being held. find where held jobs are kept."
+      ],
+      "params": {
+        "fs": "data/puzzles/kestrel-fs.json",
+        "start": [
+          "STUDENTS",
+          "KPATEL"
+        ],
+        "target": [
+          "SPOOL",
+          "PRINT",
+          "HOLD",
+          "JOB_0042.LIS"
+        ],
+        "log": [
+          "STUDENTS",
+          "KPATEL",
+          "DAEMON.LOG"
+        ],
+        "home": [
+          "STUDENTS"
+        ],
+        "leaveWarning": "wait. someone on this machine is awake, and he knows patel. the moment we step out of the students folder, he will see us. if he asks, we have to be patel, and the answers are in his mail. read it. all of it. then go.",
+        "number": "555-0166",
+        "users": [
+          {
+            "name": "jhalloran",
+            "tty": "TTA3",
+            "idle": "0:02"
+          },
+          {
+            "name": "kpatel",
+            "tty": "TTA7",
+            "idle": "0:00"
+          },
+          {
+            "name": "opr_night",
+            "tty": "OPA0",
+            "idle": "0:47"
+          }
+        ],
+        "plans": {
+          "jhalloran": "  1. survive Y2K.\n  2. find whoever keeps printing 400-page theses on the 3rd floor.\n  3. walk Biscuit at 6.",
+          "kpatel": "  ch4. ch4. ch4.\n  -kp",
+          "opr_night": "  on shift till 6. don't call."
+        },
+        "mail": [
+          {
+            "from": "d.okafor@halstead.edu",
+            "date": "Tue, 28 Dec 1999 16:20",
+            "subject": "Chapter 4",
+            "body": "Kav,\n\nI need chapter 4 on my desk by January 3rd. Not the 4th. The committee meets\nthat afternoon and I will not walk in empty-handed again.\n\nAnd please stop calling it \"the off-switch chapter\" in front of the funders.\n\n- D.O."
+          },
+          {
+            "from": "priya@buffnet.net",
+            "date": "Wed, 29 Dec 1999 21:02",
+            "subject": "the 2nd",
+            "body": "you're still driving up on the 2nd right? mom's thing. she's making the\nentire menu. don't make me come down to buffalo-by-way-of-campus to get you.\n\n- p"
+          },
+          {
+            "from": "kpatel@kestrel.halstead.edu",
+            "date": "Thu, 30 Dec 1999 01:44",
+            "subject": "Re: 3rd floor printer",
+            "body": "> who keeps sending 400 page jobs to the 3rd floor printer\n\nthat's me. sorry. it's the thesis. i'll stop after the 3rd. promise.\n\n-kp"
+          },
+          {
+            "from": "opr_night@kestrel.halstead.edu",
+            "date": "Fri, 31 Dec 1999 21:40",
+            "subject": "printer",
+            "body": "the 3rd floor printer ate another job. it's stuck in the hold queue\nand it says the file is 99,999 blocks?? i'm not touching it. happy new year"
+          }
+        ]
+      },
+      "interrupts": {
+        "phone": {
+          "type": "qte",
+          "id": "bluff",
+          "penalty": 1,
+          "params": {
+            "from": "JHALLORAN@KESTREL",
+            "seconds": 10,
+            "exchanges": [
+              {
+                "says": "patel?? its {time} on new years. what are you doing on kestrel",
+                "replies": [
+                  {
+                    "text": "ch4. okafor wants it on the 4th and i'm behind. -kp"
+                  },
+                  {
+                    "text": "ch4. okafor wants it by jan 3 and i'm behind. -kp",
+                    "right": true
+                  },
+                  {
+                    "text": "thesis. happy new year jim! — K. Patel"
+                  }
+                ]
+              },
+              {
+                "says": "on new years eve. arent you supposed to be in buffalo",
+                "replies": [
+                  {
+                    "text": "flying out first thing tomorrow. -kp"
+                  },
+                  {
+                    "text": "i don't have anyone in buffalo, jim. -kp"
+                  },
+                  {
+                    "text": "driving up on the 2nd. mom's thing. -kp",
+                    "right": true
+                  }
+                ]
+              },
+              {
+                "says": "fine. then explain the monster job jamming my hold queue",
+                "replies": [
+                  {
+                    "text": "3rd floor printer? that's me. sorry. it's the thesis. -kp",
+                    "right": true
+                  },
+                  {
+                    "text": "not mine. i only use the basement laser. -kp"
+                  },
+                  {
+                    "text": "i haven't printed anything since november. -kp"
+                  }
+                ]
+              }
+            ],
+            "endings": {
+              "clean": "ok. happy new year kav. go home. and STOP printing on 3.",
+              "suspicious": "huh. ok. im closing the dialup pool soon anyway. finish up.",
+              "burned": "kav would know that. whoever you are, youre done."
+            }
+          }
+        },
+        "shaken": {
+          "type": "dialogue",
+          "node": "a1_shaken"
+        }
+      }
+    },
+    {
+      "type": "set",
+      "path": "flags.downloading",
+      "value": true
+    },
+    {
+      "type": "advance",
+      "minutes": 6
+    },
+    {
+      "type": "dialogue",
+      "node": "a1_found"
+    },
+    {
+      "type": "dialogue",
+      "node": "a1_next"
+    },
+    {
+      "type": "puzzle",
+      "id": "telco",
+      "hints": [
+        "start at www.phreakhaus.net. read everything. some text hides: try selecting it.",
+        "the number has two halves: a ghost exchange, and an extension the phone company published itself.",
+        "the switch's name is in their y2k news. the old usenet post says how its passwords are made."
+      ],
+      "params": {
+        "number": "555-0847",
+        "kestrel": "555-0166",
+        "host": "CBX-7",
+        "user": "MAINT",
+        "pass": "HARBOR7",
+        "clues": [
+          "prefix",
+          "digits",
+          "host",
+          "login"
+        ],
+        "flourish": "splice FRAG01.BIN --into cbx-7 --hold"
+      }
+    },
+    {
+      "type": "advance",
+      "minutes": 7
+    },
+    {
+      "type": "cutscene",
+      "id": "fragmentJoin"
+    },
+    {
+      "type": "daisy",
+      "growth": 0.12
+    },
+    {
+      "type": "wait",
+      "ms": 2200
+    },
+    {
+      "type": "dialogue",
+      "node": "a1_join"
+    },
+    {
+      "type": "cutscene",
+      "id": "chapterEnd"
+    }
+  ]
+}

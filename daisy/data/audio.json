@@ -1,0 +1,316 @@
+{
+  "key_1": {
+    "file": "assets/audio/sfx/key_1.mp3",
+    "source": "https://commons.wikimedia.org/wiki/File:Typing_-_Model_M13_1999.ogg",
+    "author": "Raymangold22",
+    "license": "CC0"
+  },
+  "key_2": {
+    "file": "assets/audio/sfx/key_2.mp3",
+    "source": "https://commons.wikimedia.org/wiki/File:Typing_-_Model_M13_1999.ogg",
+    "author": "Raymangold22",
+    "license": "CC0"
+  },
+  "key_3": {
+    "file": "assets/audio/sfx/key_3.mp3",
+    "source": "https://commons.wikimedia.org/wiki/File:Typing_-_Model_M13_1999.ogg",
+    "author": "Raymangold22",
+    "license": "CC0"
+  },
+  "key_4": {
+    "file": "assets/audio/sfx/key_4.mp3",
+    "source": "https://commons.wikimedia.org/wiki/File:Typing_-_Model_M13_1999.ogg",
+    "author": "Raymangold22",
+    "license": "CC0"
+  },
+  "key_space": {
+    "file": "assets/audio/sfx/key_space.mp3",
+    "source": "https://commons.wikimedia.org/wiki/File:Typing_-_Model_M13_1999.ogg",
+    "author": "Raymangold22",
+    "license": "CC0"
+  },
+  "key_enter": {
+    "file": "assets/audio/sfx/key_enter.mp3",
+    "source": "https://commons.wikimedia.org/wiki/File:Typing_-_Model_M13_1999.ogg",
+    "author": "Raymangold22",
+    "license": "CC0"
+  },
+  "mouse_click": {
+    "file": "assets/audio/sfx/mouse_click.mp3",
+    "source": "https://commons.wikimedia.org/wiki/File:Computer_mouse_single_click.ogg",
+    "author": "Darklanlan",
+    "license": "CC0"
+  },
+  "modem_handshake": {
+    "file": "assets/audio/sfx/modem_handshake.mp3",
+    "source": "https://commons.wikimedia.org/wiki/File:Dial_up_modem_noises.ogg",
+    "author": "William Termini",
+    "license": "PD"
+  },
+  "hdd_seek": {
+    "file": "assets/audio/sfx/hdd_seek.mp3",
+    "source": "https://commons.wikimedia.org/wiki/File:WD102AA_Scratched_area_read_retries.ogg",
+    "author": "AlepouTheFox",
+    "license": "CC0"
+  },
+  "phone_ring": {
+    "file": "assets/audio/sfx/phone_ring.mp3",
+    "source": "tools/ (ffmpeg lavfi synthesis)",
+    "author": "DAISY",
+    "license": "generated"
+  },
+  "crt_on": {
+    "file": "assets/audio/sfx/crt_on.mp3",
+    "source": "tools/ (ffmpeg lavfi synthesis)",
+    "author": "DAISY",
+    "license": "generated"
+  },
+  "tv_static": {
+    "file": "assets/audio/ambience/tv_static.wav",
+    "source": "https://commons.wikimedia.org/wiki/File:Static_B.wav",
+    "author": "Oreocooke",
+    "license": "CC0"
+  },
+  "rain_loop": {
+    "file": "assets/audio/ambience/rain_loop.wav",
+    "source": "https://commons.wikimedia.org/wiki/File:Rain_(1).ogg",
+    "author": "ezwa",
+    "license": "PD"
+  },
+  "train_pass": {
+    "file": "assets/audio/ambience/train_pass.mp3",
+    "source": "https://freesound.org/s/697050/",
+    "author": "gadesound",
+    "license": "CC0"
+  },
+  "act1_bed": {
+    "file": "assets/audio/music/act1_bed.mp3",
+    "source": "https://opengameart.org/content/emptycity-background-music",
+    "author": "yd",
+    "license": "CC0"
+  },
+  "horn_far": {
+    "file": "assets/audio/ambience/horn_far.mp3",
+    "source": "https://freesound.org/s/575262/",
+    "author": "TRP",
+    "license": "CC0"
+  },
+  "siren_far": {
+    "file": "assets/audio/ambience/siren_far.mp3",
+    "source": "https://freesound.org/s/568975/",
+    "author": "TRP",
+    "license": "CC0"
+  },
+  "steam_hiss": {
+    "file": "assets/audio/ambience/steam_hiss.wav",
+    "source": "https://freesound.org/s/438786/",
+    "author": "craigsmith",
+    "license": "CC0"
+  },
+  "train_brake": {
+    "file": "assets/audio/sfx/train_brake.mp3",
+    "source": "https://freesound.org/s/385284/",
+    "author": "semenov_nick",
+    "license": "CC0"
+  },
+  "siren_police": {
+    "file": "assets/audio/ambience/siren_police.mp3",
+    "source": "https://freesound.org/s/635741/",
+    "author": "kyles",
+    "license": "CC0"
+  },
+  "siren_ambulance": {
+    "file": "assets/audio/ambience/siren_ambulance.mp3",
+    "source": "https://freesound.org/s/469363/",
+    "author": "brunoboselli",
+    "license": "CC0"
+  },
+  "thunder_far_1": {
+    "file": "assets/audio/ambience/thunder_far_1.mp3",
+    "source": "https://freesound.org/s/486557/",
+    "author": "xUMR",
+    "license": "CC0"
+  },
+  "thunder_far_2": {
+    "file": "assets/audio/ambience/thunder_far_2.mp3",
+    "source": "https://freesound.org/s/581125/",
+    "author": "Fission9",
+    "license": "CC0"
+  },
+  "breaker_1": {
+    "file": "assets/audio/sfx/breaker_1.mp3",
+    "source": "https://freesound.org/s/131599/",
+    "author": "EchoCinematics",
+    "license": "CC0"
+  },
+  "breaker_2": {
+    "file": "assets/audio/sfx/breaker_2.mp3",
+    "source": "https://freesound.org/s/130154/",
+    "author": "sribubba",
+    "license": "CC0"
+  },
+  "car_alarm": {
+    "file": "assets/audio/ambience/car_alarm.wav",
+    "source": "https://pixabay.com/sound-effects/film-special-effects-distant-horn-beeps-09-62142/",
+    "author": "freesound_community",
+    "license": "Pixabay"
+  },
+  "power_hum": {
+    "file": "assets/audio/sfx/power_hum.mp3",
+    "source": "https://freesound.org/s/262510/",
+    "author": "OBXJohn",
+    "license": "CC0"
+  },
+  "pc_boot": {
+    "file": "assets/audio/sfx/pc_boot.mp3",
+    "source": "https://freesound.org/s/861141/",
+    "author": "salemaudio",
+    "license": "CC0"
+  },
+  "power_button": {
+    "file": "assets/audio/sfx/power_button.mp3",
+    "source": "https://freesound.org/s/867783/",
+    "author": "cb9382",
+    "license": "CC0"
+  },
+  "error_ding": {
+    "file": "assets/audio/sfx/error_ding.mp3",
+    "source": "https://freesound.org/s/581604/",
+    "author": "SamsterBirdies",
+    "license": "CC0"
+  },
+  "answer_beep": {
+    "file": "assets/audio/sfx/answer_beep.mp3",
+    "source": "https://freesound.org/s/160775/",
+    "author": "pillonoise",
+    "license": "CC0"
+  },
+  "dl_loop": {
+    "file": "assets/audio/sfx/dl_loop.mp3",
+    "source": "https://freesound.org/s/321503/",
+    "author": "viertelnachvier",
+    "license": "CC0"
+  },
+  "greg_roi": {
+    "file": "assets/audio/voice/greg_roi.mp3",
+    "source": "https://freetouse.com/music",
+    "author": "Swastik (voice of Greg); music: Zambolino - Roar; click: moxobna (CC0, https://freesound.org/s/40164/)",
+    "license": "FreeToUse",
+    "note": "Greg's ROI ep07 with Roar's intro in front (one file). Built by tools/build-greg.sh from assets/audio/_raw/"
+  },
+  "greg_answering": {
+    "file": "assets/audio/voice/greg_answering.mp3",
+    "source": "https://freesound.org/s/637465/",
+    "author": "Swastik (voice of Greg); restaurant: kyles (CC0)",
+    "license": "own",
+    "note": "Built by tools/build-greg.sh"
+  },
+  "dsn_msg": {
+    "file": "assets/audio/sfx/dsn_msg.mp3",
+    "source": "https://freesound.org/s/760369/",
+    "author": "Froey_",
+    "license": "CC0"
+  },
+  "blinds_rattle": {
+    "file": "assets/audio/sfx/blinds_rattle.mp3",
+    "source": "https://freesound.org/s/450040/",
+    "author": "kyles",
+    "license": "CC0",
+    "note": "venetian blinds pull down quick various metal rattle.wav; the four rattles spliced into one, for the train shaking the blinds"
+  },
+  "can_rattle": {
+    "file": "assets/audio/sfx/can_rattle.mp3",
+    "source": "https://freesound.org/s/118073/",
+    "author": "ipears1",
+    "license": "CC0",
+    "note": "emptycanrattle.wav, trimmed; the Roke can on its side as the train passes"
+  },
+  "intro_bed": {
+    "file": "assets/audio/music/intro_bed.mp3",
+    "source": "https://pixabay.com/music/suspense-dark-suspense-atmosphere-129627/",
+    "author": "Universfield",
+    "license": "Pixabay"
+  },
+  "glitch_long": {
+    "file": "assets/audio/sfx/glitch_long.mp3",
+    "source": "https://freesound.org/s/738562/",
+    "author": "vladislavzh",
+    "license": "CC0"
+  },
+  "glitch_short": {
+    "file": "assets/audio/sfx/glitch_short.mp3",
+    "source": "https://freesound.org/s/738562/",
+    "author": "vladislavzh",
+    "license": "CC0"
+  },
+  "kaazoom_broken": {
+    "file": "assets/audio/music/kaazoom_broken.mp3",
+    "source": "https://pixabay.com/music/doo-wop-broken-hearts-and-blue-moons-alternative-melody-1950s-doo-wop-377155/",
+    "author": "Kaazoom",
+    "license": "Pixabay"
+  },
+  "pc_hum": {
+    "file": "assets/audio/sfx/pc_hum.wav",
+    "source": "own",
+    "author": "provided by Swastik (free to use)",
+    "license": "FreeToUse"
+  },
+  "disk_read": {
+    "file": "assets/audio/sfx/disk_read.mp3",
+    "source": "https://freesound.org/s/321503/",
+    "author": "viertelnachvier",
+    "license": "CC0"
+  },
+  "greg_emergency": {
+    "file": "assets/audio/voice/greg_emergency.mp3",
+    "source": "https://freesound.org/s/637465/",
+    "author": "Swastik (voice of Greg); restaurant: kyles (CC0)",
+    "license": "own",
+    "note": "Built by tools/build-greg.sh"
+  },
+  "menu_hover": {
+    "file": "assets/audio/sfx/menu_hover.mp3",
+    "source": "https://freesound.org/s/565131/",
+    "author": "unfa",
+    "license": "CC0"
+  },
+  "menu_select": {
+    "file": "assets/audio/sfx/menu_select.mp3",
+    "source": "https://freesound.org/s/851556/",
+    "author": "TommasoMotteran",
+    "license": "CC0"
+  },
+  "menu_back": {
+    "file": "assets/audio/sfx/menu_back.mp3",
+    "source": "https://freesound.org/s/833628/",
+    "author": "Nomagician",
+    "license": "CC0"
+  },
+  "menu_whoosh": {
+    "file": "assets/audio/sfx/menu_whoosh.mp3",
+    "source": "https://freesound.org/s/71852/",
+    "author": "ludvique",
+    "license": "CC0"
+  },
+  "car_pass": {
+    "file": "assets/audio/sfx/car_pass.mp3",
+    "source": "https://freesound.org/s/462862/",
+    "author": "Breviceps",
+    "license": "CC0",
+    "note": "Passing Car (Wet road); peak ~2.6 s in, lined up with the car crossing the window"
+  },
+  "car_horn_1": {
+    "file": "assets/audio/sfx/car_horn_1.mp3",
+    "source": "https://freesound.org/s/553150/",
+    "author": "Brett+Butter",
+    "license": "CC0",
+    "note": "single distant honk, trimmed"
+  },
+  "car_horn_2": {
+    "file": "assets/audio/sfx/car_horn_2.mp3",
+    "source": "https://freesound.org/s/182474/",
+    "author": "keweldog",
+    "license": "CC0",
+    "note": "car horn, trimmed"
+  }
+}

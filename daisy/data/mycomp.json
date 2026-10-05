@@ -1,0 +1,96 @@
+{
+  "_label": "My Computer",
+  "3½ Floppy (A:)": {
+    "_icon": "disk",
+    "_error": "A:\\ is not accessible.\n\nThe device is not ready."
+  },
+  "C:": {
+    "_label": "(C:)",
+    "_icon": "hdd",
+    "_capacity": 6.29,
+    "_free": 1.48,
+    "WINDOWS": {
+      "SYSTEM": {},
+      "WIN.INI": "[windows]\nload=\nrun=\nNullPort=None\n\n[Desktop]\nWallpaper=(None)\nTileWallpaper=0\n"
+    },
+    "GAMES": {
+      "HELLGATE": {
+        "README.TXT": "HELLGATE.EXE v1.9\n\nrequires a 3Dfx Voodoo card and GLIDE2X.DLL.\nif it says it cannot find GLIDE2X.DLL, you lent your voodoo card to someone.\n"
+      }
+    },
+    "WARDIAL": {
+      "TONEDIAL.EXE": "(binary file)",
+      "SCAN1227.LOG": "TONEDIAL v1.10 -- scan log -- 12/27/99 01:12\nblock 555-01XX (HALSTEAD U)  100 dialed\n\n  1  555-0112  BUSY\n  2  555-0129  RING\n  3  555-0143  SIT\n  4  555-0156  TONE\n  5  555-0161  BUSY\n  6  555-0174  RING\n  7  555-0187  TONE\n  8  555-0198  TONE\n\n8 answered. TONE = fax or modem. listen before you dial."
+    },
+    "MAYA.TXT": "hey you. typed this on your machine bc you fell asleep at it again.\n\njen's. new year's eve. 9. you PROMISED.\n\nalso: kav (halstead u, the grad student from my design class) let me print my\nportfolio on the big lab printer. 400 pages, nobody noticed. he gave me the lab\nlogin in case i need it again. it's on a sticky behind our photo -- not on your\nmonitor, where your #nullroute boys would see it in a second.\n\ndon't be weird about it.\n  - m",
+    "MY DOCUMENTS": {
+      "PHOTOS": {
+        "PARTY.BMP": {
+          "_image": "assets/photos/party.jpg",
+          "_taken": "Dec 18 1999"
+        },
+        "MAYA.BMP": {
+          "_image": "assets/photos/maya.jpg",
+          "_taken": "Aug 14 1999"
+        },
+        "ROOFTOP.BMP": {
+          "_image": "assets/photos/rooftop.jpg",
+          "_taken": "Oct 02 1999"
+        }
+      },
+      "TODO.TXT": "- return maya's scarf\n- voodoo card back from greg (HE HAS IT)\n- finish wardial scan of 555-01XX\n- give the butt-set back to the Harbor CO guys before cascadia bell notices it's gone\n- jen's 9pm. PROMISED.\n- buy batteries in case y2k is real (it isn't)\n"
+    },
+    "DOWNLOADS": {
+      "GLIDE2X.ZIP": {
+        "_zip": [
+          "README.TXT",
+          "3DFXVGL.DLL",
+          "GLIDE2X.OVL",
+          "GLIDE2X.DLL"
+        ]
+      }
+    }
+  },
+  "D:": {
+    "_label": "(D:)",
+    "_icon": "cdrom",
+    "_error": "D:\\ is not accessible.\n\nThe device is not ready."
+  },
+  "Printers": {
+    "_icon": "printer",
+    "Add Printer": {
+      "_icon": "program",
+      "_error": "Add Printer could not find a printer port."
+    },
+    "Epson Stylus COLOR 440": {
+      "_icon": "printer",
+      "_error": "Epson Stylus COLOR 440 is out of cyan ink.\n\n(It has been out of cyan ink since August.)"
+    }
+  },
+  "Control Panel": {
+    "_icon": "gear",
+    "Display": {
+      "_icon": "computer",
+      "_error": "Display settings cannot be changed while the desktop is in use."
+    },
+    "Modems": {
+      "_icon": "modem",
+      "_error": "US Robotics Sportster 56K\nPort: COM2\nStatus: This device is working properly."
+    },
+    "Date/Time": {
+      "_icon": "gear",
+      "_error": "Your clock is set to 12/31/99.\n\nIs your computer ready for the year 2000?"
+    }
+  },
+  "Dial-Up Networking": {
+    "_icon": "modem",
+    "Make New Connection": {
+      "_icon": "program",
+      "_error": "Dial-Up Networking: you have no modem lines free."
+    },
+    "BuffNet": {
+      "_icon": "modem",
+      "_error": "Connect To: BuffNet\nPhone number: 555-0100\n\nThe line is busy. Try again later."
+    }
+  }
+}

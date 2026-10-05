@@ -1,0 +1,88 @@
+{
+  "members": ["greg_"],
+  "greg": {
+    "script": [
+      { "sys": "greg_ wants to talk to you. Private message.", "wait": 1.5 },
+      { "who": "greg_", "text": "{handle}", "wait": 1.4 },
+      { "who": "greg_", "text": "{handle} you there??", "wait": 1.2 },
+      { "who": "greg_", "text": "dude. is maya with you?", "wait": 1.6 },
+      { "choices": [
+        { "text": "we haven't talked in 2 days.", "then": [
+          { "who": "greg_", "text": "2 DAYS??", "wait": 1.3 },
+          { "who": "greg_", "text": "man. ok. we are absolutely talking about that later", "wait": 2.2 }
+        ] },
+        { "text": "no.. why?", "then": [
+          { "who": "greg_", "text": "ok don't freak out", "wait": 1.5 },
+          { "who": "greg_", "text": "or like. freak out a little", "wait": 1.7 }
+        ] }
+      ] },
+      { "who": "greg_", "text": "two guys just walked into jen's. went straight past the cake to jen's dad", "wait": 2.7 },
+      { "who": "greg_", "text": "asking where maya is. not like 'is maya here'. like WHERE IS SHE", "wait": 2.5 },
+      { "who": "greg_", "text": "jen's dad said she left a little after 11 and they looked at each other like that was bad", "wait": 3.1 },
+      { "forced": true, "choices": [
+        { "text": "WHAT two guys, GREG!!" }
+      ] },
+      { "who": "greg_", "text": "idk man!! i'm at the bar i'm not a cop", "wait": 1.9 },
+      { "who": "greg_", "text": "one of them is kav. halstead kav. the thesis guy. maya's design class guy", "wait": 2.7 },
+      { "who": "greg_", "text": "the other one's older. halstead jacket. coffee in a thermos. kept going 'kav you are SO screwed'", "wait": 3.2 },
+      { "if": { "flags.bluffSlip": { "truthy": true } }, "who": "greg_", "text": "he had a printout. read kav a line off it like a cop on tv: \"{flags.bluffSlip}\"", "wait": 2.9 },
+      { "if": { "flags.bluffSlip": { "truthy": true } }, "who": "greg_", "text": "kav goes I NEVER SAID THAT. I'VE BEEN HERE SINCE 9. half the bar backed him up", "wait": 2.8 },
+      { "if": { "flags.bluffSlip": { "truthy": false } }, "who": "greg_", "text": "and kav goes 'i was RIGHT HERE all night. ask anyone.' and like. half the bar nodded", "wait": 3.0 },
+      { "who": "greg_", "text": "then he goes 'i'm telling you it's maya. she's the only one who ever had my login'", "wait": 2.9 },
+      { "who": "greg_", "text": "is that a computer thing?? {handle} is that YOUR kind of thing??", "wait": 3 }
+    ]
+  },
+  "spam": {
+    "nudgeAfter": 2.2,
+    "nudges": [
+      "<greg_> are you even reading this",
+      "<greg_> silver dress just laughed at something i said. i didn't say anything",
+      "<greg_> {handle}",
+      "<greg_> ROI means return on investment btw. you're welcome",
+      "<greg_> HELLO",
+      "<greg_> jen's dad gave me a free beer bc of the blackout. ROI",
+      "<greg_> {handle} {handle} {handle}",
+      "<greg_> i am going to propose to the silver dress",
+      "<greg_> not really. unless",
+      "<greg_> buddy. pal. friend. compadre",
+      "<greg_> did you know pets.com has a sock puppet. i own part of a sock puppet",
+      "<greg_> ok i'm just going to keep typing until you say something"
+    ],
+    "script": [
+      { "who": "greg_", "text": "anyway she's probably at her mom's. maya always lands on her feet", "wait": 1.2 },
+      { "who": "greg_", "text": "ok also. unrelated. there is a girl at the bar in a SILVER dress", "wait": 1.1 },
+      { "who": "greg_", "text": "silver like the future. like she's from 2000 already", "wait": 0.9 },
+      { "who": "greg_", "text": "she asked what i do and i said 'the internet' and she LAUGHED. in a good way i think", "wait": 1 },
+      { "who": "greg_", "text": "also my pets.com shares were up 4% today. FOUR PERCENT {handle}", "wait": 0.9 },
+      { "who": "greg_", "text": "when the lights come back i'm putting all of it in y2k survival kits. people will pay ANYTHING on the 1st. the ROI on that", "wait": 1 },
+      { "who": "greg_", "text": "candles. tuna. a crank radio. markup 300%", "wait": 0.8 },
+      { "who": "greg_", "text": "{handle}", "wait": 0.6 },
+      { "who": "greg_", "text": "{handle}", "wait": 0.5 },
+      { "who": "greg_", "text": "you there?", "wait": 0.6 },
+      { "forced": true, "choices": [
+        { "text": "SHUT THE FUCK UP DUDE!", "then": [
+          { "who": "greg_", "text": "alright. chill dude", "wait": 1.6 },
+          { "who": "greg_", "text": "what the fuck", "wait": 1.2 },
+          { "sys": "greg_ has quit (Connection reset by peer)", "wait": 1.4 }
+        ] }
+      ] }
+    ]
+  },
+  "mails": [
+    { "x": 40, "y": 40, "w": 420, "h": 250,
+      "subject": "re: last night", "from": "kpatel@kestrel.halstead.edu", "to": "maya.r@halstead.edu", "date": "Mon, 27 Dec 1999 01:14",
+      "body": "you left your earring on my desk.\ni'm keeping it. [[last night]] i couldn't think about chapter 4 for a single second.\n\n- k" },
+    { "x": 520, "y": 60, "w": 440, "h": 250,
+      "subject": "re: re: last night", "from": "maya.r@halstead.edu", "to": "kpatel@kestrel.halstead.edu", "date": "Mon, 27 Dec 1999 09:02",
+      "body": "keep it.\n\n[[he doesn't know.]] he fell asleep at his computer again.\ni typed him a note and didn't even wake him up.\n\n- m" },
+    { "x": 90, "y": 320, "w": 400, "h": 230,
+      "subject": "your hoodie", "from": "maya.r@halstead.edu", "to": "kpatel@kestrel.halstead.edu", "date": "Tue, 28 Dec 1999 23:48",
+      "body": "i'm wearing [[your hoodie]] to sleep.\nit smells like the lab printer and you.\n\nis that weird. don't answer that.\n- m" },
+    { "x": 560, "y": 330, "w": 420, "h": 240,
+      "subject": "re: jen's", "from": "kpatel@kestrel.halstead.edu", "to": "maya.r@halstead.edu", "date": "Wed, 29 Dec 1999 22:30",
+      "body": "you have to tell him, m.\n\n> [[after new year's.]] i promise.\n> he won't even come to jen's. he never comes.\n\n- k" },
+    { "x": 300, "y": 190, "w": 430, "h": 250,
+      "subject": "11:59", "from": "maya.r@halstead.edu", "to": "kpatel@kestrel.halstead.edu", "date": "Thu, 30 Dec 1999 02:31",
+      "body": "save me the last minute of the year.\nthe one at 11:59.\n\n[[i miss you already.]]\n- m" }
+  ]
+}

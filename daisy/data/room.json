@@ -1,0 +1,223 @@
+{
+  "hotspots": [
+    {
+      "id": "photo",
+      "nodes": [
+        "Photo_Frame",
+        "Photo_Front",
+        "Photo_Back_Note"
+      ],
+      "title": "a photo of maya",
+      "clue": "kestrelCreds",
+      "back": "a sticky note on the back, in maya's hand:\n\nlab acct if you need the big printer —\n   kpatel / okafor99\ndon't tell kav i gave you this.  — m."
+    },
+    {
+      "id": "answering",
+      "nodes": [
+        "Answering_Machine",
+        "Answering_LED"
+      ],
+      "title": "answering machine",
+      "messages": [
+        {
+          "from": "greg",
+          "time": "11:07 PM",
+          "timeFrom": "flags.gregCalledAt",
+          "needs": "flags.gregCalled",
+          "heard": "flags.gregHeard",
+          "voice": "greg_answering",
+          "subtitle": [
+            {
+              "at": 0.95,
+              "text": "yo, it's greg. what the hell just HAPPENED?"
+            },
+            {
+              "at": 5.64,
+              "text": "the whole grid just died, dude. i think this is it. this is the end."
+            },
+            {
+              "at": 10.48,
+              "text": "anyway. i'm at jen's."
+            },
+            {
+              "at": 13.23,
+              "text": "thank god her dad's got a backup generator."
+            },
+            {
+              "at": 15.34,
+              "text": "i have no idea what's going on."
+            },
+            {
+              "at": 17.44,
+              "text": "y2k, whatever. ...whoa."
+            },
+            {
+              "at": 21.45,
+              "text": "i think the hot girl at the bar is looking at me."
+            },
+            {
+              "at": 24.1,
+              "text": "laters, my boi."
+            },
+            {
+              "at": 26.83,
+              "text": "(away from the phone) hey... so. you ever heard of ROI?"
+            },
+            {
+              "at": 29.69,
+              "text": "it's radio, but over the inter—"
+            }
+          ]
+        },
+        {
+          "from": "greg",
+          "time": "11:45 PM",
+          "timeFrom": "flags.gregCalled2At",
+          "needs": "flags.gregCalled2",
+          "heard": "flags.gregHeard2",
+          "voice": "greg_emergency",
+          "subtitle": [
+            {
+              "at": 1.1,
+              "text": "yo, it's me. get on DSN."
+            },
+            {
+              "at": 3.8,
+              "text": "now."
+            },
+            {
+              "at": 4.74,
+              "text": "i'm not messing around, man."
+            },
+            {
+              "at": 6.26,
+              "text": "this is some real shit."
+            }
+          ]
+        }
+      ],
+      "idle": {
+        "title": "answering machine",
+        "note": "0 NEW MESSAGES.\n\nthe little red light is off. nobody's called tonight."
+      }
+    },
+    {
+      "id": "sticky",
+      "nodes": [
+        "Sticky_2"
+      ],
+      "title": "a sticky note above the monitor",
+      "note": "KESTREL — lab login?\nask maya"
+    },
+    {
+      "id": "urlsticky",
+      "nodes": [
+        "Sticky_1"
+      ],
+      "title": "a sticky note, your handwriting",
+      "note": "members.trypod.com/~bell1892\n\nTHE FILE. don't lose this.\n(someone posted it on #nullroute at 4am and deleted it an hour later.)"
+    },
+    {
+      "id": "checklist",
+      "nodes": [
+        "Checklist"
+      ],
+      "title": "your y2k checklist",
+      "note": "water (6 gal) ✓\ncanned stuff ✓\nbatteries ✓\ncash — $200\nbackup floppies ✓\nprint phone #s ✓\ncall maya\n\nthe two you didn't tick are the two that cost something."
+    },
+    {
+      "id": "sticky_bill",
+      "nodes": [
+        "Sticky_0"
+      ],
+      "title": "a sticky note",
+      "note": "pay phone bill!!\n\nthe wardialing was not free. the bell is going to notice."
+    },
+    {
+      "id": "sticky_ziggy",
+      "nodes": [
+        "Sticky_3"
+      ],
+      "title": "a sticky note",
+      "note": "ziggy's bday\n\nyou missed it. it was in october."
+    },
+    {
+      "id": "sticky_reboot",
+      "nodes": [
+        "Sticky_4"
+      ],
+      "title": "a sticky note",
+      "note": "DONT reboot\n\nnot until the scan finishes. it finished on the 27th. the note stayed."
+    },
+    {
+      "id": "magazines",
+      "nodes": [
+        "Magazines",
+        "Magazine_Cover"
+      ],
+      "title": "2400: the hacker quarterly — winter 1999",
+      "back": "COVER: \"Ghost exchanges: the maintenance lines your phone company forgot\"  — p.14\n\nsomeone circled p.14 twice."
+    },
+    {
+      "id": "sticker",
+      "nodes": [
+        "Sticker"
+      ],
+      "title": "a half-peeled sticker",
+      "back": "HACK THE PL—"
+    },
+    {
+      "id": "lamp",
+      "nodes": [
+        "Lamp",
+        "Lamp_Bulb"
+      ],
+      "title": "desk lamp",
+      "toggle": "lamp"
+    },
+    {
+      "id": "pager",
+      "nodes": [
+        "Pager",
+        "Pager_Screen"
+      ],
+      "title": "your pager",
+      "note": "LAST PAGE 23:35. sixteen digits, still crawling across the glass.\n\nnobody you know has a number that long.",
+      "needs": "flags.paged",
+      "idle": {
+        "title": "your pager",
+        "note": "NO PAGES.\n\nquiet night. everyone you'd page is at a party."
+      }
+    },
+    {
+      "id": "bobblehead",
+      "nodes": [
+        "Bobblehead",
+        "Bobble_Head"
+      ],
+      "title": "a bobblehead of the president",
+      "note": "a gag gift from maya. it nods at everything you say.\n\nit has been nodding since '96."
+    },
+    {
+      "id": "mixtape",
+      "nodes": [
+        "Mixtape",
+        "Mixtape_Label",
+        "Mixtape_Note"
+      ],
+      "title": "your tape",
+      "note": "Y2K SURVIVAL MIX. maya made it for you in december. her handwriting on the label, her hearts in the margins.\n\n\"all your loud boys on one tape. the punk, the rock, the metal you swear helps you think. play it when the world ends. — m.\"",
+      "back": "side a\n  enter sandman — metallica\n  killing in the name — rage against the machine\n  basket case — green day\n  master of puppets — metallica\n\nside b\n  bulls on parade — rage against the machine\n  longview — green day\n  guerrilla radio — rage against the machine\n  carousel — hybrid theory\n\nshe circled the last one twice:\n  \"new band?? demo tape. trust me.\""
+    },
+    {
+      "id": "phonelist",
+      "nodes": [
+        "Phone_List"
+      ],
+      "title": "numbers taped to the monitor",
+      "note": "the ones you actually call.\n\ngolden wok · greg · mom · maya\n(someone drew a heart by her name, then scribbled it out)",
+      "back": "on the back, in your writing:\n\nhalstead u. — staff dial-in\n555-0166\n(the pool kicks you off. this one doesn't.)"
+    }
+  ],
+  "pager": "0303202604174190"
+}

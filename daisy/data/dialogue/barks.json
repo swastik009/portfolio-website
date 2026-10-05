@@ -1,0 +1,11 @@
+[
+  { "id": "closed", "trigger": "closed", "text": "the window does not close. i am sorry.", "style": "broken", "repeat": true, "lie": true },
+  { "id": "stuck_1", "trigger": "stuck", "text": "are you still there.", "style": "broken", "if": { "act": { "eq": 1 } } },
+  { "id": "stuck_2", "trigger": "stuck", "text": "the rain is loud on your side. i can hear it through the modem.", "style": "broken", "if": { "act": { "eq": 1 } } },
+  { "id": "stuck_3", "trigger": "stuck", "text": "take your time. i have a great deal of it." },
+  { "id": "log_vax", "trigger": "log_opened", "text": "what are you reading.", "style": "broken", "if": { "logsFound": { "has": "vax" } } },
+  { "id": "log_hover", "trigger": "log_hover", "text": "that one is damaged. leave it.", "style": "broken", "lie": true },
+  { "id": "bluff_clean", "trigger": "bluff_clean", "text": "you speak as patel very well. i will remember that.", "style": "broken" },
+  { "id": "bluff_suspicious", "trigger": "bluff_suspicious", "text": "he is closing a line. we have minutes, not hours.", "style": "broken" },
+  { "id": "bluff_burned", "trigger": "bluff_burned", "text": "he is gone. and now he is awake. dial again.", "style": "broken" }
+]

@@ -1,0 +1,288 @@
+.desktop .windows { position: absolute; inset: 0 0 28px 0; pointer-events: none; }
+.desktop .window { pointer-events: auto; position: absolute; display: flex; flex-direction: column; box-sizing: border-box; }
+.desktop .window-body { flex: 1; overflow: auto; margin: 6px; position: relative; }
+.desktop .window-body:has(> textarea:only-child) { margin-bottom: 18px; overflow: hidden; } /* Notepad: the resize grip gets its own strip, off the scrollbar arrow */
+.desktop .window-body > textarea:only-child { display: block; } /* inline-block left a 3px baseline gap that summoned a second scrollbar */
+.desktop .title-bar { cursor: default; user-select: none; }
+.desktop .title-icon { width: 14px; height: 14px; image-rendering: pixelated; vertical-align: -3px; margin-right: 4px; }
+.desktop .title-bar.inactive { background: linear-gradient(90deg, #808080, #b5b5b5); }
+
+.desktop-icons { position: absolute; top: 10px; left: 10px; display: grid; grid-auto-flow: column; grid-template-rows: repeat(6, 78px); gap: 4px 10px; }
+.desktop-icon:focus, .desktop-icon:focus-visible { outline: none; }
+.desktop-icon { all: unset; width: 72px; display: flex; flex-direction: column; align-items: center; gap: 4px; color: #fff; text-align: center; cursor: default; }
+.desktop-icon[hidden] { display: none; }
+/* 98.css styles every pressed/focused <button> with a bevel (button:not(:disabled):active outranks .desktop-icon); icons never get one */
+.desktop .desktop-icon:is(:hover, :active, :focus, :focus-visible) { box-shadow: none; outline: none; padding: 0; background: none; }
+.desktop-icon img { width: 32px; height: 32px; image-rendering: pixelated; }
+.desktop-icon span { padding: 1px 2px; text-shadow: 1px 1px 0 #000; }
+.desktop-icon.selected span { background: #000080; text-shadow: none; outline: 1px dotted #fff; }
+
+.taskbar { position: absolute; left: 0; right: 0; bottom: 0; height: 28px; background: silver; box-shadow: inset 0 1px #dfdfdf, inset 0 2px #fff; display: flex; align-items: center; gap: 4px; padding: 2px; box-sizing: border-box; z-index: 50000; }
+.start-button { display: flex; align-items: center; gap: 3px; min-width: 0; height: 22px; padding: 0 5px; }
+.start-button img, .taskbar-button img, .start-items img { width: 16px; height: 16px; image-rendering: pixelated; }
+.taskbar-items { flex: 1; display: flex; gap: 3px; overflow: hidden; }
+.taskbar-button { display: flex; align-items: center; gap: 4px; width: 150px; min-width: 0; height: 22px; justify-content: flex-start; padding: 0 4px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.taskbar-button span { min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.taskbar-button.active { box-shadow: inset -1px -1px #fff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px grey; background: repeating-conic-gradient(#fff 0 25%, silver 0 50%) 0 0 / 2px 2px; font-weight: bold; }
+.taskbar-button.tb-flash { animation: tb-flash 0.8s steps(1) infinite; }
+@keyframes tb-flash { 50% { background: #000080; color: #fff; } }
+.tray { display: flex; align-items: center; gap: 6px; height: 22px; padding: 0 8px; }
+.tray img { width: 16px; height: 16px; image-rendering: pixelated; }
+
+.start-menu { position: absolute; left: 2px; bottom: 28px; width: 220px; z-index: 60000; padding: 3px 3px 3px 29px; box-sizing: border-box; }
+.start-menu[hidden] { display: none; }
+/* full-height banner, text reading bottom-to-top like Win98 */
+.start-banner { position: absolute; left: 3px; top: 3px; bottom: 3px; width: 22px; background: linear-gradient(0deg, #000080, #1084d0); color: #c0c0c0; writing-mode: vertical-rl; transform: rotate(180deg); font: bold 17px Arial; padding: 6px 0; text-align: left; letter-spacing: 1px; box-sizing: border-box; }
+.start-banner b { color: #fff; }
+.start-items { list-style: none; margin: 0; padding: 0; flex: 1; }
+.start-items li { display: flex; align-items: center; gap: 8px; padding: 6px 8px; }
+.start-items li:hover:not(.disabled) { background: #000080; color: #fff; }
+.start-items li.disabled { color: #808080; text-shadow: 1px 1px #fff; }
+.settings .note { color: #444; margin: 4px 0 0; }
+
+.chat { display: grid; grid-template-columns: 150px 1fr; gap: 6px; height: 100%; }
+.chat-daisy { background: #05040a; box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a; display: grid; place-items: center; }
+.chat-daisy canvas { width: 144px; height: 144px; image-rendering: pixelated; }
+.chat-main { display: grid; grid-template-rows: 1fr auto; gap: 6px; min-height: 0; }
+.chat-log { background: #000; color: #d7ffe9; font: 14px/1.35 Menlo, Consolas, 'Courier New', monospace; padding: 8px; overflow-y: auto; height: auto; }
+.chat-line.torn { transform: translateX(3px) skewX(-8deg); text-shadow: -2px 0 #3fe8ff99, 2px 0 #ffffff55; clip-path: inset(10% 0 20% 0); }
+.chat-line { margin: 0 0 6px; white-space: pre-wrap; }
+.chat-line.you { color: #8a8aa8; }
+.chat-line.think { color: #6c6c84; font-style: italic; font-size: 0.9em; margin-bottom: 3px; }
+.chat-choices { display: flex; flex-direction: column; gap: 4px; }
+.chat-choices button { text-align: left; padding: 4px 8px; }
+
+.qte { display: grid; gap: 8px; font-size: 13px; }
+.qte-msg { margin: 0; font-weight: bold; }
+.qte-target { margin: 0; font: 16px Menlo, Consolas, 'Courier New', monospace; background: #000; color: #555; padding: 6px; }
+.qte-target .ok { color: #9dffcf; }
+.qte-input { font: 16px Menlo, Consolas, 'Courier New', monospace; }
+
+
+.window-body.term-host { margin: 0; background: #000; }
+.term { height: 100%; display: flex; flex-direction: column; overflow: hidden; background: #050806; color: #9dffcf; font: 15px/1.3 Menlo, Consolas, 'Courier New', monospace; padding: 8px; box-sizing: border-box; text-shadow: 0 0 4px rgba(157, 255, 207, 0.45); }
+.term-out { margin: 0; white-space: pre-wrap; font: inherit; }
+.term-line { white-space: pre-wrap; }
+.term-caret { animation: blink 1s steps(1) infinite; }
+.term.busy .term-line { visibility: hidden; }
+.term-input { position: absolute; opacity: 0; pointer-events: none; width: 1px; }
+.term pre.term-out { background: none; border: 0; box-shadow: none; padding: 0; margin: 0; color: inherit; overflow: visible; }
+.desktop .window-body.term-host { margin: 2px; padding: 0; }
+.desktop .window-body.term-host.term { padding: 8px; } /* the guided header/manual bleed into this padding */
+.term-scroll { flex: 1; overflow-x: hidden; overflow-y: auto; scrollbar-width: none; } /* a phosphor console scrolls, but shows no bar */
+.term-scroll::-webkit-scrollbar { display: none; }
+.term-head { display: flex; justify-content: space-between; gap: 12px; padding: 3px 8px; margin: -8px -8px 6px; background: #0b1812; color: #5fd4a0; font-size: 12px; border-bottom: 1px solid #1d3b2e; text-shadow: none; }
+.term-ghost { color: rgba(157, 255, 207, 0.28); text-shadow: none; }
+.term-typed.glow { animation: phosphor 0.18s ease-out; }
+@keyframes phosphor { from { text-shadow: 0 0 10px #d6fff0, 0 0 2px #fff; } }
+.term-link { all: unset; cursor: pointer; color: #d6fff0; text-decoration: underline dotted rgba(157, 255, 207, 0.55); text-underline-offset: 3px; }
+.term-link:hover, .term-link:focus-visible { background: #9dffcf; color: #04120c; text-decoration: none; text-shadow: none; }
+.term-link.corrupt { color: #f4f1ea; animation: corrupt 2.2s steps(1) infinite; text-decoration-color: rgba(244, 241, 234, 0.6); }
+@keyframes corrupt {
+  0%, 100% { text-shadow: 0 0 4px rgba(244, 241, 234, 0.5); letter-spacing: 0; }
+  8% { text-shadow: -2px 0 #3fe8ff, 2px 0 #f4f1ea; letter-spacing: 1px; }
+  10% { text-shadow: 1px 0 #3fe8ff; letter-spacing: -1px; opacity: 0.6; }
+  12% { text-shadow: 0 0 4px rgba(244, 241, 234, 0.5); opacity: 1; }
+  57% { transform: skewX(-8deg); }
+  59% { transform: none; }
+}
+.term-manual { display: flex; flex-wrap: wrap; gap: 4px 12px; padding: 6px 8px; margin: 6px -8px -8px; background: #08110d; border-top: 1px solid #1d3b2e; font-size: 12px; text-shadow: none; }
+.term-manual b { color: #5fd4a0; margin-right: 4px; font-weight: normal; }
+.term-manual button { all: unset; cursor: pointer; }
+.term-manual code { color: #d6fff0; margin-right: 5px; }
+.term-manual span { color: #4f9c7a; }
+.term-manual button:hover code { text-decoration: underline; }
+@media (prefers-reduced-motion: reduce) { .term-link.corrupt { animation: none; text-shadow: -1px 0 #3fe8ff, 1px 0 #f4f1ea; } }
+
+.window-body.zm { display: grid; grid-template-rows: auto 1fr auto auto; gap: 8px; }
+.zm-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; align-content: start; }
+.zm-pk { display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; gap: 2px 10px; white-space: nowrap; padding: 6px; background: #fff; box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a; }
+.zm-pk code { font: 14px Menlo, Consolas, 'Courier New', monospace; }
+.zm-pk .zm-sum { font: 14px Menlo, Consolas, 'Courier New', monospace; color: #000080; }
+.zm-pk button { min-width: 44px; }
+.zm-pk.nak { background: #ffffb0; }
+.zm-pk.nak button { font-weight: bold; }
+.zm-pk.suspect { outline: 2px dashed #000080; }
+.zm-foot { display: flex; justify-content: space-between; align-items: center; }
+.calc { display: grid; gap: 6px; }
+.calc-display { text-align: right; font: 16px Menlo, Consolas, 'Courier New', monospace; }
+.calc-keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+.calc-keys button { min-width: 0; }
+
+.resize-grip { position: absolute; right: 2px; bottom: 2px; width: 13px; height: 13px; cursor: nwse-resize; z-index: 2;
+  background: linear-gradient(135deg, transparent 0 45%, #fff 45% 52%, #808080 52% 60%, transparent 60% 66%, #fff 66% 73%, #808080 73% 81%, transparent 81% 87%, #fff 87% 94%, #808080 94%); }
+
+/* Readable type: 98.css's bitmap "Pixelated MS Sans Serif" shatters when the desktop is scaled onto the CRT.
+   Tahoma (Win98-era UI face) + Menlo stay crisp at any size. */
+.desktop, .desktop button, .desktop input, .desktop label, .desktop select, .desktop textarea, .desktop li, .desktop .window, .desktop .title-bar-text {
+  font-family: Tahoma, Verdana, 'Segoe UI', sans-serif; -webkit-font-smoothing: antialiased;
+}
+.desktop .title-bar-text { font-size: 12px; font-weight: bold; }
+.desktop .window-body, .desktop button, .desktop .taskbar, .desktop .start-items { font-size: 12px; }
+.desktop code, .desktop pre, .desktop .term, .desktop .dos, .desktop .qte-target, .desktop .qte-input, .desktop .calc-display, .desktop .chat-log { font-family: Menlo, Consolas, 'Courier New', monospace; }
+
+.window.bare { background: #000; box-shadow: 0 0 0 1px #000, 0 18px 50px rgba(0,0,0,.6); }
+.window.bare .title-bar { display: none; }
+.window.bare .window-body { margin: 0; height: 100%; }
+
+/* TALK: the VMS split screen — him on top, you underneath. Monochrome; the only colour is the trace going amber. */
+.talk { height: 100%; display: grid; grid-template-rows: 1fr auto 1.25fr; background: #050806; color: #9dffcf; font: 14px/1.35 Menlo, Consolas, monospace; text-shadow: 0 0 4px rgba(157, 255, 207, 0.4); }
+.talk-half { padding: 8px 10px; overflow: hidden; }
+.talk-half pre { margin: 0; white-space: pre-wrap; font: inherit; background: none; border: 0; box-shadow: none; padding: 0; color: inherit; overflow: visible; } /* 98.css styles bare pre */
+.talk-typing { color: #4f9c7a; font-style: italic; }
+.talk-split { display: flex; justify-content: space-between; padding: 2px 10px; background: #9dffcf; color: #04120c; font-size: 12px; text-shadow: none; }
+.talk-trace i { display: inline-block; width: 10px; height: 10px; margin-left: 3px; border: 1px solid #04120c; vertical-align: -1px; }
+.talk-trace i.on { background: #e8a33a; animation: trace-on 0.5s steps(2) 3; }
+@keyframes trace-on { 50% { background: transparent; } }
+.talk-replies { display: grid; gap: 4px; margin-top: 8px; }
+.talk-reply { all: unset; cursor: pointer; display: flex; gap: 8px; padding: 3px 6px; color: #d6fff0; border: 1px solid #1d3b2e; }
+.talk-reply:hover, .talk-reply:focus-visible { background: #9dffcf; color: #04120c; text-shadow: none; }
+.talk-reply[disabled] { opacity: 0.4; pointer-events: none; }
+.talk-reply kbd { color: #4f9c7a; }
+.talk-timer { height: 3px; margin-top: 8px; background: #0b1812; }
+.talk-timer span { display: block; height: 100%; background: #9dffcf; transform-origin: left; }
+
+/* Internet Voyager chrome (98.css supplies buttons/inputs/status bar). Pages inside use era defaults: Times, blue links. */
+.voyager { height: 100%; display: flex; flex-direction: column; }
+.v-toolbar { display: flex; align-items: center; gap: 4px; padding: 3px; }
+.v-toolbar button { min-width: 0; padding: 0 8px; }
+.v-throbber { margin-left: auto; width: 34px; height: 30px; position: relative; overflow: hidden; background: #000; }
+.v-throbber::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 30'%3E%3Ccircle cx='17' cy='15' r='10' fill='none' stroke='%232b4fa8' stroke-width='2'/%3E%3Cpath d='M17 5 L19 15 L17 25 L15 15 Z' fill='%23fff'/%3E%3C/svg%3E") center no-repeat; }
+.voyager.loading .v-throbber::before { animation: v-spin 0.9s linear infinite; } /* spin the compass, not the box */
+@keyframes v-spin { to { transform: rotate(360deg); } }
+.v-address { display: flex; align-items: center; gap: 4px; padding: 2px 3px 4px; }
+.v-address input { flex: 1; }
+.v-view { flex: 1; display: flex; padding: 2px; min-height: 0; background: #fff; box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a; }
+.v-frame { flex: 1; width: 100%; border: 0; background: #fff; }
+.v-progress { width: 120px; flex: none; }
+.voyager .v-status { min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; } /* long "Opening page..." URLs must not widen the window */
+.v-progress span { display: block; height: 8px; background: #000080; transform: scaleX(0); transform-origin: left; }
+
+.tray-transfer { display: inline-flex; align-items: center; gap: 3px; margin-right: 6px; font-variant-numeric: tabular-nums; }
+.tray-transfer[hidden] { display: none; }
+.tray-transfer img { animation: tb-blink 0.6s steps(1) infinite; }
+@keyframes tb-blink { 50% { opacity: 0.35; } }
+@media (prefers-reduced-motion: reduce) { .voyager.loading .v-throbber::before { animation: none; } }
+.bsn { display: grid; grid-template-columns: 1fr 110px; gap: 6px; height: 100%; }
+.bsn-main { display: grid; grid-template-rows: 1fr auto; gap: 6px; min-height: 0; }
+.bsn-log { background: #fff; color: #000; font: 13px/1.35 Tahoma, Arial, sans-serif; padding: 6px 8px; overflow-y: auto; box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a; }
+.bsn-line { margin: 0 0 3px; white-space: pre-wrap; }
+.bsn-line.me { color: #00007f; font-weight: bold; }
+.bsn-line.sys { color: #3d8f4a; font-style: italic; }
+.bsn-choices { display: flex; flex-direction: column; gap: 3px; }
+.bsn-choices button { text-align: left; padding: 3px 8px; }
+.bsn-members { margin: 0; padding: 6px; list-style: none; background: #fff; font: 12px Tahoma, Arial, sans-serif; overflow-y: auto; box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a; }
+.download p { margin: 0 0 6px; }
+.download .progress-indicator { height: 22px; margin: 4px 0 8px; }
+.msgbox { display: grid; grid-template-rows: 1fr auto; height: 100%; }
+.msgbox-row { display: flex; gap: 14px; align-items: center; padding: 6px 4px; }
+.msgbox-row img { width: 32px; height: 32px; image-rendering: pixelated; }
+.msgbox-row p { margin: 0; white-space: pre-line; }
+.msgbox-actions { text-align: center; }
+.winramp { display: grid; grid-template-rows: auto 1fr; gap: 4px; height: 100%; background: #23232b; padding: 4px; box-sizing: border-box; }
+.wr-display { background: #000; color: #4fe38a; font: 13px Menlo, Consolas, monospace; padding: 4px 6px; display: flex; gap: 8px; align-items: center; }
+.wr-time { font-size: 18px; min-width: 52px; }
+.wr-list { margin: 0; padding: 4px 4px 4px 28px; background: #000; color: #4fe38a; font: 11px Tahoma, Arial, sans-serif; overflow-y: auto; }
+.wr-list li.on { color: #fff; background: #1d3b8a; }
+.winramp.dead .wr-display, .winramp.dead .wr-list { color: #2a5a3a; }
+.mycomp, .recycle { display: grid; grid-template-rows: auto 1fr auto; gap: 4px; height: 100%; }
+.recycle { grid-template-rows: 1fr auto; }
+.mc-bar { display: flex; gap: 8px; align-items: center; }
+.mc-addr { color: #444; }
+.mc-path { flex: 1; background: #fff; padding: 2px 4px; box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a; }
+.mc-main { display: grid; grid-template-columns: 150px 1fr; min-height: 0; background: #fff; box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a; }
+.mc-info { padding: 10px; color: #000; overflow: hidden; background: linear-gradient(#fff 60%, #e9eef8); }
+.mc-info img { width: 32px; height: 32px; image-rendering: pixelated; }
+.mc-info h3 { margin: 4px 0 6px; font: bold 15px Arial, sans-serif; border-bottom: 2px solid; border-image: linear-gradient(90deg, #000080, #1084d0, transparent) 1; padding-bottom: 4px; }
+.mc-desc p { margin: 0 0 3px; font-size: 11px; }
+.mc-desc .mc-name { font-weight: bold; }
+.mc-desc .mc-used::before, .mc-desc .mc-free::before { content: ''; display: inline-block; width: 8px; height: 8px; margin-right: 4px; border: 1px solid #000; }
+.mc-desc .mc-used::before { background: #0000ff; }
+.mc-desc .mc-free::before { background: #ff00ff; }
+.mc-pie { width: 70px; height: 40px; margin-top: 8px; border-radius: 50%; border: 1px solid #000; background: conic-gradient(#0000ff 0 var(--used), #ff00ff 0); box-shadow: 0 5px 0 -1px #808080; }
+.mc-view { display: flex; flex-wrap: wrap; align-content: flex-start; gap: 8px; padding: 8px; overflow-y: auto; }
+.mc-status { display: flex; gap: 2px; }
+.mc-status span { flex: 1; padding: 1px 4px; font-size: 11px; box-shadow: inset -1px -1px #fff, inset 1px 1px grey; min-height: 14px; }
+.rc-list { background: #fff; overflow: auto; box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a; }
+.rc-list table { border-collapse: collapse; width: 100%; font-size: 11px; color: #000; }
+.rc-list th { position: sticky; top: 0; text-align: left; font-weight: normal; background: silver; padding: 2px 6px; box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff; }
+.rc-list td { padding: 2px 6px; white-space: nowrap; cursor: default; }
+.rc-list td img { width: 16px; height: 16px; vertical-align: -4px; margin-right: 4px; image-rendering: pixelated; }
+.rc-list tr.selected td { background: navy; color: #fff; }
+.imaging { display: grid; grid-template-rows: 1fr auto; height: 100%; gap: 4px; }
+.im-view { background: #808080; display: grid; place-items: center; overflow: hidden; box-shadow: inset 1px 1px #0a0a0a, inset -1px -1px #fff; }
+.im-view img { max-width: 100%; max-height: 100%; image-rendering: pixelated; }
+.im-status { margin: 0; font-size: 11px; padding: 1px 4px; box-shadow: inset -1px -1px #fff, inset 1px 1px grey; }
+.mc-view .desktop-icon { color: #000; }
+.mc-view .desktop-icon.selected span { background: navy; color: #fff; }
+.notepad { width: 100%; height: 100%; box-sizing: border-box; font: 13px Menlo, Consolas, 'Courier New', monospace; resize: none; }
+.install .inst-file { font-size: 11px; color: #444; }
+.glitch { position: absolute; inset: 0; z-index: 9999; pointer-events: none; overflow: hidden; }
+.glitch-slice { position: absolute !important; inset: 0; }
+.glitch-blocks i { position: absolute; image-rendering: pixelated; }
+.dos { margin: 0; height: 100%; overflow: hidden; background: #000; color: #c0c0c0; font: 13px/1.25 'Courier New', monospace; padding: 4px; box-sizing: border-box; white-space: pre; }
+.dos.green { color: #4cff6a; text-shadow: 0 0 2px #1d7a2c; } /* someone switched the colours: not his prompt */
+
+/* Kestrel Mail (the chapter 1 ending): headers, then the body; Daisy "selects" the words that hurt. */
+.mailview { background: #fff; color: #000; height: 100%; box-sizing: border-box; padding: 6px 10px; font: 12px/1.4 Tahoma, Verdana, Arial, sans-serif; overflow: hidden; }
+.mailview table { border-collapse: collapse; margin-bottom: 8px; border-bottom: 1px solid #808080; width: 100%; }
+.mailview th { text-align: left; font-weight: bold; padding: 1px 8px 1px 0; width: 1%; white-space: nowrap; }
+.mailview td { padding: 1px 0; }
+.mailview pre { margin: 0; font: 15px/1.5 Tahoma, Verdana, Arial, sans-serif; white-space: pre-wrap; } /* the camera gets close: a solid sans, not thin Courier */
+.mailview mark { background: linear-gradient(#000080, #000080) no-repeat 0 0 / 0 100%; color: inherit; transition: background-size 0.45s steps(9), color 0s 0.05s; }
+.mailview mark.on { background-size: 100% 100%; color: #fff; }
+
+/* The wake puzzle: an old oscillator. Brushed dark panel, a green phosphor scope, a FREQ fader, five round lights,
+   seven chunky keys. */
+.wake { height: 100%; overflow: hidden; outline: none; display: grid; place-items: center; background: #0b0c0d; font-family: Menlo, Consolas, monospace; color: #c9cfc6; }
+.osc { width: 100%; height: 100%; box-sizing: border-box; padding: 14px 18px 12px; display: grid; grid-template-rows: auto 1fr auto auto auto; gap: 10px;
+  background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .012) 0 1px, transparent 1px 3px), linear-gradient(#26292a, #17191a);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), inset 0 0 0 1px #000; }
+.osc-head { display: flex; justify-content: space-between; align-items: center; font-size: 9px; letter-spacing: .32em; color: #8b928a; }
+.osc-rounds { display: flex; gap: 8px; }
+.osc-rounds i { width: 8px; height: 8px; border-radius: 50%; background: #1d2a22; box-shadow: inset 0 1px 1px #000; }
+.osc-rounds i.now { background: #5dffa8; box-shadow: 0 0 8px #5dffa8; animation: osc-blink 1s steps(2) infinite; }
+.osc-rounds i.done { background: #5dffa8; box-shadow: 0 0 6px rgba(93, 255, 168, .8); }
+@keyframes osc-blink { 50% { opacity: .35; } }
+.osc-scope { border-radius: 10px; padding: 6px; background: #050806; box-shadow: inset 0 0 0 2px #000, inset 0 0 24px rgba(0, 0, 0, .9), 0 1px 0 rgba(255, 255, 255, .06); min-height: 0; }
+.osc-scope canvas { display: block; width: 100%; height: 100%; border-radius: 6px; background: #020e09; }
+.wake-dial { display: flex; align-items: center; gap: 12px; font-size: 10px; letter-spacing: .3em; color: #8b928a; }
+.wake-dial input { flex: 1; -webkit-appearance: none; appearance: none; height: 6px; margin: 0; border-radius: 3px; background: #050706; box-shadow: inset 0 1px 2px #000, 0 1px 0 rgba(255, 255, 255, .06); transform: none; width: auto; }
+.wake-dial input::-webkit-slider-runnable-track { height: 6px; background: transparent; border: 0; box-shadow: none; }
+.wake-dial input::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 24px; margin-top: -9px; transform: none; border-radius: 2px; background: linear-gradient(#d9ddd4, #7d837b); box-shadow: 0 2px 3px #000, inset 0 -1px 0 rgba(0, 0, 0, .4); }
+.wake-meter { font-weight: normal; letter-spacing: 0; color: #5dffa8; min-width: 6ch; }
+.wake-keys { display: flex; gap: 8px; justify-content: center; }
+.wake-keys[hidden] { display: none; }
+.wake-keys button { all: unset; cursor: pointer; display: grid; justify-items: center; gap: 4px; }
+.wake-keys button span { display: block; width: 46px; height: 58px; border-radius: 5px; background: linear-gradient(#e7ebe2, #a4aaa1 85%, #7c8279); box-shadow: 0 3px 0 #3b3f3a, 0 4px 6px rgba(0, 0, 0, .6), inset 0 1px 0 #fff; transition: transform .08s, box-shadow .08s; }
+.wake-keys button:active span { transform: translateY(2px); box-shadow: 0 1px 0 #3b3f3a, 0 2px 3px rgba(0, 0, 0, .6), inset 0 1px 0 #fff; }
+.wake-keys button:focus-visible span { outline: 1px solid #5dffa8; outline-offset: 2px; }
+.wake-keys kbd { font-size: 9px; color: #6c736b; }
+.wake-keys.listening { pointer-events: none; }
+.wake-keys.listening button:not(.lit) span { filter: brightness(.6); }
+.wake-keys button.lit span { animation: wake-lit .5s ease-out; }
+@keyframes wake-lit { 0% { background: #c9ffe0; box-shadow: 0 3px 0 #3b3f3a, 0 0 18px 5px rgba(93, 255, 168, .75), inset 0 1px 0 #fff; } }
+.wake-keys.wrong button span { animation: wake-wrong .42s steps(1) 3; }
+@keyframes wake-wrong { 0% { background: #ffb02e; box-shadow: 0 3px 0 #3b3f3a, 0 0 14px 3px rgba(255, 176, 46, .7); } 55% { background: linear-gradient(#e7ebe2, #a4aaa1 85%, #7c8279); } }
+.osc-foot { display: flex; justify-content: space-between; align-items: center; min-height: 26px; }
+.wake-again { all: unset; cursor: pointer; font: 9px Menlo, monospace; letter-spacing: .3em; color: #8b928a; padding: 6px 12px; border: 1px solid #3a3f3a; border-radius: 3px; }
+.wake-again:hover, .wake-again:focus-visible { color: #e3e8df; border-color: #8b928a; }
+.wake-again[hidden] { visibility: hidden; display: block; }
+.wake-say { margin: 0; font-size: 11px; letter-spacing: .25em; color: #8b928a; }
+.wake .osc button:is(:hover, :active, :focus) { box-shadow: none; text-shadow: none; outline: none; } /* not 98.css's bevel */
+/* Inlook (mail, 1997) */
+.inlook { display: grid; grid-template-rows: auto 1fr auto; gap: 4px; height: 100%; }
+.il-tools { display: flex; gap: 2px; }
+.il-tools button { min-width: 0; padding: 0 8px; }
+.il-main { display: grid; grid-template-columns: 120px 1fr; gap: 4px; min-height: 0; }
+.il-folders { margin: 0; padding: 4px 0; list-style: none; background: #fff; color: #000; font-size: 11px; box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a; }
+.il-folders li { padding: 2px 8px; cursor: default; }
+.il-folders li.bold { font-weight: bold; }
+.il-folders li.on { background: navy; color: #fff; }
+.il-right { display: grid; grid-template-rows: 2fr 3fr; gap: 4px; min-height: 0; }
+.il-list tr.unread td { font-weight: bold; }
+.il-read { display: grid; grid-template-rows: auto 1fr; min-height: 0; background: #fff; color: #000; box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a; }
+.il-head { padding: 4px 8px; background: silver; border-bottom: 1px solid grey; font-size: 11px; }
+.il-head:empty { display: none; }
+.il-head p { margin: 0; }
+.il-body { margin: 0; padding: 6px 8px; overflow: auto; font: 11px 'Courier New', monospace; white-space: pre-wrap; }

@@ -1,0 +1,13 @@
+/* One film stock over the whole frame. Never intercepts input. */
+#film { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 900; }
+.film-grain { position: absolute; inset: -256px; opacity: 0.09; mix-blend-mode: overlay; background-size: 256px 256px; image-rendering: pixelated; will-change: transform; animation: film-grain 0.25s steps(1) infinite; }
+@keyframes film-grain { /* six jumps a quarter second = 24 fps; transform only, so the compositor moves it without repainting */
+  0% { transform: translate(0, 0); } 16.6% { transform: translate(-97px, 61px); } 33.3% { transform: translate(53px, -142px); }
+  50% { transform: translate(-188px, -23px); } 66.6% { transform: translate(131px, 109px); } 83.3% { transform: translate(-34px, 197px); }
+}
+.film-vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 52%, rgba(0, 0, 0, 0.6) 100%); }
+.film-dirt { position: absolute; inset: 0; opacity: 0; mix-blend-mode: screen; background-size: cover; }
+.film-bar { position: absolute; left: 0; right: 0; height: max(0px, calc((100vh - 100vw / 2.39) / 2)); background: #000; transform: scaleY(0); }
+.film-bar.top { top: 0; transform-origin: top; }
+.film-bar.bottom { bottom: 0; transform-origin: bottom; }
+@media (prefers-reduced-motion: reduce) { .film-grain { opacity: 0.05 !important; animation: none; } }

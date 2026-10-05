@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DAISY</title>
+  <link rel="stylesheet" href="vendor/98css/98.css">
+  <link rel="stylesheet" href="css/ui.css">
+  <link rel="stylesheet" href="css/win98.css">
+  <link rel="stylesheet" href="css/crt.css">
+  <link rel="stylesheet" href="css/film.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./vendor/three/build/three.module.js",
+      "three/addons/": "./vendor/three/examples/jsm/",
+      "gsap": "./vendor/gsap/index.js",
+      "gsap/": "./vendor/gsap/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <canvas id="world"></canvas>
+  <div id="css3d"></div>
+  <div id="curtain"></div>
+  <div id="overlay"></div>
+  <div id="film"></div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

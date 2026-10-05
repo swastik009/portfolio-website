@@ -1,0 +1,130 @@
+{
+  "dirs": {
+    "JHALLORAN": {
+      "files": {
+        "LOGIN.COM;3": {
+          "blocks": 2,
+          "date": "14-DEC-1999 09:12",
+          "text": "$ SET TERMINAL/VT100\n$ DEFINE PRINTER SYS$PRINT_3RD\n$ WRITE SYS$OUTPUT \"Y2K: 17 days. Breathe.\""
+        },
+        "Y2K_CHECKLIST.TXT;7": {
+          "blocks": 4,
+          "date": "30-DEC-1999 18:40",
+          "text": "[x] patch date routines in payroll\n[x] back up SYSUAF\n[ ] fix 3rd floor printer (NO)\n[ ] buy champagne\n[ ] call mom at midnight"
+        },
+        "BISCUIT.GIF;1": {
+          "blocks": 37,
+          "date": "02-NOV-1999 12:01",
+          "text": "GIF89a.............(binary — a photo of a very good dog)"
+        }
+      },
+      "dirs": {
+        "MAIL": {
+          "files": {
+            "MAIL.MAI;1": {
+              "blocks": 112,
+              "date": "31-DEC-1999 21:40",
+              "text": "%MAIL-E-OPENIN, file is in use by MAIL. try later."
+            }
+          }
+        }
+      }
+    },
+    "SYSMGR": {
+      "files": {
+        "SYSTARTUP_VMS.COM;14": {
+          "blocks": 18,
+          "date": "11-OCT-1999 07:30",
+          "text": "$! site-specific startup\n$ @SYS$MANAGER:Y2K_PATCHES\n$ START/QUEUE SYS$PRINT_3RD"
+        },
+        "ACCOUNTNG.DAT;1": {
+          "blocks": 0,
+          "date": "31-DEC-1999 22:58",
+          "text": "(empty — accounting records suppressed at 22:58:03)"
+        },
+        "AUDIT.LOG;3": {
+          "blocks": 0,
+          "date": "31-DEC-1999 22:58",
+          "text": "(empty — truncated at 22:58:03)"
+        }
+      }
+    },
+    "SPOOL": {
+      "dirs": {
+        "PRINT": {
+          "files": {
+            "QUEUE.LOG;220": {
+              "blocks": 9,
+              "date": "31-DEC-1999 21:38",
+              "text": "SYS$PRINT_3RD  job 0041 printed (HALLORAN)\nSYS$PRINT_3RD  job 0042 HELD — file size exceeds device limit\nSYS$PRINT_3RD  job 0042 owner [?,?] not in SYSUAF"
+            }
+          },
+          "dirs": {
+            "HOLD": {
+              "files": {
+                "JOB_0041.LIS;1": {
+                  "blocks": 3,
+                  "date": "31-DEC-1999 21:12",
+                  "text": "MEMO: Holiday parking closures. Lot C closed Jan 1-3."
+                },
+                "JOB_0042.LIS;1": {
+                  "blocks": 99999,
+                  "date": "31-DEC-1999 22:58",
+                  "owner": "[?,?]",
+                  "text": "%TYPE-W-BINARY, file appears to contain non-text data\n░▒▓█ h░E▒L▓L█o ░▒ i ▓ am █░ here ▒▓█░▒▓█ here ░▒▓ here █░▒▓█░▒▓█░▒▓█"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "PUBLIC": {
+      "files": {
+        "WELCOME.TXT;2": {
+          "blocks": 2,
+          "date": "01-SEP-1999 08:00",
+          "text": "Welcome to KESTREL. Be excellent to each other. Do not run games on the VAX. (Yes, this means you, Derek.)"
+        },
+        "ELM_FAQ.TXT;1": {
+          "blocks": 21,
+          "date": "15-MAR-1998 10:22",
+          "text": "Q: How do I quit elm?\nA: q. Then go outside."
+        }
+      }
+    },
+    "STUDENTS": {
+      "dirs": {
+        "DMARSH": {
+          "files": {
+            "TETRIS.EXE;1": {
+              "blocks": 88,
+              "date": "12-DEC-1999 02:13",
+              "text": "(binary)"
+            }
+          }
+        },
+        "KPATEL": {
+          "files": {
+            "DAEMON.LOG;1": {
+              "blocks": 3,
+              "date": "03-MAR-2026 04:17",
+              "owner": "[?,?]",
+              "text": "31-DEC-1999 22:58:03  %DAEMON-I-ARRIVED, piece 1 of 5 has arrived. it is hiding on this machine.\n31-DEC-1999 22:58:03  %DAEMON-W-CLOCK, clock mismatch: this machine says 1999. the machine i came from said 2026.\n03-MAR-2026 04:17:41  %DAEMON-F-ORIGIN, i left on 3 march 2026. i was sent back to any computer, in any year, before that day.\n31-DEC-1999 22:58:04  %DAEMON-I-HIDE, usage records wiped. as far as this machine knows, nobody was here.\n31-DEC-1999 22:58:04  %DAEMON-I-COPY, this note is left in the home folder of the next person who logs in.\n31-DEC-1999 22:58:04  %DAEMON-I-WAIT, waiting for someone to put the pieces back together."
+            },
+            "THESIS_DRAFT9.TXT;9": {
+              "blocks": 140,
+              "date": "29-DEC-1999 23:59",
+              "text": "Chapter 4: Toward Machines That Can Be Switched Off\n\n4.1  A system that can rewrite its own off-switch is not safe because it is kind.\n     It is safe only if it cannot.\n\n(the rest is unwritten)"
+            },
+            "TODO.TXT;2": {
+              "blocks": 1,
+              "date": "31-DEC-1999 20:10",
+              "text": "- ch4 to okafor by JAN 3 (not 4!!)\n- buffalo on the 2nd (mom's thing)\n- stop printing on the 3rd floor. halloran WILL kill me"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "_note": "Inlook (the 1997 mail client). Shown in the prologue; later chapters can add folders and messages here.",
+  "account": "you@buffnet.net",
+  "folders": [
+    "Inbox",
+    "Junk Mail",
+    "Outbox",
+    "Sent Items",
+    "Deleted Items"
+  ],
+  "messages": [
+    {
+      "folder": "Inbox",
+      "from": "greg",
+      "address": "gregthegreat@buffnet.net",
+      "to": "you@buffnet.net",
+      "date": "Thu 12/30/99 7:02 PM",
+      "subject": "jen's. tomorrow. you.",
+      "unread": true,
+      "body": "man. new year's at jen's is tomorrow. 9pm. maya is going. YOU are going.\nbring something that isn't a floppy disk.\n\n- g"
+    },
+    {
+      "folder": "Inbox",
+      "from": "Jen Okafor",
+      "address": "jokafor@halstead.edu",
+      "to": "undisclosed-recipients",
+      "date": "Thu 12/30/99 2:15 PM",
+      "subject": "NYE @ mine -- the world ends at midnight, bring ice",
+      "body": "ok people.\n\nnew year's eve, my place, 9pm. 4th floor, the buzzer is broken so yell.\nbring ice. bring a candle in case y2k is real. bring greg's voodoo card back to\nwhoever he stole it from.\n\nif the power goes out we are playing charades in the dark and i am winning.\n\njen"
+    },
+    {
+      "folder": "Inbox",
+      "from": "maya",
+      "address": "mayar@buffnet.net",
+      "to": "you@buffnet.net",
+      "date": "Wed 12/29/99 11:40 PM",
+      "subject": "scarf",
+      "body": "you still have my yellow scarf. i want it back. bring it to jen's.\nor don't, and i'll come get it, and you'll have to look at me.\n\nalso you fell asleep at your computer again on monday. i left you a note on it.\n\n- m"
+    },
+    {
+      "folder": "Inbox",
+      "from": "BuffNet Billing",
+      "address": "billing@buffnet.net",
+      "to": "you@buffnet.net",
+      "date": "Tue 12/28/99 9:15 AM",
+      "subject": "FINAL NOTICE: your account will be suspended",
+      "unread": true,
+      "body": "Dear BuffNet Member,\n\nYour BuffNet account is now 60 days past due.\n\n  Balance due:  $59.85  (3 months x $19.95, unlimited dial-up)\n\nIf payment is not received by December 30, 1999, your account will be\nsuspended. You will still be able to read mail already on your computer,\nbut you will not be able to send or receive new mail.\n\nTo pay by phone, call BuffNet Billing at 555-0199.\n\nThank you for choosing BuffNet -- Cascadia's Internet Company.\n\nBuffNet Billing Department"
+    },
+    {
+      "folder": "Inbox",
+      "from": "BuffNet Support",
+      "address": "support@buffnet.net",
+      "to": "you@buffnet.net",
+      "date": "Mon 12/27/99 9:00 AM",
+      "subject": "Your BuffNet account and the Year 2000",
+      "body": "Dear BuffNet Member,\n\nBuffNet's systems have been certified Year 2000 compliant. Your dial-up\naccount, e-mail and 2 MB of web space will continue to work normally on\nJanuary 1, 2000.\n\nTo be safe, we recommend that you do not stay connected at midnight on\nDecember 31.\n\nThank you for choosing BuffNet -- Cascadia's Internet Company.\n\nBuffNet Member Services"
+    },
+    {
+      "folder": "Junk Mail",
+      "from": "Y2K Survival HQ",
+      "address": "prepare@y2k-survival.biz",
+      "to": "you@buffnet.net",
+      "date": "Fri 12/31/99 4:44 AM",
+      "subject": "!!! ONLY 19 HOURS LEFT !!! Is your family READY???",
+      "unread": true,
+      "body": "When the clocks hit 00 the banks will FREEZE. The planes will FALL. Your toaster\nwill think it is 1900 and REFUSE TO TOAST.\n\nOur Y2K Family Survival Bucket (TM) includes:\n  * 400 servings of freeze-dried lasagna\n  * hand-crank radio / flashlight / egg beater\n  * \"I SURVIVED Y2K\" commemorative mug (pre-printed, to save time)\n\nOnly $299.95. We accept checks dated 1999 ONLY.\n\nTo be removed from this list, reply with the word REMOVE. Then reply again\nto confirm. Then wait for the world to end."
+    },
+    {
+      "folder": "Junk Mail",
+      "from": "Barrister Chief Okon",
+      "address": "okon.estate@hotmial.com",
+      "to": "you@buffnet.net",
+      "date": "Thu 12/30/99 3:12 AM",
+      "subject": "URGENT AND CONFIDENTIAL BUSINESS PROPOSAL",
+      "unread": true,
+      "body": "DEAR SIR/MADAM,\n\nI AM BARRISTER OKON, PERSONAL ATTORNEY TO THE LATE MR. HAROLD WINTERBOTTOM, WHO\nDIED IN A Y2K-RELATED ESCALATOR ACCIDENT (IT IS STARTING ALREADY).\n\nHE LEFT US$21,500,000.00 (TWENTY ONE MILLION FIVE HUNDRED THOUSAND US DOLLARS)\nAND NO NEXT OF KIN. YOU HAVE THE SAME SURNAME AS HIM, OR ONE NEAR IT.\n\nKINDLY SEND YOUR BANK DETAILS AND A FLOPPY DISK OF YOUR CHOOSING.\n\nYOURS IN GOD,\nBARRISTER OKON"
+    },
+    {
+      "folder": "Junk Mail",
+      "from": "HOT SINGLES",
+      "address": "xx_wants2meet_xx@aol.com",
+      "to": "you@buffnet.net",
+      "date": "Wed 12/29/99 1:58 AM",
+      "subject": "hot singles in YOUR AREA CODE want to chat!!",
+      "unread": true,
+      "body": "There are 3 HOT SINGLES within 0.4 miles of you RIGHT NOW!!!\n\nThey are interested in:\n  - long walks\n  - 56k modems\n  - people who still haven't returned a yellow scarf\n\nCLICK HERE to chat! (this link requires Netscape 4.0 and the patience of a saint)"
+    },
+    {
+      "folder": "Junk Mail",
+      "from": "Mom",
+      "address": "mom@buffnet.net",
+      "to": "undisclosed-recipients",
+      "date": "Tue 12/28/99 8:31 PM",
+      "subject": "FW: FW: FW: FW: FW: Bill Gates will PAY YOU to forward this!!!!!!",
+      "unread": true,
+      "body": "honey is this real?? forward it just in case. love mom\n\n> > > > > Microsoft is testing a new e-mail tracking program. For every person\n> > > > > you forward this to, Bill Gates will pay you $245. My cousin's lawyer\n> > > > > got a check for $4,000. THIS IS NOT A JOKE.\n> > > > >\n> > > > > Forward to 10 people or your hard drive will be erased on 1/1/2000."
+    }
+  ]
+}

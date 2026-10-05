@@ -1,0 +1,10 @@
+/daisy/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-nBrr19vreOcQnbcd9+vU7esqZuOE5RPpof6zuOEudGs='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; media-src 'self' data: blob:; connect-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Cross-Origin-Opener-Policy: same-origin
+/daisy/assets/*
+  Cache-Control: public, max-age=604800
+/daisy/vendor/*
+  Cache-Control: public, max-age=604800

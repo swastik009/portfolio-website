@@ -1,0 +1,499 @@
+{
+  "channel": "#nullroute",
+  "members": [
+    "zer0cool",
+    "lin3grrl",
+    "phiber",
+    "cereal",
+    "greg_"
+  ],
+  "nudgeAfter": 70,
+  "nudges": [
+    "<zer0cool> {handle} you alive?",
+    "<lin3grrl> {handle} fell asleep on the keyboard again",
+    "<cereal> hellooo {handle}",
+    "<greg_> {handle}. buddy. pal."
+  ],
+  "script": [
+    {
+      "who": "zer0cool",
+      "text": "is anyone else listening to greg's thing right now",
+      "wait": 3
+    },
+    {
+      "who": "lin3grrl",
+      "text": "the radio over internet thing? no. i have self respect"
+    },
+    {
+      "who": "zer0cool",
+      "text": "his mom calls him in the middle of it. on air. lol"
+    },
+    {
+      "who": "phiber",
+      "text": "i downloaded it. took 25 min. he said 'ONLINE' like it was a prayer"
+    },
+    {
+      "who": "cereal",
+      "text": "he whispers it. he WHISPERS online"
+    },
+    {
+      "who": "greg_",
+      "text": "i can see you. all of you. this is a public channel"
+    },
+    {
+      "who": "greg_",
+      "text": "shut up phiber you absolute bitch, you listened to the whole thing"
+    },
+    {
+      "who": "phiber",
+      "text": "twice. for science"
+    },
+    {
+      "who": "zer0cool",
+      "text": "58 minutes until every VCR in america blinks 12:00 forever",
+      "wait": 4
+    },
+    {
+      "who": "lin3grrl",
+      "text": "mine already does that"
+    },
+    {
+      "who": "phiber",
+      "text": "mine has blinked 12:00 since 1991. it's ready"
+    },
+    {
+      "who": "cereal",
+      "text": "my dad filled the bathtub. like with water. for y2k"
+    },
+    {
+      "who": "greg_",
+      "text": "your dad is a prepper now??"
+    },
+    {
+      "who": "cereal",
+      "text": "he bought 40 cans of chili and a crank radio"
+    },
+    {
+      "who": "zer0cool",
+      "text": "respect honestly"
+    },
+    {
+      "who": "greg_",
+      "text": "ok shameless plug. ROI episode 7 is UP. the y2k special",
+      "wait": 5
+    },
+    {
+      "who": "lin3grrl",
+      "text": "roi?"
+    },
+    {
+      "who": "greg_",
+      "text": "RADIO. OVER. INTERNET. members.trypod.com/~gregroi"
+    },
+    {
+      "who": "phiber",
+      "text": "radio over internet?? really. HA HA HA"
+    },
+    {
+      "who": "greg_",
+      "text": "laugh now, asshole. at midnight the towers go down and the only voice left on the air is gonna be mine"
+    },
+    {
+      "who": "cereal",
+      "text": "on a 28.8 it takes 25 minutes to download 5 minutes of greg"
+    },
+    {
+      "who": "greg_",
+      "text": "for NOW. next year it's live. you click, it plays. no download. ONLINE."
+    },
+    {
+      "who": "lin3grrl",
+      "text": "heard some dude called hanneman or whatever is already doing radio on the internet"
+    },
+    {
+      "who": "lin3grrl",
+      "text": "so watch out greg. there goes your one shot at being the only news after the apocalypse"
+    },
+    {
+      "who": "greg_",
+      "text": "fuck hanneman. hanneman doesn't have my VOICE"
+    },
+    {
+      "who": "zer0cool",
+      "text": "that's what we're worried about"
+    },
+    {
+      "who": "greg_",
+      "text": "{handle} you're listening to it right now aren't you",
+      "wait": 5
+    },
+    {
+      "choices": [
+        {
+          "text": "it's on in the background.",
+          "then": [
+            {
+              "who": "greg_",
+              "text": "BACKGROUND. that's how radio works. that's the whole point. thank you"
+            }
+          ]
+        },
+        {
+          "text": "...no.",
+          "then": [
+            {
+              "who": "greg_",
+              "text": "your doorramp is literally on. i can feel it"
+            }
+          ]
+        },
+        {
+          "text": "you said 'ONLINE' eleven times.",
+          "then": [
+            {
+              "who": "greg_",
+              "text": "twelve. it's the future, man"
+            },
+            {
+              "who": "phiber",
+              "text": "HA HA HA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "who": "phiber",
+      "text": "banks say no problems expected. which is what banks say",
+      "wait": 6
+    },
+    {
+      "who": "lin3grrl",
+      "text": "my bank sent a letter. 'your money is safe.' nobody asked"
+    },
+    {
+      "who": "zer0cool",
+      "text": "i'm on a NASA dialup right now. dont ask"
+    },
+    {
+      "who": "lin3grrl",
+      "text": "nobody asked"
+    },
+    {
+      "who": "phiber",
+      "text": "zer0 if the feds kick your door in at 12:01 can i have your voodoo2"
+    },
+    {
+      "sys": "cereal has quit (Ping timeout)"
+    },
+    {
+      "who": "greg_",
+      "text": "lol cereal's mom picked up the phone again"
+    },
+    {
+      "sys": "cereal has joined #nullroute"
+    },
+    {
+      "who": "cereal",
+      "text": "MOM"
+    },
+    {
+      "who": "greg_",
+      "text": "{handle} what are you doing tonight. and dont say nothing",
+      "wait": 5
+    },
+    {
+      "choices": [
+        {
+          "text": "nothing.",
+          "then": [
+            {
+              "who": "greg_",
+              "text": "i said dont say nothing"
+            },
+            {
+              "who": "lin3grrl",
+              "text": "{handle} is going to spend the end of the world in a chair. iconic"
+            }
+          ]
+        },
+        {
+          "text": "working on something.",
+          "then": [
+            {
+              "who": "zer0cool",
+              "text": "ooooo 'something'"
+            },
+            {
+              "who": "greg_",
+              "text": "the something can wait one night man"
+            }
+          ]
+        },
+        {
+          "text": "jen's later. maybe.",
+          "then": [
+            {
+              "who": "greg_",
+              "text": "MAYBE. he says maybe"
+            },
+            {
+              "who": "lin3grrl",
+              "text": "maybe means no in {handle}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "who": "phiber",
+      "text": "anyone else's isp sending 'y2k readiness' emails every hour",
+      "wait": 6
+    },
+    {
+      "who": "zer0cool",
+      "text": "mine sent one that said 'we are y2k compliant' with the date as 01/01/100"
+    },
+    {
+      "who": "lin3grrl",
+      "text": "lmao"
+    },
+    {
+      "who": "cereal",
+      "text": "is that real"
+    },
+    {
+      "who": "zer0cool",
+      "text": "no but it should be"
+    },
+    {
+      "who": "greg_",
+      "text": "ok ok. HEADING OUT TO jen's y'all. {handle} you coming or what",
+      "wait": 7
+    },
+    {
+      "choices": [
+        {
+          "text": "yeah. later. go.",
+          "then": [
+            {
+              "who": "greg_",
+              "text": "later. sure. i'll save you a warm beer"
+            }
+          ]
+        },
+        {
+          "text": "can't tonight, man.",
+          "then": [
+            {
+              "who": "greg_",
+              "text": "you said that at halloween"
+            },
+            {
+              "who": "greg_",
+              "text": "and thanksgiving. and my birthday"
+            }
+          ]
+        },
+        {
+          "text": "is maya going?",
+          "then": [
+            {
+              "who": "greg_",
+              "text": "she's been there since 9. she asked if you were coming"
+            },
+            {
+              "who": "greg_",
+              "text": "i said probably. dont make me a liar"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "who": "greg_",
+      "text": "if the world ends i'm gonna be so mad you missed it"
+    },
+    {
+      "who": "greg_",
+      "text": "happy new year nerds"
+    },
+    {
+      "sys": "greg_ has signed off."
+    },
+    {
+      "who": "lin3grrl",
+      "text": "greg's gonna be asleep in a booth at jen's by 12:15",
+      "wait": 6
+    },
+    {
+      "who": "phiber",
+      "text": "with a lampshade"
+    },
+    {
+      "who": "cereal",
+      "text": "wait is greg dating jen now??",
+      "wait": 5
+    },
+    {
+      "who": "zer0cool",
+      "text": "lmao. no"
+    },
+    {
+      "who": "zer0cool",
+      "text": "jen's is the restaurant on 5th. her dad named it after her the year she was born"
+    },
+    {
+      "who": "lin3grrl",
+      "text": "greg tells people it's \"his friend jen's place\". jen was two years above us at school. she has talked to him maybe twice"
+    },
+    {
+      "who": "phiber",
+      "text": "he told me jen's dad \"owes him one\". he once fixed their jukebox. by kicking it"
+    },
+    {
+      "who": "cereal",
+      "text": "GREG"
+    },
+    {
+      "who": "cereal",
+      "text": "on the couch or on greg"
+    },
+    {
+      "who": "phiber",
+      "text": "yes"
+    },
+    {
+      "who": "lin3grrl",
+      "text": "real talk the switch guys at cascadia are bored out of their minds tonight. they're on call till 6"
+    },
+    {
+      "who": "zer0cool",
+      "text": "if the grid goes down i'm blaming {handle}"
+    },
+    {
+      "who": "phiber",
+      "text": "seconded"
+    },
+    {
+      "who": "lin3grrl",
+      "text": "{handle} you're quiet. even for you",
+      "wait": 6
+    },
+    {
+      "choices": [
+        {
+          "text": "just reading.",
+          "then": [
+            {
+              "who": "lin3grrl",
+              "text": "reading what. us? weird"
+            }
+          ]
+        },
+        {
+          "text": "it's new year's. i'm reflecting.",
+          "then": [
+            {
+              "who": "zer0cool",
+              "text": "{handle} reflecting. write that down"
+            }
+          ]
+        },
+        {
+          "text": "the grid is not going down.",
+          "then": [
+            {
+              "who": "phiber",
+              "text": "that's exactly what the grid would say"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "who": "cereal",
+      "text": "brb mom needs the phone",
+      "wait": 6
+    },
+    {
+      "sys": "cereal has quit (Quit: mom)"
+    },
+    {
+      "who": "zer0cool",
+      "text": "ok actually",
+      "wait": 8
+    },
+    {
+      "mark": "funky"
+    },
+    {
+      "who": "zer0cool",
+      "text": "{handle} did you ever find that funky file. the one from the 4am thread"
+    },
+    {
+      "who": "phiber",
+      "text": "the one nobody would say who posted?"
+    },
+    {
+      "who": "zer0cool",
+      "text": "that one. it went up and down in like an hour"
+    },
+    {
+      "choices": [
+        {
+          "text": "still looking.",
+          "then": [
+            {
+              "who": "zer0cool",
+              "text": "it's probably a rickroll in a zip. go look anyway"
+            }
+          ]
+        },
+        {
+          "text": "never found it.",
+          "then": [
+            {
+              "who": "phiber",
+              "text": "you were the only one awake when it went up"
+            }
+          ]
+        },
+        {
+          "text": "what file?",
+          "then": [
+            {
+              "who": "zer0cool",
+              "text": "don't play dumb, you were the one who saw it"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "who": "lin3grrl",
+      "text": "you said you wrote the url down. check your desk."
+    },
+    {
+      "who": "phiber",
+      "text": "his desk is a landfill"
+    },
+    {
+      "who": "lin3grrl",
+      "text": "his desk is a landfill with sticky notes on it"
+    },
+    {
+      "who": "zer0cool",
+      "text": "post it here if it's good"
+    },
+    {
+      "who": "phiber",
+      "text": "don't post it here if it's a virus",
+      "wait": 5
+    },
+    {
+      "who": "lin3grrl",
+      "text": "it's new year's. post it either way"
+    }
+  ]
+}
